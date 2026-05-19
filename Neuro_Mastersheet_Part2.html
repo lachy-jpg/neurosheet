@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neurology of MSK Pain — Part 2: Advanced Clinical Reference</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #111318;
+  --surface: #181c26;
+  --card: #1e2233;
+  --border: #2a2f45;
+  --accent: #6eb5d4;
+  --accent-warm: #c9a84c;
+  --accent-muted: #3a6b85;
+  --accent2: #a07cbf;
+  --danger: #c45c5c;
+  --success: #5c9e78;
+  --text: #ddd8ce;
+  --text-secondary: #8a8578;
+  --text-muted: #5a5650;
+  --heading: #e8e2d6;
+  --link: #7ec3de;
+  --highlight-bg: rgba(110,181,212,0.08);
+  --sidebar-width: 300px;
+  --header-height: 56px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Lora', Georgia, serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* HEADER */
+#top-header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: var(--header-height);
+  background: rgba(17,19,24,0.96);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; padding: 0 20px;
+  gap: 16px;
+}
+#top-header h1 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 14px; font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--accent); flex: 1;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+#search-box {
+  background: var(--card); border: 1px solid var(--border);
+  color: var(--text); padding: 6px 12px; border-radius: 6px;
+  font-family: 'DM Sans', sans-serif; font-size: 13px; width: 240px;
+  outline: none; transition: border-color 0.2s;
+}
+#search-box:focus { border-color: var(--accent); }
+#search-box::placeholder { color: var(--text-muted); }
+.header-btn {
+  background: var(--card); border: 1px solid var(--border);
+  color: var(--text-secondary); padding: 6px 12px; border-radius: 6px;
+  font-family: 'DM Sans', sans-serif; font-size: 12px; cursor: pointer;
+  transition: all 0.2s; white-space: nowrap; text-decoration: none; display: inline-flex; align-items: center;
+}
+.header-btn:hover { border-color: var(--accent); color: var(--accent); }
+#progress-bar {
+  position: fixed; top: var(--header-height); left: 0; right: 0;
+  height: 2px; background: var(--border); z-index: 99;
+}
+#progress-fill {
+  height: 100%; background: linear-gradient(90deg, var(--accent2), var(--accent));
+  width: 0%; transition: width 0.1s;
+}
+
+/* SIDEBAR */
+#sidebar {
+  position: fixed; top: var(--header-height); left: 0; bottom: 0;
+  width: var(--sidebar-width); background: var(--surface);
+  border-right: 1px solid var(--border); overflow-y: auto;
+  padding: 20px 0; z-index: 80; transition: transform 0.3s ease;
+}
+#sidebar::-webkit-scrollbar { width: 4px; }
+#sidebar::-webkit-scrollbar-track { background: transparent; }
+#sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+.sidebar-label {
+  font-family: 'DM Sans', sans-serif; font-size: 10px; font-weight: 500;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted);
+  padding: 0 20px 8px; display: block;
+}
+.nav-item {
+  display: block; padding: 7px 20px; text-decoration: none;
+  font-family: 'DM Sans', sans-serif; font-size: 12.5px; color: var(--text-secondary);
+  border-left: 2px solid transparent; transition: all 0.15s; line-height: 1.4;
+}
+.nav-item:hover { color: var(--text); background: var(--highlight-bg); }
+.nav-item.active { color: var(--accent); border-left-color: var(--accent); background: var(--highlight-bg); }
+.nav-item .num { color: var(--text-muted); margin-right: 6px; font-size: 11px; }
+.nav-divider { height: 1px; background: var(--border); margin: 12px 0; }
+
+/* MAIN CONTENT */
+#main {
+  margin-left: var(--sidebar-width);
+  margin-top: var(--header-height);
+  padding: 60px 80px 100px;
+  max-width: calc(var(--sidebar-width) + 860px);
+}
+@media (max-width: 1100px) { #main { padding: 40px 40px 80px; } }
+
+/* DOCUMENT TITLE */
+#doc-title {
+  margin-bottom: 60px; padding-bottom: 40px;
+  border-bottom: 1px solid var(--border);
+}
+#doc-title h1 {
+  font-family: 'Libre Baskerville', serif; font-size: 36px;
+  font-weight: 700; color: var(--heading); line-height: 1.25;
+  margin-bottom: 16px;
+}
+#doc-title .subtitle {
+  font-family: 'DM Sans', sans-serif; font-size: 13px; color: var(--text-muted);
+  letter-spacing: 0.06em; text-transform: uppercase;
+}
+#doc-title .meta {
+  margin-top: 20px; display: flex; gap: 24px; flex-wrap: wrap;
+}
+.meta-pill {
+  background: var(--card); border: 1px solid var(--border);
+  padding: 4px 12px; border-radius: 20px;
+  font-family: 'DM Sans', sans-serif; font-size: 12px; color: var(--text-secondary);
+}
+.part-badge {
+  background: rgba(160,124,191,0.12); border: 1px solid rgba(160,124,191,0.35);
+  padding: 4px 14px; border-radius: 20px;
+  font-family: 'DM Sans', sans-serif; font-size: 12px; color: var(--accent2);
+  font-weight: 500;
+}
+
+/* SECTIONS */
+.section {
+  margin-bottom: 80px; padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+.section-header {
+  display: flex; align-items: baseline; gap: 16px; margin-bottom: 32px;
+}
+.section-num {
+  font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--accent2); opacity: 0.9; white-space: nowrap;
+}
+.section h2 {
+  font-family: 'Libre Baskerville', serif; font-size: 26px;
+  font-weight: 700; color: var(--heading); line-height: 1.3;
+}
+.section h3 {
+  font-family: 'Libre Baskerville', serif; font-size: 18px;
+  font-weight: 700; color: var(--heading); margin: 32px 0 12px;
+  padding-left: 14px; border-left: 3px solid var(--accent2);
+}
+.section h4 {
+  font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500;
+  letter-spacing: 0.05em; text-transform: uppercase;
+  color: var(--accent-warm); margin: 24px 0 8px;
+}
+.section p { margin-bottom: 16px; color: var(--text); }
+.section p:last-child { margin-bottom: 0; }
+.overview {
+  background: var(--card); border: 1px solid var(--border);
+  border-left: 3px solid var(--accent2); padding: 20px 24px;
+  border-radius: 0 6px 6px 0; margin-bottom: 32px;
+  font-style: italic; color: var(--text-secondary);
+}
+
+/* TABLES */
+.table-wrap { overflow-x: auto; margin: 24px 0; }
+table {
+  width: 100%; border-collapse: collapse;
+  font-family: 'DM Sans', sans-serif; font-size: 13px;
+}
+thead { background: var(--card); }
+thead th {
+  padding: 10px 14px; text-align: left; font-weight: 500;
+  color: var(--accent); border-bottom: 2px solid var(--border);
+  white-space: nowrap;
+}
+tbody tr { border-bottom: 1px solid var(--border); }
+tbody tr:hover { background: var(--highlight-bg); }
+tbody td { padding: 9px 14px; color: var(--text); vertical-align: top; }
+tbody td:first-child { color: var(--text-secondary); font-weight: 500; }
+
+/* CALLOUT BOXES */
+.callout {
+  border-radius: 6px; padding: 16px 20px; margin: 20px 0;
+  border: 1px solid; font-size: 14.5px;
+}
+.callout.flag { background: rgba(196,92,92,0.07); border-color: rgba(196,92,92,0.3); }
+.callout.flag-title {
+  font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--danger); margin-bottom: 8px;
+}
+.callout.note { background: rgba(110,181,212,0.07); border-color: rgba(110,181,212,0.25); }
+.callout.note-title {
+  font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px;
+}
+.callout.clinical { background: rgba(92,158,120,0.07); border-color: rgba(92,158,120,0.3); }
+.callout.clinical-title {
+  font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--success); margin-bottom: 8px;
+}
+.callout.advanced { background: rgba(160,124,191,0.07); border-color: rgba(160,124,191,0.3); }
+.callout.advanced-title {
+  font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent2); margin-bottom: 8px;
+}
+
+/* LISTS */
+.section ul, .section ol {
+  padding-left: 24px; margin: 12px 0 16px;
+}
+.section li { margin-bottom: 8px; color: var(--text); }
+.section ul li::marker { color: var(--accent2); }
+.section ol li::marker { color: var(--accent2); font-weight: 600; }
+
+/* DEEPER BOX */
+.deeper {
+  background: var(--surface); border: 1px solid var(--border);
+  border-top: 2px solid var(--accent-warm); padding: 20px 24px;
+  border-radius: 0 0 6px 6px; margin-top: 40px;
+}
+.deeper-title {
+  font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--accent-warm); margin-bottom: 12px;
+}
+.deeper ul { padding-left: 0; list-style: none; }
+.deeper li {
+  font-family: 'DM Sans', sans-serif; font-size: 13px;
+  color: var(--text-secondary); padding: 5px 0;
+  border-bottom: 1px solid var(--border); margin: 0;
+}
+.deeper li:last-child { border-bottom: none; }
+.deeper li strong { color: var(--text); }
+
+/* TAGS */
+.mech-tag {
+  display: inline-block; font-family: 'DM Sans', sans-serif;
+  font-size: 11px; font-weight: 500; letter-spacing: 0.06em;
+  text-transform: uppercase; padding: 2px 8px; border-radius: 3px; margin: 2px;
+}
+.mech-tag.noci { background: rgba(92,158,120,0.15); color: #7bc49a; border: 1px solid rgba(92,158,120,0.3); }
+.mech-tag.neuro { background: rgba(110,181,212,0.12); color: #7ec3de; border: 1px solid rgba(110,181,212,0.3); }
+.mech-tag.cs { background: rgba(196,92,92,0.12); color: #e08080; border: 1px solid rgba(196,92,92,0.3); }
+.mech-tag.mixed { background: rgba(201,168,76,0.12); color: #d4b060; border: 1px solid rgba(201,168,76,0.3); }
+.mech-tag.adv { background: rgba(160,124,191,0.12); color: #c09de0; border: 1px solid rgba(160,124,191,0.3); }
+
+strong { color: var(--heading); }
+em { color: var(--text-secondary); }
+hr { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+
+/* SEARCH HIGHLIGHT */
+.search-highlight { background: rgba(201,168,76,0.3); border-radius: 2px; }
+
+/* SIDEBAR TOGGLE */
+#sidebar-toggle {
+  background: var(--card); border: 1px solid var(--border);
+  color: var(--text-secondary); width: 32px; height: 32px;
+  border-radius: 6px; cursor: pointer; display: flex;
+  align-items: center; justify-content: center; font-size: 16px;
+  transition: all 0.2s; flex-shrink: 0;
+}
+#sidebar-toggle:hover { border-color: var(--accent2); color: var(--accent2); }
+
+/* PRINT */
+@media print {
+  #top-header, #sidebar, #progress-bar { display: none !important; }
+  #main { margin: 0; padding: 20px; max-width: 100%; }
+  .section { page-break-inside: avoid; }
+  body { color: #000; background: #fff; font-size: 11pt; }
+  .section h2 { color: #000; } .section h3 { color: #111; }
+  table { font-size: 10pt; }
+}
+</style>
+</head>
+<body>
+
+<div id="top-header">
+  <button id="sidebar-toggle" onclick="toggleSidebar()" title="Toggle navigation">☰</button>
+  <h1>Neurology of MSK Pain — Part 2: Advanced Reference</h1>
+  <input type="text" id="search-box" placeholder="Search document…" oninput="searchDoc(this.value)">
+  <button class="header-btn" onclick="window.print()">⎙ Print</button>
+</div>
+<div id="progress-bar"><div id="progress-fill"></div></div>
+
+<nav id="sidebar">
+  <span class="sidebar-label">Part 2 — Advanced Sections</span>
+  <a class="nav-item" href="#doc-title"><span class="num">—</span>Overview</a>
+  <div class="nav-divider"></div>
+  <a class="nav-item" href="#s16"><span class="num">16</span>Visceral Pain and Somatic Referral</a>
+  <a class="nav-item" href="#s17"><span class="num">17</span>Hormonal Influences on Pain Neurology</a>
+  <a class="nav-item" href="#s18"><span class="num">18</span>Pain in the Ageing Nervous System</a>
+  <a class="nav-item" href="#s19"><span class="num">19</span>CRPS: Neuroscience and Management</a>
+  <a class="nav-item" href="#s20"><span class="num">20</span>Neuroplasticity and Recovery</a>
+  <a class="nav-item" href="#s21"><span class="num">21</span>Pain Neuroscience Education — Advanced</a>
+  <a class="nav-item" href="#s22"><span class="num">22</span>Quantitative Sensory Testing in Practice</a>
+  <a class="nav-item" href="#s23"><span class="num">23</span>Nutrition and Pain Neurology</a>
+  <a class="nav-item" href="#s24"><span class="num">24</span>Advanced Clinical Phenotyping</a>
+  <a class="nav-item" href="#s25"><span class="num">25</span>The Clinician's Neuroscience of Communication</a>
+</nav>
+
+<main id="main">
+
+<div id="doc-title">
+  <div class="subtitle">Clinical Reference Document — Continuation</div>
+  <h1>Neurology of Musculoskeletal Pain<br><span style="color:var(--accent2); font-size:0.7em;">Part 2: Advanced Clinical Reference</span></h1>
+  <div class="meta">
+    <span class="part-badge">Part 2 of 2</span>
+    <span class="meta-pill">Sections 16–25</span>
+    <span class="meta-pill">Clinician–Researcher Level</span>
+    <span class="meta-pill">MSK · Chiropractic · Pain Neuroscience</span>
+    <span class="meta-pill">Perth, Western Australia</span>
+  </div>
+  <p style="margin-top:24px; color:var(--text-secondary); font-size:15px; font-style:italic;">
+    This document extends the Part 1 framework into advanced clinical territory: visceral-somatic convergence, hormonal neurophysiology, pain in the ageing nervous system, CRPS, neuroplasticity as a treatment target, advanced PNE delivery, quantitative sensory testing, nutritional neuroscience, clinical phenotyping, and the neuroscience of patient communication. All sections assume complete familiarity with Part 1 — mechanisms discussed there are not re-explained; this document builds on them.
+  </p>
+</div>
+
+
+<!-- SECTION 16 -->
+<div class="section" id="s16">
+  <div class="section-header">
+    <span class="section-num">Section 16</span>
+    <h2>Visceral Pain and Somatic Referral: Clinical Neuroscience</h2>
+  </div>
+  <div class="overview">
+    A significant proportion of patients presenting to MSK clinicians with back, chest, shoulder, hip, or abdominal-region pain have visceral contributions to their presentation — often unrecognised. Visceral pain does not obey the anatomical logic of somatic pain; it is poorly localised, frequently refers to somatic structures, and is processed through the same dorsal horn circuits as MSK pain. Understanding the neuroanatomical basis of visceral-somatic convergence is not only clinically essential for screening — it fundamentally changes how you read a refractory MSK presentation.
+  </div>
+
+  <h3>16.1 Neuroanatomy of Visceral Afferents</h3>
+  <h4>Dual Innervation: Vagal and Spinal</h4>
+  <p>Visceral organs receive sensory innervation via two routes: <strong>vagal afferents</strong> (cranial nerve X), which constitute approximately 80% of vagal fibres and project directly to the nucleus tractus solitarius (NTS) in the medulla, and <strong>spinal visceral afferents</strong>, which travel with sympathetic and parasympathetic efferents to enter the spinal cord at specific segmental levels. Vagal afferents do not typically produce conscious pain under normal conditions — their role is homeostatic monitoring. Spinal visceral afferents, however, transmit nociceptive information and are the primary source of visceral pain and referral.</p>
+  <p>Spinal visceral afferents are predominantly <strong>unmyelinated C fibres and thinly myelinated Aδ fibres</strong>. They have high activation thresholds under normal conditions — designed to detect organ distension, ischaemia, inflammation, and chemical threat — not routine organ function. This high threshold is why organs can be cut without pain (surgical incision of healthy bowel) but swell or ischaemia produce severe pain.</p>
+
+  <h4>Visceral Sensory Neurons and the DRG</h4>
+  <p>Visceral primary afferents have cell bodies in the dorsal root ganglia at the spinal levels corresponding to the organ's embryological origin. Because organs derive from midline structures, visceral afferents are typically <strong>bilateral</strong>, entering the spinal cord at multiple adjacent segments — producing the diffuse, poorly localised quality of visceral pain. The segmental levels for key organs:</p>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Organ</th><th>Spinal Segments</th><th>Common Somatic Referral Sites</th></tr></thead>
+    <tbody>
+      <tr><td>Heart</td><td>T1–T5 (left predominance)</td><td>Left chest, left shoulder, medial left arm (C8–T1 dermatome), jaw</td></tr>
+      <tr><td>Diaphragm (central)</td><td>C3–C5 (phrenic nerve)</td><td>Shoulder tip (C4 referral) — classic subphrenic abscess or hepatic capsule distension pattern</td></tr>
+      <tr><td>Oesophagus</td><td>T5–T6</td><td>Mid-thoracic back pain, inter-scapular</td></tr>
+      <tr><td>Stomach / Duodenum</td><td>T6–T9</td><td>Epigastric, mid-thoracic T6–T9 dermatomal distribution</td></tr>
+      <tr><td>Gallbladder / Liver</td><td>T7–T9 (right)</td><td>Right shoulder tip, right interscapular, right upper quadrant abdominal wall</td></tr>
+      <tr><td>Small intestine</td><td>T9–T11</td><td>Periumbilical, mid-back T9–T11</td></tr>
+      <tr><td>Appendix (early)</td><td>T10</td><td>Periumbilical (poorly localised); localises to RIF only when parietal peritoneum involved</td></tr>
+      <tr><td>Kidney / Ureter</td><td>T10–L2</td><td>Flank, anterior upper thigh, inguinal region, testis/labia</td></tr>
+      <tr><td>Uterus / Cervix</td><td>T10–L1 (body); S2–S4 (cervix)</td><td>Lumbar, sacral, anterior thigh</td></tr>
+      <tr><td>Ovary</td><td>T10–T11</td><td>Periumbilical, iliac fossa, referred to thigh</td></tr>
+      <tr><td>Bladder (distension)</td><td>T11–L2 (sympathetic); S2–S4 (pelvic)</td><td>Suprapubic, perineum, anterior thigh</td></tr>
+      <tr><td>Prostate</td><td>T11–L1; S2–S4</td><td>Perineum, sacrum, posterior thigh</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>16.2 The Mechanism of Viscero-Somatic Convergence</h3>
+  <h4>Convergence at the Dorsal Horn</h4>
+  <p>Visceral primary afferents and somatic primary afferents from the corresponding dermatome, myotome, and sclerotome converge onto the <strong>same WDR neurons</strong> in the dorsal horn. Because the brain has no independent mechanism to distinguish visceral from somatic input on the same neuron, it defaults to its previous experience — and the somatic referral pattern is the result of the brain's best prediction about the source of the ascending signal.</p>
+  <p>This is not metaphorical — it is a direct anatomical convergence. Experimental studies injecting algesic chemicals into the colon, gallbladder, or ureter produce not only visceral pain but measurable <strong>sensitisation of the corresponding dorsal horn segments</strong> and secondary somatic hyperalgesia in the referred dermatomal region. The somatic referral is a real neurological output from genuine dorsal horn sensitisation, not simply confused perception.</p>
+
+  <h4>Viscero-Somatic Sensitisation</h4>
+  <p>Sustained visceral nociceptive drive produces dorsal horn sensitisation (wind-up, LTP — identical mechanisms to somatic CS) at the convergent segments. The sensitised dorsal horn then amplifies both visceral and somatic inputs. This creates:</p>
+  <ul>
+    <li><strong>Referred somatic hyperalgesia</strong>: the referred region becomes genuinely tender on palpation. Not imagined — the dorsal horn processes it as real.</li>
+    <li><strong>Viscero-somatic reflex muscle guarding</strong>: efferent motor output from the sensitised segment produces paravertebral and abdominal wall muscle guarding via reflex arcs — this is the "splinting" seen with peritonitis and renal colic. In milder chronic visceral conditions, this produces clinically palpable paraspinal hypersensitivity mimicking musculoskeletal dysfunction.</li>
+    <li><strong>Somatic input amplifying visceral pain</strong>: the convergent neuron is now sensitised — somatic inputs (movement, palpation) that would otherwise not activate it now reach threshold, and the brain interprets this as visceral pain. This is one mechanism by which MSK treatments can paradoxically worsen visceral pain.</li>
+  </ul>
+
+  <h3>16.3 Clinical Recognition: When to Screen for Visceral Contribution</h3>
+  <div class="callout flag">
+    <div class="callout flag-title">Visceral Screening Indicators</div>
+    <p><strong>Mandatory visceral screen and GP referral before MSK management:</strong></p>
+    <ul>
+      <li>Back or shoulder pain with no clear biomechanical onset, no movement-provocation pattern, or pain present at rest and at night regardless of position</li>
+      <li>Thoracic spine pain — particularly mid-thoracic and right inter-scapular — in a patient with GI symptoms, recent weight loss, or > 50 years old</li>
+      <li>Upper lumbar or lower thoracic pain with systemic features (fever, night sweats, weight loss, fatigue)</li>
+      <li>Pelvic girdle, sacral, or lower lumbar pain in a female patient — gynaecological pathology (endometriosis, ovarian cysts, fibroids) is a common and frequently missed visceral source</li>
+      <li>Right shoulder tip pain — diaphragmatic irritation until proven otherwise</li>
+      <li>Unilateral loin-to-groin pain with urological symptoms — ureteric calculus</li>
+      <li>Any MSK presentation that fails to respond as expected over 4–6 weeks AND lacks clear biomechanical provocation</li>
+      <li>New presentation of back pain in a patient with known history of malignancy — do not treat without imaging clearance</li>
+    </ul>
+  </div>
+
+  <h4>Chapman's Reflexes and Segmental Facilitation</h4>
+  <p>Chapman's points — tender nodules in specific fascial locations corresponding to visceral segmental levels — represent a clinical tradition that has a plausible neurophysiological basis in viscero-somatic sensitisation. Whether the specific point locations are reproducibly organ-specific is debated; however, the underlying phenomenon of <strong>segmental facilitation producing tender somatic tissue at the referred segment</strong> is mechanistically valid. Korr's model of the facilitated segment (a spinal cord segment with sustained lowered threshold from sustained afferent input — visceral or somatic) remains a conceptually useful framework for understanding why certain segments are persistently hypersensitive without clear local somatic pathology.</p>
+
+  <h3>16.4 Somatic-Visceral Direction: Can MSK Treatment Affect Visceral Function?</h3>
+  <p>The same convergence architecture allows somatic input to influence visceral afferent processing. The evidence is limited but mechanistically coherent:</p>
+  <ul>
+    <li><strong>SMT to thoracic segments</strong> has been associated with short-term reductions in visceral symptoms — dyspepsia, dysmenorrhoea — in observational studies. The plausible mechanism is somatosympathetic reflex modulation: manipulating the facilitated segment alters sympathetic outflow to the corresponding viscera.</li>
+    <li><strong>Vagal tone restoration</strong> via cervical spine and upper thoracic manipulation is proposed by some researchers as a mechanism for SMT effects on ANS regulation — though direct evidence is limited and the effect sizes small.</li>
+    <li><strong>Diaphragm treatment</strong> (release techniques, breathing retraining) directly influences both vagal afferent activity and intra-abdominal pressure — with downstream effects on visceral mechanics and potentially vagal afferent signalling.</li>
+  </ul>
+  <p>The clinical position: visceral-somatic referral is a screening and differential diagnosis issue, not primarily a treatment opportunity for chiropractors. Recognise it, screen for it, refer appropriately, and be aware that refractory MSK presentations often have an unrecognised visceral component.</p>
+
+  <div class="deeper">
+    <div class="deeper-title">Going Deeper</div>
+    <ul>
+      <li><strong>Cervero F & Laird JMA (1999)</strong> — Visceral pain. <em>Lancet</em> 353:2145–2148.</li>
+      <li><strong>Giamberardino MA (2003)</strong> — Referred muscle pain/hyperalgesia and central sensitisation. <em>J Rehabil Med.</em></li>
+      <li><strong>Bielefeldt K & Gebhart GF (2006)</strong> — Visceral pain: basic mechanisms. In: McMahon SB, Koltzenburg M (eds). <em>Wall and Melzack's Textbook of Pain.</em></li>
+      <li><strong>Ness TJ & Gebhart GF (1990)</strong> — Visceral pain: a review of experimental studies. <em>Pain</em> 41:167–234.</li>
+      <li><strong>Korr IM (1978)</strong> — <em>The Neurobiological Mechanisms in Manipulative Therapy.</em> Plenum Press.</li>
+    </ul>
+  </div>
+</div>
+
+
+<!-- SECTION 17 -->
+<div class="section" id="s17">
+  <div class="section-header">
+    <span class="section-num">Section 17</span>
+    <h2>Hormonal Influences on Pain Neurology</h2>
+  </div>
+  <div class="overview">
+    Hormones are not peripheral to pain neuroscience — they are deep modulators of nociceptive system sensitivity, descending modulation efficiency, and inflammatory tone. Sex hormones, cortisol, insulin, and thyroid hormone all have direct actions on peripheral nociceptors, dorsal horn neurons, glial cells, and descending modulatory circuits. Understanding hormonal influences on pain explains why women have higher rates of CS-dominant conditions, why chronic stress creates neurological vulnerability to pain, why hypothyroid patients present with diffuse pain amplification, and why certain patients respond poorly to every intervention until hormonal status is addressed.
+  </div>
+
+  <h3>17.1 Oestrogen and Nociception</h3>
+  <h4>Oestrogen Receptors in the Pain System</h4>
+  <p>Oestrogen receptors (ERα, ERβ, and the membrane receptor GPER1) are expressed throughout the nociceptive system: in DRG neurons, dorsal horn neurons, trigeminal nucleus caudalis, PAG, RVM, and ACC. This is not incidental — oestrogen directly modulates nociceptive processing at multiple levels simultaneously.</p>
+  <p>At the <strong>peripheral level</strong>: oestrogen upregulates TRPV1 expression and sensitises it to lower temperatures and proton concentrations. It increases NGF production at peripheral tissues, potentiating peripheral sensitisation. ERα activation in mast cells promotes degranulation — releasing histamine, tryptase, and prostaglandins that directly sensitise nociceptors. These effects collectively lower peripheral nociceptor activation thresholds.</p>
+  <p>At the <strong>dorsal horn</strong>: oestrogen modulates NMDA receptor function and can potentiate LTP at spinal synapses in high-oestrogen states. ERβ activation, by contrast, appears to have anti-nociceptive effects, suggesting that the <em>ratio</em> of ERα to ERβ activation — which varies across the menstrual cycle and with different exogenous hormone preparations — is more clinically relevant than total oestrogen level.</p>
+  <p>At the <strong>supraspinal level</strong>: oestrogen modulates the PAG-RVM axis. High oestrogen states appear to enhance descending facilitation more than descending inhibition in some circumstances. Progesterone, which is typically progestin during the luteal phase, has generally antinociceptive properties — partly via GABA-A receptor positive modulation.</p>
+
+  <h4>Clinical Implications of Hormonal Fluctuation</h4>
+  <ul>
+    <li><strong>Menstrual cycle variation in pain sensitivity:</strong> Pain thresholds — particularly pressure pain thresholds — fluctuate measurably across the cycle, with lowest thresholds in the late follicular and periovulatory phases (high oestrogen) and relative improvement during the luteal phase. Conditions including migraine, IBS, fibromyalgia, and temporomandibular disorders all show cycle-phase dependence in symptom severity.</li>
+    <li><strong>Perimenopause and CS risk:</strong> The oestrogen withdrawal of perimenopause is associated with increased prevalence of CS-dominant conditions — fibromyalgia, widespread pain, migraine transformation — partly through reduced descending inhibitory tone and increased neuroinflammation. Sleep disruption in perimenopause (from vasomotor symptoms) compounds the neurological vulnerability.</li>
+    <li><strong>Hormonal contraceptives:</strong> Combined oral contraceptives alter oestrogen/progesterone ratios in ways that are not fully predictable at the individual level. Some patients show marked improvement in pain conditions; others worsen. The shift from natural cyclical hormonal variation to continuous synthetic hormonal exposure changes the nociceptive baseline.</li>
+    <li><strong>Testosterone in males:</strong> Testosterone has direct antinociceptive effects — TrkA-dependent inhibition of peripheral nociceptor sensitisation, PAG modulation, and anti-inflammatory effects on microglia (testosterone reduces microglial activation and pro-inflammatory cytokine release). Low testosterone states (age-related decline, hypogonadism) are associated with increased chronic pain prevalence and reduced opioid responsiveness.</li>
+  </ul>
+
+  <h3>17.2 The HPA Axis and Cortisol</h3>
+  <h4>Acute vs Chronic Cortisol Effects on Pain</h4>
+  <p>Acute cortisol elevation — the appropriate stress response — is <strong>antinociceptive</strong>: glucocorticoid receptors on dorsal horn neurons and glial cells suppress neuroinflammation, and cortisol potentiates descending inhibitory opioid pathways. This is why acute stress can produce stress-induced analgesia (SIA) — real neurological hypoalgesia via an opioid-mediated mechanism.</p>
+  <p>Chronic HPA axis activation produces the opposite. <strong>GR downregulation</strong> occurs with sustained cortisol elevation — glucocorticoid receptors are internalised and their signalling becomes attenuated. The neuroinflammatory suppression that cortisol normally provides is lost. Simultaneously, the HPA axis becomes dysregulated: both the morning cortisol awakening response (CAR) and diurnal variation flatten. This produces a state of sustained low-level neuroinflammation without adequate endogenous glucocorticoid counterregulation.</p>
+  <p>Chronic cortisol effects on the pain system: hippocampal volume reduction (cortisol is neurotoxic at high chronic levels) impairing descending inhibitory circuits; amygdala sensitisation; PFC grey matter reduction (mirroring changes seen in chronic pain independently); and microglial priming — microglia develop a sensitised state in which they produce exaggerated inflammatory responses to subsequent insults. This microglial priming is one mechanism by which <strong>early life adversity and chronic psychosocial stress create lasting neurological vulnerability to pain</strong>.</p>
+
+  <h3>17.3 Thyroid Hormone and Pain</h3>
+  <p>Thyroid hormone has direct effects on peripheral nerve function: it regulates myelin synthesis, axonal transport, and sodium channel expression. Hypothyroidism produces a characteristic neurological picture: <strong>diffuse myalgia, peripheral neuropathy, carpal tunnel syndrome</strong> (from mucopolysaccharide deposition in the carpal tunnel), and <strong>central pain amplification</strong>. TSH levels should be checked in any patient with diffuse pain, fatigue, cold intolerance, constipation, and slowed reflexes — particularly women over 40.</p>
+  <p>The mechanism of hypothyroid pain amplification includes: impaired peripheral nerve conduction (reduced myelin), reduced mitochondrial efficiency in DRG neurons (thyroid hormone is a key mitochondrial regulator), and possible direct effects on CS threshold via thyroid hormone receptors in the CNS. Subclinical hypothyroidism (elevated TSH, normal T4) is associated with increased musculoskeletal pain — the threshold for GP referral for thyroid assessment should be low in refractory diffuse pain presentations.</p>
+
+  <h3>17.4 Insulin Resistance and Neuroinflammation</h3>
+  <p>Insulin resistance — the metabolic syndrome cluster — produces a systemic low-grade inflammatory state via adipose-tissue-derived cytokines (adipokines: TNF-α, IL-6, leptin, resistin) that directly prime microglial activation. Chronically elevated blood glucose produces <strong>advanced glycation end-products (AGEs)</strong> that activate RAGE receptors on macrophages and microglia, sustaining neuroinflammatory drive. Peripheral nerves are directly damaged by hyperglycaemia — <strong>diabetic peripheral neuropathy</strong> represents the extreme end, but subclinical small-fibre neuropathy occurs well before formal diabetes diagnosis, contributing to diffuse pain, burning, and allodynia. Any patient with significant central adiposity, metabolic syndrome features, or family history of T2DM who presents with diffuse pain and neuropathic-quality sensations warrants metabolic screening.</p>
+
+  <div class="callout note">
+    <div class="callout note-title">Clinical Screening — Hormonal Pain Modulation</div>
+    <p>In a refractory MSK or CS-dominant patient unresponsive to appropriate conservative management, consider requesting via GP: <strong>TSH, free T4</strong> (thyroid); <strong>total testosterone, SHBG, LH/FSH</strong> (sex hormones, male or female); <strong>fasting glucose, HbA1c, fasting insulin</strong> (metabolic); <strong>morning cortisol</strong> (HPA axis — if chronic stress history is prominent). These are not routine first-consultation investigations — they are appropriate in the 6–12 week non-responder.</p>
+  </div>
+
+  <div class="deeper">
+    <div class="deeper-title">Going Deeper</div>
+    <ul>
+      <li><strong>Berkley KJ (1997)</strong> — Sex differences in pain. <em>Behav Brain Sci</em> 20:371–380.</li>
+      <li><strong>Craft RM (2007)</strong> — Modulation of pain by estrogens. <em>Pain</em> 132(Suppl 1):S3–S12.</li>
+      <li><strong>Viau V (2002)</strong> — Functional cross-talk between the hypothalamic-pituitary-gonadal and -adrenal axes. <em>J Neuroendocrinol.</em></li>
+      <li><strong>McEwen BS & Kalia M (2010)</strong> — The role of corticosteroids in metabolic syndrome and related disorders. <em>Eur J Pharmacol.</em></li>
+      <li><strong>Zochodne DW (2008)</strong> — Diabetic polyneuropathy: an update. <em>Curr Opin Neurol.</em></li>
+    </ul>
+  </div>
+</div>
+
+
+<!-- SECTION 18 -->
+<div class="section" id="s18">
+  <div class="section-header">
+    <span class="section-num">Section 18</span>
+    <h2>Pain in the Ageing Nervous System</h2>
+  </div>
+  <div class="overview">
+    Pain neurobiology in the older patient is qualitatively different from that in younger adults — not simply more of the same. The ageing nervous system undergoes structural and functional changes at every level of the pain pathway that alter both the experience of pain and the effectiveness of treatments. Understanding these changes protects against both under-treatment (assuming "it's just age") and over-treatment (applying aggressive protocols designed for younger nervous systems). Older patients also present diagnostic challenges: multiple pain sources coexist, cognitive changes affect pain reporting, and polypharmacy interacts with pain modulation.
+  </div>
+
+  <h3>18.1 Structural and Functional Changes in the Ageing Pain System</h3>
+  <h4>Peripheral Nervous System</h4>
+  <p><strong>Progressive small-fibre loss:</strong> Intra-epidermal nerve fibre density (IENFD) — the gold-standard measure of small-fibre (C fibre and Aδ fibre) density — declines approximately 1% per year from age 30 onwards, accelerating after 60. By age 80, many individuals have IENFD values that would, in younger patients, diagnose small-fibre neuropathy. This loss reduces the precision of nociceptive afferent signalling: high-threshold stimuli may be underdetected (explaining why older patients have reduced pain from acute injuries) while remaining fibres develop increased ectopic discharge rates (contributing to spontaneous burning pain and allodynia).</p>
+  <p><strong>Conduction velocity decline:</strong> Both myelinated (Aβ, Aδ) and unmyelinated (C fibre) conduction velocities slow with age — myelin maintenance requires ongoing energy expenditure that declines with neuronal metabolic efficiency. This slows sensory discrimination and alters the temporal integration of pain signals at the dorsal horn, changing wind-up characteristics.</p>
+  <p><strong>Peripheral sensitisation threshold changes:</strong> Paradoxically, ageing produces both increased <em>acute</em> pain thresholds (less sensitive to brief stimuli) and reduced tolerance to sustained or repetitive stimulation. The implication: older patients may underreport acute pain (leading to under-triage) but develop sustained pain more easily from cumulative input.</p>
+
+  <h4>Central Nervous System</h4>
+  <p><strong>Descending modulation impairment:</strong> CPM efficiency — the primary in-vivo measure of descending inhibitory tone — declines measurably with age and is further reduced in older adults with chronic pain. PAG grey matter density decreases. Serotonergic and noradrenergic neurotransmitter synthesis declines. The practical consequence: the endogenous analgesic system that modulates acute and chronic pain is less efficient in older patients, making them more reliant on conscious coping strategies and pharmacological support.</p>
+  <p><strong>Microglial senescence and neuroinflammation:</strong> In the ageing brain, microglia develop a <strong>primed</strong> or <strong>senescent</strong> phenotype — characterised by morphological changes (dystrophic processes, cytoplasmic fragmentation), impaired phagocytosis, and exaggerated cytokine release in response to activating stimuli. This microglial priming means that pain signals — or any inflammatory stimulus — produce larger and more sustained neuroinflammatory responses in older nervous systems. The clinical footprint is easier induction of CS from smaller inputs, slower recovery from sensitisation episodes, and increased susceptibility to pain chronification.</p>
+  <p><strong>Cortical changes:</strong> Age-related grey matter loss preferentially affects the PFC and ACC — regions critical for descending pain modulation and cognitive-evaluative pain appraisal. Reduced working memory and executive function (normal ageing) impair the cognitive down-regulation of pain, making it less tractable to PNE and cognitive reappraisal strategies. This demands modified PNE delivery (see Section 21).</p>
+
+  <h3>18.2 Diagnostic Challenges in the Older MSK Patient</h3>
+  <h4>Multiple Simultaneous Pain Sources</h4>
+  <p>A 75-year-old patient with hip pain does not have a single pain generator — they typically have OA-related nociceptive pain, age-related small-fibre neuropathy contributing neuropathic-quality symptoms, CS from years of cumulative nociceptive input, and possibly visceral contributions. Mechanistically, each source requires different treatment priorities. The clinical error is to identify one source and treat only that, failing to address the CS overlay that determines the patient's actual level of distress and disability.</p>
+
+  <h4>Altered Pain Reporting in Cognitive Decline</h4>
+  <p>Dementia produces paradoxical changes in pain expression: patients may under-report pain verbally while showing enhanced autonomic and behavioural responses (grimacing, guarding, agitation). Cortical pain processing areas are affected by Alzheimer's pathology — the affective-motivational components of pain may be preserved while verbal report declines. In this population, behavioural pain assessment tools (PAINAD, Abbey Pain Scale) are more reliable than numeric rating scales. Importantly, <strong>undertreated pain is a significant driver of behavioural disturbance</strong> in dementia — recognising and addressing it reduces distress and medication burden.</p>
+
+  <h3>18.3 Treatment Modifications for the Ageing Nervous System</h3>
+  <ul>
+    <li><strong>Lower SMT force and velocity:</strong> Older bone and connective tissue has different mechanical characteristics (reduced viscoelasticity, increased fracture risk in osteoporosis). Low-force techniques (mobilisation, HVLA at reduced amplitude, instrument-assisted) are indicated. Check for osteoporosis risk before any spinal manipulation — DEXA scan history, height loss, corticosteroid history, fragility fracture history.</li>
+    <li><strong>Aerobic exercise dosing:</strong> Exercise-induced hypoalgesia (EIH) occurs in older adults, though at attenuated levels compared to younger adults. Aquatic exercise is often better tolerated for those with multiple joint involvement. The aerobic training adaptation that improves CPM efficiency requires sustained programmes — 12+ weeks.</li>
+    <li><strong>PNE adaptation:</strong> Simpler conceptual frameworks, more time, more repetition, caregiver involvement where relevant. Written summaries essential — working memory limitations mean verbal-only education has very limited retention. Metaphors should use familiar contexts (mechanical, agricultural, trade) rather than technology or sports unless relevant to the individual.</li>
+    <li><strong>Polypharmacy awareness:</strong> Many analgesics used in older patients (gabapentinoids, TCAs, opioids) affect balance and fall risk — a critical consideration in the MSK context. NSAID use is associated with significant GI and cardiovascular risk in this population. Awareness of these interactions informs treatment priority (non-pharmacological interventions first) and communication with the GP about medication review.</li>
+  </ul>
+
+  <div class="deeper">
+    <div class="deeper-title">Going Deeper</div>
+    <ul>
+      <li><strong>Gibson SJ & Farrell M (2004)</strong> — A review of age differences in the neurophysiology of nociception and the perceptual experience of pain. <em>Clin J Pain</em> 20:227–239.</li>
+      <li><strong>Lautenbacher S et al. (2017)</strong> — Age changes in pain perception: a systematic-review and meta-analysis of age effects on pain and tolerance thresholds. <em>Neurosci Biobehav Rev.</em></li>
+      <li><strong>Abdulla A et al. (2013)</strong> — Guidance on the management of pain in older people. <em>Age Ageing</em> 42(Suppl 1):i1–57.</li>
+      <li><strong>Nimmerjahn A et al. (2005)</strong> — Resting microglial cells are highly dynamic surveillants. <em>Science.</em></li>
+    </ul>
+  </div>
+</div>
+
+
+<!-- SECTION 19 -->
+<div class="section" id="s19">
+  <div class="section-header">
+    <span class="section-num">Section 19</span>
+    <h2>Complex Regional Pain Syndrome: Neuroscience and Clinical Approach</h2>
+  </div>
+  <div class="overview">
+    CRPS is the clinical condition that most starkly illustrates what happens when every pain amplification mechanism operates simultaneously and in an uncontrolled state. It is not a psychological condition — it is a neurological condition with structural, inflammatory, and autonomic components that produce a recognisable clinical syndrome. It is encountered in MSK practice more often than most practitioners realise — mild or early CRPS is frequently misread as persistent inflammatory joint disease, RSD, or treatment-resistant tendinopathy. Every MSK clinician needs a working model of CRPS neuroscience to recognise it early, avoid harmful interventions, and refer appropriately.
+  </div>
+
+  <h3>19.1 Pathophysiology — An Integrated Model</h3>
+  <h4>Peripheral Mechanisms</h4>
+  <p><strong>Neurogenic inflammation and neuropeptide-mediated tissue changes:</strong> In CRPS, peripheral nociceptors release abnormally high quantities of CGRP and substance P from their peripheral terminals — a state of sustained <strong>neurogenic inflammation</strong>. CGRP produces profound vasodilation; substance P increases vascular permeability and activates mast cells (degranulation → histamine, tryptase, TNF-α). The result is the oedema, warmth, and colour change of acute CRPS. This is not inflammation in the classical immune-cell-mediated sense — it is a neuropeptide-driven vascular response from within the nerve terminals themselves.</p>
+  <p><strong>Sympatho-afferent coupling:</strong> In established CRPS, α-adrenoceptors are upregulated on peripheral nociceptors and DRG neurons (mirroring the mechanism described for sympathetically maintained pain in Section 1). Noradrenaline from sympathetic terminals directly activates these nociceptors — producing the characteristic <strong>sympathetically maintained pain</strong> that worsens with emotional stress, cold, and sympathetic activation. This coupling also explains the vasomotor instability: sympathetic drive simultaneously triggers pain and vasoconstrictive responses, producing the cool, sweaty, mottled appearance of chronic-stage CRPS after the initial warm phase.</p>
+
+  <h4>Spinal Mechanisms</h4>
+  <p>The sustained peripheral nociceptive barrage drives severe dorsal horn CS — all mechanisms from Section 2 operating at high intensity. The sensitised dorsal horn amplifies every peripheral signal. This is why, in CRPS, even light clothing contact or gentle air movement produces pain (dynamic mechanical allodynia) — the Aβ fibres that normally signal this input reach the sensitised dorsal horn, which processes them as pain.</p>
+
+  <h4>Supraspinal and Cortical Changes</h4>
+  <p>Neuroimaging studies in CRPS show: <strong>cortical reorganisation in S1</strong> — the cortical representation of the affected limb shrinks and is partially overwritten by adjacent body part representations, producing a dissociation between the body schema and the physical limb. Patients report the affected limb as feeling alien, foreign, or "not mine" — this is a real cortical phenomenon, not a psychological symptom. The degree of S1 reorganisation correlates with pain intensity.</p>
+  <p><strong>Thalamic inhibition:</strong> Thalamic blood flow in the contralateral hemisphere (processing the affected limb) is reduced — thalamic gating failure, but in the direction of failure to suppress ascending input. The insula and ACC are hyperactivated.</p>
+
+  <h4>Neuroimmune and Autoimmune Components</h4>
+  <p>CRPS has a genuine autoimmune component in a proportion of patients: <strong>autoantibodies against autonomic receptors</strong> (β1/β2-adrenergic receptors, muscarinic M2 receptors) have been identified in a subset of CRPS patients — and passive transfer of these antibodies to rodents produces CRPS-like states. This autoimmune component explains why IVIG has clinical efficacy in refractory cases and why CRPS can sometimes follow infectious triggers in susceptible individuals.</p>
+
+  <h3>19.2 Budapest Criteria — Clinical Diagnosis</h3>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Category</th><th>Symptoms (patient reports)</th><th>Signs (clinician observes/tests)</th></tr></thead>
+    <tbody>
+      <tr><td>Sensory</td><td>Hyperalgesia and/or allodynia</td><td>Evidence of hyperalgesia and/or allodynia</td></tr>
+      <tr><td>Vasomotor</td><td>Temperature asymmetry and/or skin colour changes</td><td>Temperature asymmetry (>1°C) and/or skin colour changes</td></tr>
+      <tr><td>Sudomotor / Oedema</td><td>Oedema and/or sweating changes</td><td>Oedema and/or sweating changes</td></tr>
+      <tr><td>Motor / Trophic</td><td>Reduced ROM and/or motor dysfunction; trophic changes (hair, nail, skin)</td><td>ROM reduction and/or motor dysfunction; trophic changes</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p><strong>Diagnosis requires:</strong> continuing pain disproportionate to the inciting event; at least 1 symptom in ≥3 categories; at least 1 sign in ≥2 categories; no other diagnosis explains the findings better.</p>
+
+  <h3>19.3 MSK Clinician Role in CRPS</h3>
+  <h4>Recognise and Do Not Harm</h4>
+  <p>The primary MSK clinician responsibility is early recognition and appropriate referral. CRPS is frequently worsened by:</p>
+  <ul>
+    <li>Aggressive passive stretching of the affected limb — this activates peripheral nociceptors in an already maximally sensitised state and drives further dorsal horn sensitisation</li>
+    <li>Joint manipulation of the affected region — similarly risks peripheral nociceptive barrage in a sensitised state</li>
+    <li>Immobilisation — relative rest can be appropriate acutely, but prolonged immobilisation worsens cortical reorganisation (the S1 representation shrinks further when proprioceptive input is removed), worsens trophic changes, and reduces the graded motor imagery component that is a primary treatment</li>
+    <li>Premature progressive loading before adequate central sensitisation management</li>
+  </ul>
+
+  <h4>What MSK Clinicians Can Contribute</h4>
+  <ul>
+    <li><strong>Graded motor imagery (GMI):</strong> A three-stage protocol (left/right limb recognition → motor imagery → mirror therapy) targeting cortical reorganisation. This is one of the most evidence-supported treatments in CRPS and requires training but is within MSK scope. Each stage provides progressively increasing "safe" input to the motor cortex without activating peripheral nociceptors.</li>
+    <li><strong>Desensitisation programmes:</strong> Graded exposure of the affected limb to non-noxious stimuli — textures, temperatures, gentle contact — at levels below the pain threshold, gradually increasing. This exploits the same plasticity mechanisms that drove the sensitisation, in the opposite direction.</li>
+    <li><strong>Patient education:</strong> Framing CRPS as a neurological amplification syndrome — the limb is not being destroyed — is critical for catastrophising reduction. The "threat" perception of the limb is a driver of ACC hyperactivation and cortical reorganisation.</li>
+    <li><strong>Referral:</strong> Pain specialist for pharmacological management (low-dose naltrexone, ketamine infusion, SNRIs, bisphosphonates if bone involvement), sympathetic blockade consideration (stellate ganglion block, lumbar sympathetic block), multidisciplinary pain programme.</li>
+  </ul>
+
+  <div class="deeper">
+    <div class="deeper-title">Going Deeper</div>
+    <ul>
+      <li><strong>Harden RN et al. (2010)</strong> — Budapest Criteria validation. <em>Pain</em> 150:268–274.</li>
+      <li><strong>Moseley GL (2004)</strong> — Graded motor imagery is effective for long-standing complex regional pain syndrome: a randomised controlled trial. <em>Pain</em> 108:192–198.</li>
+      <li><strong>Birklein F & Schlereth T (2015)</strong> — CRPS — significant progress in understanding. <em>Anesthesiology</em> 123:1212–1220.</li>
+      <li><strong>Goebel A et al. (2011)</strong> — Autoantibodies and CRPS. <em>Ann Intern Med</em> 155:152–158.</li>
+    </ul>
+  </div>
+</div>
+
+
+<!-- SECTION 20 -->
+<div class="section" id="s20">
+  <div class="section-header">
+    <span class="section-num">Section 20</span>
+    <h2>Neuroplasticity as a Treatment Target</h2>
+  </div>
+  <div class="overview">
+    Central sensitisation is a form of maladaptive neuroplasticity. Effective treatment is not simply reducing inputs — it is deliberately driving adaptive plasticity to reverse the synaptic, cortical, and glial changes that sustain the sensitised state. Understanding neuroplasticity mechanisms transforms the treatment rationale from symptom management to nervous system rehabilitation. This section covers the cellular and systems-level mechanisms of adaptive neuroplasticity and how specific clinical interventions deliberately exploit them.
+  </div>
+
+  <h3>20.1 Synaptic Plasticity: From CS to Recovery</h3>
+  <h4>LTD as the Antidote to LTP</h4>
+  <p>If CS involves LTP at dorsal horn synapses — increased AMPA receptor density, NR2B upregulation, structural synaptic strengthening — then recovery involves <strong>long-term depression (LTD)</strong>: the complementary process of synaptic weakening. LTD is induced by low-frequency stimulation of C fibres (below the wind-up threshold), activation of mGluR receptors (metabotropic glutamate receptors, particularly mGluR1 and mGluR5), endocannabinoid retrograde signalling (eCB), and activation of PP2B (calcineurin) — which dephosphorylates and internalises AMPA receptors from the synapse.</p>
+  <p>The endocannabinoid system is critical here. Retrograde eCB signalling (2-AG and AEA released from the post-synaptic neuron, acting on CB1 receptors pre-synaptically) suppresses glutamate release and is the mechanism of <strong>depotentiation</strong> — the reversal of established LTP. This is one reason the endocannabinoid system is an active pharmacological target in CS-dominant pain conditions, and one mechanism by which aerobic exercise (which elevates circulating and CNS eCB levels) produces lasting antinociceptive effects beyond just the session.</p>
+
+  <h4>BDNF's Dual Role</h4>
+  <p>BDNF — which microglia release to sustain sensitisation via KCC2 downregulation — also plays a critical role in adaptive recovery when produced by neurons (rather than microglia) in response to exercise. <strong>Neuronal BDNF</strong> acts on TrkB receptors to promote LTP at cortical synapses involved in descending inhibitory pathways (PFC-PAG, PFC-ACC), restore KCC2 expression (over the longer term, with sustained reduction of microglial activation), and support hippocampal neurogenesis — restoring the descending cognitive-evaluative inhibitory circuits that degrade in chronic pain. This is the neurobiological basis for the well-established finding that aerobic exercise has antidepressant and antinociceptive effects that accumulate over weeks.</p>
+
+  <h3>20.2 Cortical Remapping as Treatment Target</h3>
+  <h4>Use-Dependent Plasticity</h4>
+  <p>S1 cortical representations are maintained and expanded by use. Chronic pain, disuse, and fear-avoidant movement restriction all shrink the cortical representation of the affected body region — contributing to proprioceptive inaccuracy, motor control degradation, and the alien/dissociated quality of the painful body part in severe CS. Restoring cortical representation size requires <strong>use-dependent input</strong> — not passive treatment, but active, attended movement of the affected region.</p>
+  <p>Studies using magnetoencephalography and fMRI demonstrate that cortical remapping in chronic low back pain (cortical representation of the back is blurred and shifted laterally) partially reverses with motor control training, and that the degree of reversal correlates with clinical outcomes. The cortex is not passively involved — it is an active target that must be deliberately engaged.</p>
+
+  <h4>Motor Cortex Stimulation and Voluntary Movement</h4>
+  <p>Voluntary movement activates motor cortex areas that project both to the spinal cord (via corticospinal tract) and to the PAG and RVM (descending modulation). Skilled movement — particularly movement that engages attention and requires precision — activates prefrontal-motor cortex circuits that have greater descending modulatory effects than simple repetitive movement. This is the neurological argument for including <strong>cognitively engaging, skilled movement</strong> in rehabilitation — not just repetition, but tasks that demand attentional resources. Dual-task training (cognitive + motor) exploits the same PFC circuits as descending inhibitory control.</p>
+
+  <h3>20.3 Glial Plasticity and Microglial Resolution</h3>
+  <p>Activated microglia can resolve to a homeostatic state — this is not passive but requires active signalling via the <strong>fractalkine/CX3CR1 axis</strong> (CX3CL1 from neurons signals "all clear" to microglia via CX3CR1, promoting resolution), <strong>IL-10</strong> production (anti-inflammatory cytokine from regulatory microglia and T-regulatory cells), and withdrawal of activating inputs (reduction in P2X4 ATP signalling, cessation of fractalkine shedding from neurons in distress). The timeline for microglial resolution is weeks to months — much longer than the time required to produce activation. This mismatch explains why clinical improvements often plateau: the peripheral input is reduced, but the microglial activation state persists and continues to maintain dorsal horn sensitisation.</p>
+  <p>Sleep is the single most powerful driver of microglial resolution known in the neuroscience literature. During slow-wave sleep, cerebrospinal fluid flow via the glymphatic system increases approximately tenfold, clearing inflammatory mediators from the brain and spinal cord parenchyma. The clinical implication is that sleep optimisation is not a lifestyle adjunct — it is a primary neurological treatment for CS via its role in glial homeostasis.</p>
+
+  <h3>20.4 Neuroplasticity Principles in Practice</h3>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Plasticity Target</th><th>Intervention</th><th>Mechanism</th><th>Dose Considerations</th></tr></thead>
+    <tbody>
+      <tr><td>Dorsal horn LTD / depotentiation</td><td>Aerobic exercise; graded exposure</td><td>eCB retrograde signalling, AMPA receptor internalisation</td><td>Moderate intensity, ≥20 min, ≥3×/week sustained</td></tr>
+      <tr><td>Descending inhibitory circuit restoration</td><td>Aerobic exercise; sleep optimisation</td><td>Neuronal BDNF, PAG-RVM pathway strengthening</td><td>12-week programmes show measurable CPM improvement</td></tr>
+      <tr><td>S1 cortical remapping</td><td>Skilled motor retraining; GMI; graded exposure</td><td>Use-dependent plasticity; TrkB cortical LTP</td><td>Attended, precise, cognitively engaged movement; daily practice</td></tr>
+      <tr><td>PFC restoration</td><td>Aerobic exercise; mindfulness; sleep</td><td>BDNF-mediated PFC synaptic restoration; hippocampal neurogenesis</td><td>Structural changes require months; functional changes earlier</td></tr>
+      <tr><td>Microglial resolution</td><td>Sleep; aerobic exercise; anti-inflammatory nutrition (Section 23)</td><td>Glymphatic clearance; IL-10 upregulation; fractalkine signalling</td><td>Slow timeline — weeks to months</td></tr>
+      <tr><td>ACC down-regulation</td><td>PNE; mindfulness; ACT; CBT</td><td>Cognitive reappraisal reduces threat-predictive ACC activity</td><td>Requires sufficient PFC function — impaired in high CS</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="deeper">
+    <div class="deeper-title">Going Deeper</div>
+    <ul>
+      <li><strong>Moseley GL & Flor H (2012)</strong> — Targeting cortical representations in the treatment of chronic pain. <em>Neurorehabil Neural Repair</em> 26:646–652.</li>
+      <li><strong>Stagg CJ & Nitsche MA (2011)</strong> — Physiological basis of transcranial direct current stimulation. <em>Neuroscientist</em> 17:37–53.</li>
+      <li><strong>Woolf CJ & Salter MW (2000)</strong> — Neuronal plasticity: increasing the gain in pain. <em>Science</em> 288:1765–1769.</li>
+      <li><strong>Bhave G & Bhave R (2019)</strong> — Endocannabinoids and pain modulation. <em>Curr Opin Neurobiol.</em></li>
+    </ul>
+  </div>
+</div>
+
+
+<!-- SECTION 21 -->
+<div class="section" id="s21">
+  <div class="section-header">
+    <span class="section-num">Section 21</span>
+    <h2>Pain Neuroscience Education — Advanced Delivery</h2>
+  </div>
+  <div class="overview">
+    Pain Neuroscience Education (PNE) — also called Explain Pain, Therapeutic Neuroscience Education — has an extensive evidence base for reducing pain, disability, catastrophising, and fear-avoidance in CS-dominant presentations. But PNE is not simply handing a patient a brochure or delivering a 10-minute explanation. Advanced PNE delivery is a clinical skill that requires understanding how knowledge changes threat-predictive brain activity, how different patient profiles require different explanatory frameworks, and how to time, dose, and sequence PNE as part of a broader treatment plan. This section goes beyond the basics into the cognitive neuroscience of why PNE works and how to deliver it at a level that produces genuine neurological change.
+  </div>
+
+  <h3>21.1 The Neuroscience of Why PNE Works</h3>
+  <h4>Pain as Predictive Output</h4>
+  <p>The active inference / predictive processing model of pain (emerging from Karl Friston's work and developed in the pain context by Moseley, Wiech, and others) holds that pain is not a sensory signal that the brain passively receives — it is an <strong>active prediction</strong> generated by the brain about the probable state of threat to the body. Nociceptive afferent signals are one input among many — they are weighted against prior beliefs (how dangerous is this context?), emotional state, attentional focus, memory of previous episodes, and social context. When the brain's threat prediction system has been calibrated — by chronic pain experience, by catastrophising appraisal, by fear-avoidance — it generates pain as a predicted output even when peripheral input is minimal.</p>
+  <p>PNE works by changing the <strong>prior beliefs</strong> that inform threat predictions. When a patient understands that their pain is a nervous system output — not purely a tissue readout — and that the nervous system is sensitised (and reversibly so), the threat value assigned to pain signals is recalibrated. This is measurable neurologically: patients who undergo PNE show reduced ACC and insular activation in response to pain-related stimuli on fMRI — the brain's threat appraisal circuits are genuinely less activated. This is not placebo in the dismissive sense — it is a measurable change in cortical processing driven by conceptual knowledge.</p>
+
+  <h4>Cortisol and Fear — Barriers to Learning</h4>
+  <p>Learning requires a neurological state that allows new information to update existing beliefs. High cortisol, high sympathetic tone, and high amygdala activation — which characterise patients in significant pain distress — all impair the PFC-hippocampal consolidation circuits that allow conceptual learning to update long-term memory. This is why delivering complex PNE concepts to a patient who is distressed and hyperaroused during their initial consultation is ineffective: the neurological conditions for learning are not met. <strong>PNE must be timed to a state of relative calm</strong> — not during acute flare-up, not immediately after a pain-triggering examination. Even brief autonomic down-regulation strategies before the education component (slow breathing, brief mindfulness induction) improve retention.</p>
+
+  <h3>21.2 Delivery Frameworks by Patient Profile</h3>
+  <h4>The Biomedically-Oriented Analytical Patient</h4>
+  <p>Highly engaged with structural explanations; has researched their condition; may have a "damaged" self-model (believes they are structurally broken). Priority: shift from structural-disease model to neurological-amplification model. Lead with the molecular biology — wind-up, NMDA receptor, glial activation. These patients respond well to mechanistic depth; it validates their intelligence and analytical nature while reframing the locus of the problem. Key reframe: "Your nervous system learned to amplify, and it can learn to attenuate."</p>
+
+  <h4>The Fear-Dominated Patient (Kinesiophobic, High Catastrophiser)</h4>
+  <p>High TSK, high PCS, high fear-avoidance behaviours. ACC and amygdala are driving the presentation. Priority: safety — the nervous system is not detecting an ongoing threat; pain does not equal damage. Use the evolutionary purpose framing: pain is a protection output, not a damage detector. "Hurt does not equal harm" must be delivered experientially (graded exposure confirming non-catastrophic outcomes) not just verbally — the amygdala learns from experience more readily than from verbal instruction.</p>
+
+  <h4>The Sceptical or Non-Engaged Patient</h4>
+  <p>Low PSEQ, dismissive of psychological framings, expects hands-on treatment and "fixing." Resistance to PNE here often reflects threat — if the nervous system is the problem, who can fix it? The implicit threat to autonomy and competence is real. Approach: brief, practical framing embedded in treatment ("what's happening with this pain pattern is worth understanding because it explains why some treatments work and others don't"). Avoid lengthy educational sessions early. Let the patient experience improvement first, then build the explanatory framework around their own experience.</p>
+
+  <h4>The Distressed / Comorbid Patient</h4>
+  <p>Comorbid depression, anxiety, or PTSD — the PFC circuits required for updating beliefs via verbal instruction are compromised. Abstract neurological concepts will not land. Here, PNE must be: simpler, repeated, shorter sessions, written reinforcement, supported by GP/psychology co-management. The education component is secondary to ANS regulation and psychosocial treatment in the priority hierarchy until comorbidities are partially managed.</p>
+
+  <h3>21.3 Metaphor Selection and Neurological Basis</h3>
+  <p>Metaphors work because they recruit existing knowledge structures (schemata) to update threat predictions. The goal is not a "fun" metaphor — the goal is a metaphor that <em>accurately captures the neurobiological mechanism</em> in a form that changes threat appraisal. Poor metaphors (e.g. "the pain is like a car alarm stuck on") can be useful but miss mechanism. Stronger metaphors directly address the predictive-protective function of the nervous system.</p>
+  <ul>
+    <li><strong>Volume dial, not damage detector:</strong> "Your nervous system has turned the volume up on pain signals. High volume doesn't mean more damage — it means the amplifier is sensitive." Mechanism addressed: central sensitisation as gain change, not tissue pathology.</li>
+    <li><strong>Smoke alarm with low battery:</strong> "A smoke alarm going off constantly isn't telling you there's a fire — it might need recalibrating. Your alarm is oversensitive." Mechanism addressed: threat prediction without actual threat; modifiable system.</li>
+    <li><strong>The overprotective immune system analogy:</strong> For educated patients — "Just as autoimmune conditions are the immune system attacking things it shouldn't, your pain system has become overprotective — responding to non-dangerous inputs as if they were dangerous. The goal is recalibration, not shutting it off."</li>
+  </ul>
+
+  <h3>21.4 Dosing and Sequencing PNE in a Treatment Plan</h3>
+  <ul>
+    <li><strong>Session 1:</strong> Brief framing only — "I want to explain what I think is happening with your pain system, because it changes what we should do. Not today — but at your next session, once I've gathered all the information."</li>
+    <li><strong>Session 2–3:</strong> Core PNE delivery — 15–20 minutes, printed summary to take home. Confirm understanding — "What does that mean for what's been happening for you?" is more powerful than "Does that make sense?"</li>
+    <li><strong>Sessions ongoing:</strong> Reinforce with clinical findings: "Remember what we said about the nervous system being sensitised — what you just experienced there is a perfect example of that."</li>
+    <li><strong>Reassess conceptual model at 4–6 weeks:</strong> Can the patient explain their pain mechanism in their own words? If not, PNE has not been consolidated. Repeat with different framing.</li>
+  </ul>
+
+  <div class="deeper">
+    <div class="deeper-title">Going Deeper</div>
+    <ul>
+      <li><strong>Moseley GL & Butler DS (2017)</strong> — <em>Explain Pain Supercharged.</em> NOI Group.</li>
+      <li><strong>Louw A et al. (2016)</strong> — <em>Therapeutic Neuroscience Education.</em> OPTP.</li>
+      <li><strong>Clark JE (2016)</strong> — Pain experience, cognition and appraisal. <em>J Pain Res.</em></li>
+      <li><strong>Wiech K & Tracey I (2009)</strong> — The influence of negative emotions on pain. <em>Neurosci Biobehav Rev</em> 33:517–526.</li>
+      <li><strong>Butler DS & Moseley GL (2013)</strong> — <em>Explain Pain.</em> 2nd ed. NOI Group.</li>
+    </ul>
+  </div>
+</div>
+
+
+<!-- SECTION 22 -->
+<div class="section" id="s22">
+  <div class="section-header">
+    <span class="section-num">Section 22</span>
+    <h2>Quantitative Sensory Testing in Clinical Practice</h2>
+  </div>
+  <div class="overview">
+    Quantitative Sensory Testing (QST) is the systematic measurement of sensory function using standardised stimuli to quantify the sensory and pain processing characteristics of the nervous system. In a research context, QST provides objective, reproducible data on sensory profiles. In clinical practice, accessible QST-derived techniques — pressure pain thresholds, conditioned pain modulation, temporal summation — provide real, neurophysiologically meaningful data that improves pain mechanism classification, tracks treatment response, and identifies specific sensory phenotypes that predict treatment outcomes. This section covers the clinically applicable subset of QST.
+  </div>
+
+  <h3>22.1 Accessible Clinical QST Measures</h3>
+  <h4>Pressure Pain Threshold (PPT)</h4>
+  <p>PPT is the minimum pressure at which a subject first experiences pain. Measured with an algometer (pressure algometer / dolorimeter — a spring-loaded device with a 1cm² probe). Rate of application: 0.5–1 kg/cm²/s. Three trials averaged per site. Bilateral measurements allow comparison; measurements at sites remote from the primary complaint detect generalised sensitisation (reduced PPT at a remote site = secondary hyperalgesia indicative of CS). <strong>Low PPTs at sites remote from the complaint is the closest thing to an objective bedside marker of CS currently available in clinical practice.</strong> No device is required to get meaningful data — von Frey filaments (for threshold testing), a ruler (for cold/warm threshold estimation using temperature stimuli), and finger pressure can provide useful qualitative data in a standard consult.</p>
+
+  <h4>Temporal Summation (TS) — Wind-Up Assessment</h4>
+  <p>TS assesses the spinal mechanism of wind-up — the progressive increase in pain with repeated stimulation. Protocol: a series of identical stimuli (pressure, pinprick, or thermal) delivered at ≥0.33 Hz; the subject rates pain after the first stimulus and after the final stimulus (typically 10 repetitions). Ratio of final to first pain rating = TS ratio. TS ratio >1.3–1.5 indicates enhanced wind-up (facilitated dorsal horn). This is a direct clinical probe of the NMDA-receptor-mediated wind-up mechanism described in Section 2. Elevated TS is a predictor of CS and of poor response to purely peripheral interventions.</p>
+
+  <h4>Conditioned Pain Modulation (CPM)</h4>
+  <p>CPM measures the efficiency of diffuse noxious inhibitory control (DNIC) / descending inhibitory modulation (Part 1, Section 6). Protocol: measure PPT at a test site → apply a sustained conditioning stimulus (cold pressor — hand in 10°C water for 60 seconds, or sustained ischaemia) → re-measure PPT at the test site during the conditioning stimulus. In normal function, the conditioning stimulus activates DNIC and <em>increases</em> PPT at the test site (remote inhibition). Absent or reduced CPM = impaired descending inhibition. Impaired CPM is demonstrated in fibromyalgia, CLBP, OA, temporomandibular disorders, and is a predictor of post-surgical pain severity and poor response to exercise-based interventions. Importantly: CPM efficiency is one of the clearest biomarkers that differentiates CS-dominant from nociceptive-dominant presentations.</p>
+
+  <h3>22.2 Sensory Profile and Clinical Decision-Making</h3>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>QST Finding</th><th>Mechanism</th><th>Clinical Implication</th></tr></thead>
+    <tbody>
+      <tr><td>Reduced local PPT only</td><td>Local peripheral sensitisation / nociceptive</td><td>Tissue-directed treatment appropriate; CS unlikely dominant</td></tr>
+      <tr><td>Reduced PPT locally + remotely</td><td>Generalised central sensitisation</td><td>CS is driver; shift treatment priority to central interventions</td></tr>
+      <tr><td>Elevated TS ratio</td><td>Enhanced spinal wind-up (NMDA-mediated)</td><td>Exercise, sleep, and PNE priority over loading; NMDA-targeted pharmacology (ketamine, memantine) may be relevant in specialist care</td></tr>
+      <tr><td>Absent/reduced CPM</td><td>Impaired descending inhibition</td><td>Aerobic exercise as primary intervention target; poor prognosis for pure tissue-focused treatment</td></tr>
+      <tr><td>Paradoxical CPM (pain increases with conditioning)</td><td>Descending facilitation dominant over inhibition</td><td>High-priority CS management; pain psychology, pharmacological support often needed; do not apply aggressive loading</td></tr>
+      <tr><td>Normal QST throughout</td><td>Nociceptive or early neuropathic — CS not established</td><td>Tissue-directed treatment appropriate; monitor for CS development</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>22.3 Practical CPM Testing Without Equipment</h3>
+  <p>Cold pressor is the most widely used conditioning stimulus in research and is feasible in a clinical setting: ice water at 10°C in a container, patient immerses non-dominant hand for up to 60 seconds (stop if pain exceeds 7/10). PPT comparison requires an algometer for precision, but a standardised finger-pressure protocol (consistently applied pressure over the tibialis anterior or trapezius at a defined site) can provide clinically useful bilateral comparisons without equipment. The key is standardisation and comparison: same examiner, same pressure, same site, same patient position — ideally the same time of day across repeat measurements. The clinical value is tracking change over treatment rather than absolute values, and comparing sides.</p>
+
+  <div class="deeper">
+    <div class="deeper-title">Going Deeper</div>
+    <ul>
+      <li><strong>Rolke R et al. (2006)</strong> — Quantitative sensory testing: a comprehensive protocol for clinical trials. <em>Eur J Pain</em> 10:77–88.</li>
+      <li><strong>Yarnitsky D (2010)</strong> — Conditioned pain modulation (the diffuse noxious inhibitory control-like effect). <em>Curr Opin Anaesthesiol</em> 23:611–615.</li>
+      <li><strong>Arendt-Nielsen L & Graven-Nielsen T (2011)</strong> — Translational musculoskeletal pain research. <em>Best Pract Res Clin Rheumatol</em> 25:209–226.</li>
+      <li><strong>Nir R-R & Yarnitsky D (2015)</strong> — Conditioned pain modulation. <em>Curr Opin Support Palliat Care</em> 9:131–137.</li>
+    </ul>
+  </div>
+</div>
+
+
+<!-- SECTION 23 -->
+<div class="section" id="s23">
+  <div class="section-header">
+    <span class="section-num">Section 23</span>
+    <h2>Nutrition and Pain Neurology</h2>
+  </div>
+  <div class="overview">
+    Nutritional status directly influences every component of the pain system: nociceptor sensitisation, dorsal horn excitability, microglial activation state, descending modulation neurotransmitter synthesis, and cortical structural integrity. This is not nutritional medicine — it is mechanistic neuroscience applied to clinical practice. The interventions discussed here have research support at a neurobiological level and are within scope for discussion with patients as part of a comprehensive lifestyle-neurology approach. This section focuses on mechanisms, not dietary prescriptions, and identifies where nutritional factors are clinically relevant to a pain presentation.
+  </div>
+
+  <h3>23.1 Omega-3 Fatty Acids and Neuroinflammation</h3>
+  <p>Omega-3 polyunsaturated fatty acids (EPA, DHA) are substrates for <strong>specialised pro-resolving mediators (SPMs)</strong> — a class of lipid mediators including resolvins, protectins, and maresins — that actively resolve neuroinflammation rather than simply suppressing it. Resolvins (derived from EPA: RvE1, RvE2; derived from DHA: RvD1–RvD6) act on specific GPCRs on dorsal horn neurons, microglia, and spinal cord astrocytes. RvD1 and RvE1 suppress TRPV1 currents in peripheral nociceptors, reduce synaptic NMDA receptor activation in dorsal horn neurons, and switch microglia from M1 (pro-inflammatory) to M2 (pro-resolving) phenotypes.</p>
+  <p>The ratio of omega-6 to omega-3 in Western diets is typically 15–20:1 (estimated evolutionary optimum: 2–4:1). This ratio matters because omega-6 arachidonic acid (AA) is the substrate for pro-inflammatory eicosanoids (PGE2, LTB4, thromboxanes) — exactly the mediators that sensitise peripheral nociceptors and maintain dorsal horn sensitisation. Chronically elevated dietary AA:EPA+DHA ratio chronically biases nociceptive system tone toward sensitisation. The practical clinical relevance: a patient with CS, chronic neuroinflammation, and an inflammatory Western diet has a nutritional headwind against recovery that is not insignificant.</p>
+
+  <h3>23.2 Vitamin D and Pain Neuroscience</h3>
+  <p>Vitamin D receptors (VDRs) are expressed in DRG neurons, dorsal horn neurons, microglia, and peripheral immune cells. Vitamin D — as its active metabolite 1,25-dihydroxyvitamin D3 — acts as a gene regulator at VDRs, modulating:</p>
+  <ul>
+    <li><strong>Calcium channel expression</strong> in DRG neurons (reduces ectopic discharge susceptibility)</li>
+    <li><strong>Microglial activation</strong> — VDR activation suppresses NF-κB, reducing pro-inflammatory cytokine production and TLR4 sensitivity</li>
+    <li><strong>Neuroprotection</strong> — vitamin D promotes NGF production and myelination maintenance in peripheral nerves</li>
+    <li><strong>Serotonin synthesis</strong> — vitamin D is a cofactor for tryptophan hydroxylase (TPH2), which produces serotonin in the raphe nuclei — critical for descending inhibitory modulation</li>
+  </ul>
+  <p>Vitamin D deficiency (25-OH-D &lt;50 nmol/L, common in Perth in the winter months for indoor workers) is associated with diffuse musculoskeletal pain, fatigue, impaired recovery, and reduced CPM efficiency. In southern WA, vitamin D supplementation is clinically relevant — 1000–2000 IU/day is appropriate for maintenance; deficiency correction typically requires 4000–5000 IU/day for 8–12 weeks followed by repeat testing. This should be through GP with level monitoring.</p>
+
+  <h3>23.3 Magnesium and NMDA Receptor Function</h3>
+  <p>Magnesium (Mg²⁺) is the endogenous NMDA receptor channel blocker — it is the Mg²⁺ that sits in the NMDA receptor pore at resting potential and is displaced by depolarisation to allow Ca²⁺ influx (Section 2 wind-up cascade). Intracellular magnesium deficiency lowers the concentration of Mg²⁺ available to block NMDA channels, effectively reducing the activation energy required for wind-up and LTP. Dietary magnesium insufficiency is highly prevalent — estimated at 60–70% of Australian adults consuming below recommended intake — and clinically correlated with increased sensitivity to pain, migraine, anxiety, and poor sleep quality.</p>
+  <p>Magnesium glycinate or magnesium threonate (better CNS penetration than magnesium oxide, which has primarily laxative effects) at 300–400 mg elemental magnesium per day has evidence for migraine prophylaxis (comparable to prophylactic β-blockers in some trials) and modest but consistent evidence for sleep quality improvement — relevant to the glymphatic-mediated microglial resolution pathway.</p>
+
+  <h3>23.4 Gut-Brain Axis — Microbiome and Pain</h3>
+  <p>The gut microbiome communicates bidirectionally with the CNS via the enteric nervous system, vagal afferents, immune-mediated signalling (cytokines released from gut-associated lymphoid tissue), and direct metabolite production (short-chain fatty acids, tryptophan metabolites, secondary bile acids). This is Part 1 territory introduced in Section 12; the clinical application here:</p>
+  <ul>
+    <li><strong>Lipopolysaccharide (LPS) and microglial priming:</strong> Gut-derived LPS from gram-negative bacteria can cross a compromised gut barrier (increased intestinal permeability — "leaky gut") and enter systemic circulation, activating TLR4 receptors on macrophages, endothelial cells, and — via transport across the blood-brain barrier — on microglia. This is a clinically relevant mechanism by which gut dysbiosis drives neuroinflammation and lowers the CS threshold.</li>
+    <li><strong>Tryptophan and serotonin:</strong> Approximately 90% of the body's serotonin is produced in the gut by enterochromaffin cells from dietary tryptophan. Microbiome composition influences tryptophan availability and the balance between serotonin production and kynurenine pathway activation (the kynurenine pathway, activated by inflammatory cytokines, diverts tryptophan away from serotonin synthesis — reducing descending inhibitory modulation neurotransmitter supply).</li>
+  </ul>
+  <p>Clinical application: in a CS-dominant patient with significant GI symptoms (bloating, altered bowel habit, food intolerances, history of antibiotic-heavy treatments), addressing gut health through dietary fibre, fermented foods, or targeted probiotic approaches is a mechanistically coherent complementary intervention — not pseudoscience. The evidence base is developing rather than established, but the mechanism is well-characterised.</p>
+
+  <div class="deeper">
+    <div class="deeper-title">Going Deeper</div>
+    <ul>
+      <li><strong>Serhan CN (2014)</strong> — Pro-resolving lipid mediators in resolution of inflammation. <em>Nature</em> 510:92–101.</li>
+      <li><strong>Muñoz-Castañeda JR et al. (2019)</strong> — Vitamin D deficiency and pain. <em>J Steroid Biochem Mol Biol.</em></li>
+      <li><strong>Begon S et al. (2002)</strong> — Magnesium as a pain relief adjuvant. <em>Pain</em> 96:177–185.</li>
+      <li><strong>Cryan JF et al. (2019)</strong> — The microbiota-gut-brain axis. <em>Physiol Rev</em> 99:1877–2013.</li>
+      <li><strong>Dantzer R et al. (2008)</strong> — From inflammation to sickness and depression: when the immune system subjugates the brain. <em>Nat Rev Neurosci</em> 9:46–56.</li>
+    </ul>
+  </div>
+</div>
+
+
+<!-- SECTION 24 -->
+<div class="section" id="s24">
+  <div class="section-header">
+    <span class="section-num">Section 24</span>
+    <h2>Advanced Clinical Phenotyping: Beyond Mechanism Classification</h2>
+  </div>
+  <div class="overview">
+    Mechanism classification (nociceptive / neuropathic / CS) from Part 1 determines treatment direction. Clinical phenotyping takes this further — identifying the specific <em>subtype</em> of presentation within those categories that predicts which specific interventions will work best. Research in precision pain medicine is identifying reproducible patient phenotypes that differ in descending modulation profile, psychological signature, autonomic tone, sensory sensitivity profile, and inflammatory biology — each associated with different treatment response patterns. This section outlines the clinically accessible dimensions of phenotyping and how they modify treatment decision-making.
+  </div>
+
+  <h3>24.1 The High CS / High Catastrophising Phenotype</h3>
+  <p><strong>Profile:</strong> CSI ≥50; PCS ≥30; TSK ≥37; PHQ ≥10 or GAD ≥10 often comorbid; sleep disturbed; multiple body regions affected; QST showing widespread low PPT and elevated TS; CPM absent or paradoxical (descending facilitation). ANS: high sympathetic tone, reduced HRV, poor orthostatic regulation. History often includes early life adversity, prior trauma, or significant cumulative psychosocial burden.</p>
+  <p><strong>Treatment response:</strong> Poor to exercise alone; poor to passive manual therapy alone; can worsen temporarily with aggressive loading. Responds to: intensive PNE + ACT/CBT combination; supervised graded aerobic exercise programme; sleep intervention; pharmacological adjuncts (SNRIs — duloxetine, particularly in this phenotype; low-dose naltrexone); multidisciplinary pain programme. GPR referral for psychology and pharmacology is often necessary — do not indefinitely manage this phenotype in MSK alone.</p>
+
+  <h3>24.2 The Peripheral Neuropathic with CS Overlay Phenotype</h3>
+  <p><strong>Profile:</strong> Identifiable structural lesion (disc, entrapment, post-surgical scar) with dermatomal symptoms; BUT pain distribution has spread beyond the nerve territory; NRS pain intensity disproportionate to structural findings; allodynia in referred zone; CSI 30–45 range. QST: reduced PPT in and beyond the nerve territory; elevated TS; CPM partially preserved but reduced. This is the most common mixed presentation in MSK practice — the peripheral lesion that has driven CS development.</p>
+  <p><strong>Treatment response:</strong> Responds to both peripheral (neural mobilisation, activity modification, SMT at adjacent segments) and central (aerobic exercise, PNE) interventions — <em>sequencing matters</em>. Address peripheral nociceptive drive first to reduce dorsal horn input, then target the CS overlay. Do not focus exclusively on the structural lesion (ignoring CS) or exclusively on CS management (ignoring the ongoing peripheral driver that maintains it).</p>
+
+  <h3>24.3 The Impaired CPM / Exercise-Responsive Phenotype</h3>
+  <p><strong>Profile:</strong> CS-dominant but CPM testing shows absent or reduced (rather than paradoxical) descending inhibition. Screening scores moderate rather than severe (CSI 38–48). PCS moderate. Sleep impaired but improvable. Often a subacute presentation 3–6 months duration. Inflammatory markers may be mildly elevated (CRP, ESR).</p>
+  <p><strong>Treatment response:</strong> This phenotype shows the best response to aerobic exercise interventions — the descending inhibitory system is impaired but recruitable. Exercise-induced hypoalgesia (EIH) produces immediate measurable benefits, and structured aerobic exercise programmes restore CPM efficiency over 12 weeks. SMT adds descending modulation engagement acutely (Section 7). Prioritise exercise prescription as the primary treatment. Monitor CPM response over time as a treatment outcome measure.</p>
+
+  <h3>24.4 The Nociplastic / Normal QST Phenotype (Possible Predictive Processing Dominant)</h3>
+  <p><strong>Profile:</strong> Significant pain and disability but standard QST measures are normal or near-normal. Mechanism screens moderate. Imagery of structural pathology minimal. Pain is strongly context-dependent — worsened by stress, specific social situations, and cues associated with prior pain experiences; markedly improved in novel, positive contexts. Good responders to placebo conditions. Often a history of pain in multiple different body regions across time, none fitting a structural trajectory.</p>
+  <p><strong>Treatment response:</strong> This presentation is best understood through the predictive processing lens — the pain system is generating pain-predictions driven by learned context associations rather than peripheral input or central gain changes. Interventions that change context (novel environments, altered expectations, nocebo reduction) and that target the learning mechanisms of the pain system are most relevant: graded exposure with positive prediction violation; context-disrupting approaches; cognitive-evaluative work. Hands-on treatment in familiar clinical contexts may perpetuate contextual cuing — consider working in more novel settings or with varied approaches.</p>
+
+  <h3>24.5 Phenotype Documentation in Clinical Notes</h3>
+  <p>Formalising phenotype in clinical records improves treatment planning consistency and communication with other providers. A simple phenotype summary note at the end of the initial assessment:</p>
+  <div class="callout clinical">
+    <div class="callout clinical-title">Example Phenotype Summary Note</div>
+    <p><em>"Pain mechanism: mixed peripheral neuropathic (L4 radiculopathy — disc) + CS overlay (CSI 42, PCS 26, moderate fear-avoidance). Phenotype: Peripheral-central mixed — CPM reduced but present. Moderate sympathetic tone. Sleep impaired. Psychosocial: moderate risk STarT Back. Treatment priority: PNE session 2, neural mobilisation, aerobic exercise programme. Review mechanism and phenotype at 6 weeks."</em></p>
+  </div>
+
+  <div class="deeper">
+    <div class="deeper-title">Going Deeper</div>
+    <ul>
+      <li><strong>Woolf CJ (2010)</strong> — Overcoming obstacles to developing new analgesics. <em>Nat Med</em> 16:1187–1192.</li>
+      <li><strong>Nijs J et al. (2014)</strong> — Thinking beyond muscles and joints: therapists' and patients' attitudes and beliefs regarding chronic musculoskeletal pain are key to applying effective treatment. <em>Man Ther.</em></li>
+      <li><strong>Yarnitsky D et al. (2015)</strong> — Prediction of chronic post-operative pain: pre-operative DNIC testing identifies patients at risk. <em>Pain</em> 138:22–28.</li>
+      <li><strong>Edwards RR et al. (2016)</strong> — The role of psychosocial processes in the development and maintenance of chronic pain. <em>J Pain</em> 17:T70–T92.</li>
+    </ul>
+  </div>
+</div>
+
+
+<!-- SECTION 25 -->
+<div class="section" id="s25">
+  <div class="section-header">
+    <span class="section-num">Section 25</span>
+    <h2>The Clinician's Neuroscience of Communication</h2>
+  </div>
+  <div class="overview">
+    What a clinician says, how they say it, and the context in which they say it have measurable neurological effects on the patient's pain system. This is not a soft skill — it is applied neuroscience. The nocebo effect (negative expectation worsening pain outcomes) is as real and as neurologically mediated as the placebo effect. Radiological language ("your disc is degenerated," "your spine is that of a 60-year-old") activates threat-predictive circuits in the ACC and drives CS. Conversely, well-timed, framed patient communication activates PFC inhibitory circuits, reduces amygdala hyperactivation, and generates genuine descending inhibitory activity. Understanding the neuroscience of clinical communication makes every patient interaction an active neurological treatment.
+  </div>
+
+  <h3>25.1 The Neuroscience of Nocebo and Clinical Language</h3>
+  <h4>Nocebo — The Neurologically Mediated Harm of Poor Communication</h4>
+  <p>The nocebo effect is the induction of a negative outcome (increased pain, impaired recovery, increased disability) by negative expectations. It is neurologically mediated via:</p>
+  <ul>
+    <li><strong>CCK (cholecystokinin):</strong> Negative expectations activate CCK release in the dorsal horn, which directly blocks opioid receptor function and activates pro-nociceptive circuits. CCK is the neurochemical mechanism of nocebo analgesia reduction.</li>
+    <li><strong>HPA axis activation:</strong> Threat-inducing clinical language (diagnoses that imply damage, degeneration, vulnerability) activates the amygdala-HPA axis, elevating cortisol and consolidating threat-predictive memory in the hippocampus.</li>
+    <li><strong>Descending facilitation:</strong> ACC activation from threat appraisal drives RVM on-cell activity, directly facilitating descending pain amplification.</li>
+  </ul>
+  <p>The classic example: "your spine shows significant degeneration for your age" → amygdala threat activation → HPA axis elevation → hippocampal encoding of "my spine is damaged" as a chronic threat prediction → persistent ACC activation → descending facilitation → worsening pain outcomes and increased disability, independent of the structural finding being clinically unremarkable. This is an iatrogenic neurological injury that does not require a medication or a needle.</p>
+
+  <h4>Loaded Radiological Language</h4>
+  <p>Radiology reports routinely use language that activates threat circuits: "moderate to severe degeneration," "significant disc bulge," "facet arthropathy," "loss of disc height." In patients with CS — who have a primed threat-predictive system — this language can precipitate significant worsening. The clinician's role is <strong>interpretation, not transmission</strong>: translating radiological findings into their accurate clinical context (the high prevalence of identical findings in asymptomatic people; the poor correlation between structural findings and pain; what the finding does and does not mean for prognosis and recovery). This is not withholding information — it is accurate clinical interpretation.</p>
+
+  <h3>25.2 Placebo Neuroscience — Harnessing Therapeutic Context</h3>
+  <h4>The Neurological Basis of Placebo Analgesia</h4>
+  <p>Placebo analgesia is mediated by real, measurable neurological events:</p>
+  <ul>
+    <li><strong>Endogenous opioid release:</strong> Positive expectation activates the PAG and RVM via PFC-ACC circuits, triggering endogenous opioid (β-endorphin, enkephalin) release at descending modulatory synapses. This is reversed by naloxone — proving the opioid mechanism.</li>
+    <li><strong>Dopamine:</strong> Positive therapeutic expectation activates nucleus accumbens dopamine release — the reward anticipation circuit. Dopamine at spinal cord and brain targets has direct antinociceptive effects and reinforces approach (versus avoidance) behaviour.</li>
+    <li><strong>PFC activation:</strong> Expectation of relief activates the dlPFC, which inhibits the ACC and amygdala via top-down pathways — reducing threat appraisal and descending facilitation.</li>
+  </ul>
+  <p>Crucially — these mechanisms are maximally effective when the patient trusts the clinician, believes the treatment has biological effect, and has a positive expectation of outcome. This means that how you present a treatment, how confidently you explain its mechanism, and the quality of the therapeutic alliance are not ancillary to treatment — they are part of the neurobiological mechanism of treatment effect. Bialosky's neurophysiological model of manual therapy (Section 7, Part 1) explicitly incorporates these as components of SMT outcome — not confounds.</p>
+
+  <h3>25.3 Therapeutic Alliance as Neuroscience</h3>
+  <p>The therapeutic relationship — characterised by trust, genuine interest, and perceived competence — activates the patient's <strong>social safety network</strong>: oxytocin release, PFC activation, amygdala inhibition. In the context of pain, this neurological state is antinociceptive: lower amygdala activation reduces threat appraisal, lower HPA axis tone reduces cortisol-mediated neuroinflammation, and activated PFC supports descending inhibitory circuits. This is why patients consistently report improved pain outcomes with clinicians they trust and feel heard by — and it is not a psychological quirk, it is a neurological consequence of the social attachment system interacting with the pain modulation system.</p>
+  <p>Conversely, a dismissive or disbelieving clinical interaction activates the threat and social rejection circuitry (dACC, anterior insula) — producing genuine pain amplification. Patients who feel disbelieved about their pain (a common experience in CS-dominant presentations) have measurably worse outcomes and are less likely to engage with treatment recommendations.</p>
+
+  <h3>25.4 Communication Frameworks for Difficult Conversations</h3>
+  <h4>The Reframing Hierarchy</h4>
+  <p>When delivering difficult information (poor prognosis, chronic condition, CS diagnosis), the sequence matters neurologically:</p>
+  <ol>
+    <li><strong>Acknowledge and validate first</strong> — before any reframing, confirm that the pain is real and the experience is legitimate. This reduces amygdala activation and opens the PFC to receive new information. "What you're experiencing is real. The nervous system is producing this pain — and that matters."</li>
+    <li><strong>Explain mechanism without catastrophising</strong> — "This is what's happening in your nervous system, and this is why it produces this experience." Mechanism understanding activates PFC analytical circuits and reduces threat appraisal.</li>
+    <li><strong>Active agency over passive victim</strong> — frame the patient as the primary agent of recovery, not the recipient of treatment. "The things that will make the most difference are things you do every day — and I'm here to help you with those." Autonomy language activates dopaminergic reward circuits; passive-victim framing activates learned helplessness circuits (nucleus accumbens hypodopaminergia).</li>
+    <li><strong>Prognostic optimism grounded in mechanism</strong> — specific optimism ("the research is clear that this type of presentation responds well to the approach we'll take") is more neurologically effective than generic reassurance ("you'll be fine"). Specific positive expectation activates the opioid/dopamine placebo pathways; vague reassurance does not.</li>
+  </ol>
+
+  <h4>Language to Avoid — The Nocebo List</h4>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Phrase to Avoid</th><th>Why (Neurological Mechanism)</th><th>Alternative</th></tr></thead>
+    <tbody>
+      <tr><td>"Your spine is degenerated / worn out"</td><td>Structural-damage narrative → amygdala threat → HPA activation → descending facilitation</td><td>"These findings are common in people without pain — they're not the source of your problem"</td></tr>
+      <tr><td>"You'll just have to live with it"</td><td>Learned helplessness → nucleus accumbens hypodopaminergia → depression comorbidity risk</td><td>"Chronic pain is manageable — the approach changes, but improvement is absolutely achievable"</td></tr>
+      <tr><td>"Don't lift / bend / twist / sit — you'll make it worse"</td><td>Kinesiophobia induction → fear-avoidance → disuse → CS perpetuation</td><td>"Your spine is strong — we'll gradually build up what it can handle"</td></tr>
+      <tr><td>"Your pain is all in your head"</td><td>Invalidation → social rejection circuitry → amygdala activation + therapeutic alliance destruction</td><td>"Your brain is producing this pain — which is real — and the brain is also the target of treatment"</td></tr>
+      <tr><td>"You need to be careful with that forever"</td><td>Chronic threat prediction → persistent HPA activation → CS maintenance</td><td>"As you recover, you'll be able to do progressively more — the goal is full function"</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>25.5 Written Communication with Other Providers</h3>
+  <p>Referral letters and correspondence with GPs, psychologists, and pain specialists carry the same nocebo/placebo potential — but for the receiving clinician, who will form their own predictions about the patient that they communicate in turn. A referral letter that leads with "this patient has significant degenerative changes and failed multiple treatment attempts" primes the receiving clinician with a negative expectation, which they may communicate (consciously or not) to the patient. A letter that leads with mechanism, phenotype, and treatment response data gives the receiving clinician accurate prognostic information without activating their own threat-predictive framing.</p>
+
+  <div class="callout advanced">
+    <div class="callout advanced-title">Key Principle</div>
+    <p>Every clinical interaction is a neurological intervention. The words, the framing, the tone, the setting, and the therapeutic relationship are not background noise to the "real" treatment — they are biological modulators of the nociceptive system that operate through measurable neurochemical and circuit-level mechanisms. Treating this as a soft skill is leaving one of your most powerful treatment tools underutilised.</p>
+  </div>
+
+  <div class="deeper">
+    <div class="deeper-title">Going Deeper</div>
+    <ul>
+      <li><strong>Benedetti F (2014)</strong> — Placebo Effects. 2nd ed. Oxford University Press.</li>
+      <li><strong>Colloca L & Benedetti F (2007)</strong> — Nocebo hyperalgesia: how anxiety is turned into pain. <em>Curr Opin Anaesthesiol</em> 20:435–439.</li>
+      <li><strong>Wager TD & Atlas LY (2015)</strong> — The neuroscience of placebo effects: connecting context, learning and health. <em>Nat Rev Neurosci</em> 16:403–418.</li>
+      <li><strong>Bialosky JE et al. (2018)</strong> — Unraveling the mechanisms of manual therapy: modelling an approach. <em>J Orthop Sports Phys Ther</em> 48:8–18.</li>
+      <li><strong>Darlow B et al. (2013)</strong> — The enduring impact of what clinicians say to people with low back pain. <em>Ann Fam Med</em> 11:527–534.</li>
+    </ul>
+  </div>
+</div>
+
+
+</main>
+
+<script>
+// PROGRESS BAR
+window.addEventListener('scroll', () => {
+  const winHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const scrolled = window.scrollY / winHeight * 100;
+  document.getElementById('progress-fill').style.width = scrolled + '%';
+});
+
+// SIDEBAR TOGGLE
+let sidebarVisible = true;
+function toggleSidebar() {
+  sidebarVisible = !sidebarVisible;
+  const sidebar = document.getElementById('sidebar');
+  const main = document.getElementById('main');
+  if (!sidebarVisible) {
+    sidebar.style.transform = 'translateX(-100%)';
+    main.style.marginLeft = '0';
+    main.style.maxWidth = '900px';
+  } else {
+    sidebar.style.transform = 'translateX(0)';
+    main.style.marginLeft = 'var(--sidebar-width)';
+    main.style.maxWidth = '';
+  }
+}
+
+// SCROLL SPY
+const sections = document.querySelectorAll('.section');
+const navItems = document.querySelectorAll('.nav-item');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.id;
+      navItems.forEach(item => item.classList.remove('active'));
+      const active = document.querySelector('.nav-item[href="#' + id + '"]');
+      if (active) active.classList.add('active');
+    }
+  });
+}, { threshold: 0.15, rootMargin: '-80px 0px -60% 0px' });
+sections.forEach(s => observer.observe(s));
+
+// SEARCH
+let searchTimeout;
+function searchDoc(query) {
+  clearTimeout(searchTimeout);
+  searchTimeout = setTimeout(() => {
+    const highlights = document.querySelectorAll('.search-highlight');
+    highlights.forEach(el => {
+      const parent = el.parentNode;
+      parent.replaceChild(document.createTextNode(el.textContent), el);
+      parent.normalize();
+    });
+    if (query.length < 2) return;
+    const main = document.getElementById('main');
+    const regex = new RegExp('(' + query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+    highlightInElement(main, regex);
+    const firstMatch = document.querySelector('.search-highlight');
+    if (firstMatch) firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, 300);
+}
+function highlightInElement(el, regex) {
+  for (let child of Array.from(el.childNodes)) {
+    if (child.nodeType === 3) {
+      const text = child.textContent;
+      if (regex.test(text)) {
+        const span = document.createElement('span');
+        span.innerHTML = text.replace(regex, '<mark class="search-highlight">$1</mark>');
+        el.replaceChild(span, child);
+      }
+      regex.lastIndex = 0;
+    } else if (child.nodeType === 1 && !['SCRIPT','STYLE','INPUT'].includes(child.tagName)) {
+      highlightInElement(child, regex);
+    }
+  }
+}
+</script>
+</body>
+</html>

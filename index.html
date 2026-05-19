@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neurology of MSK Pain — Clinical Reference Series</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #111318;
+  --surface: #181c26;
+  --card: #1e2233;
+  --border: #2a2f45;
+  --accent: #6eb5d4;
+  --accent-warm: #c9a84c;
+  --accent2: #a07cbf;
+  --accent3: #7dbe8a;
+  --text: #ddd8ce;
+  --text-secondary: #8a8578;
+  --text-muted: #5a5650;
+  --heading: #e8e2d6;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Lora', Georgia, serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER */
+header {
+  border-bottom: 1px solid var(--border);
+  padding: 48px 60px 40px;
+  background: var(--surface);
+}
+.header-label {
+  font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted);
+  margin-bottom: 16px;
+}
+header h1 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 38px; font-weight: 700; color: var(--heading);
+  line-height: 1.2; margin-bottom: 16px;
+  max-width: 700px;
+}
+header p {
+  font-size: 15px; color: var(--text-secondary); max-width: 640px;
+  line-height: 1.8; font-style: italic;
+}
+.header-meta {
+  display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px;
+}
+.meta-pill {
+  background: var(--card); border: 1px solid var(--border);
+  padding: 4px 12px; border-radius: 20px;
+  font-family: 'DM Sans', sans-serif; font-size: 12px; color: var(--text-secondary);
+}
+
+/* MAIN */
+main {
+  flex: 1;
+  padding: 60px;
+  max-width: 1000px;
+}
+
+/* PART CARDS */
+.parts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 60px;
+}
+.part-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  text-decoration: none;
+  display: block;
+  transition: all 0.2s;
+  position: relative;
+}
+.part-card:hover {
+  border-color: var(--card-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+.part-card-top {
+  padding: 24px 24px 0;
+  border-top: 3px solid var(--card-accent);
+}
+.part-num {
+  font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--card-accent); margin-bottom: 12px; display: block;
+}
+.part-card h2 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 19px; font-weight: 700; color: var(--heading);
+  line-height: 1.3; margin-bottom: 12px;
+}
+.part-card p {
+  font-family: 'DM Sans', sans-serif; font-size: 13px;
+  color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px;
+}
+.part-card-sections {
+  padding: 16px 24px 20px;
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+}
+.section-list {
+  list-style: none; padding: 0; margin: 0;
+}
+.section-list li {
+  font-family: 'DM Sans', sans-serif; font-size: 12px;
+  color: var(--text-muted); padding: 4px 0;
+  border-bottom: 1px solid rgba(42,47,69,0.5);
+  display: flex; align-items: baseline; gap: 8px;
+  line-height: 1.4;
+}
+.section-list li:last-child { border-bottom: none; }
+.section-list .snum {
+  color: var(--card-accent); font-size: 10px; font-weight: 600;
+  flex-shrink: 0; opacity: 0.7;
+}
+.open-btn {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 24px;
+  background: rgba(0,0,0,0.2);
+  font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500;
+  color: var(--card-accent);
+  border-top: 1px solid var(--border);
+  transition: background 0.15s;
+}
+.part-card:hover .open-btn { background: rgba(0,0,0,0.35); }
+.open-btn span { font-size: 16px; }
+
+/* PART 1 */
+.part-card.p1 { --card-accent: #6eb5d4; }
+/* PART 2 */
+.part-card.p2 { --card-accent: #a07cbf; }
+/* PART 3 */
+.part-card.p3 { --card-accent: #7dbe8a; }
+
+/* ABOUT SECTION */
+.about {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 8px; padding: 32px; margin-bottom: 48px;
+}
+.about h3 {
+  font-family: 'Libre Baskerville', serif; font-size: 16px;
+  color: var(--heading); margin-bottom: 16px;
+}
+.about p {
+  font-family: 'DM Sans', sans-serif; font-size: 13.5px;
+  color: var(--text-secondary); line-height: 1.8; margin-bottom: 12px;
+}
+.about p:last-child { margin-bottom: 0; }
+
+/* FOOTER */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 24px 60px;
+  font-family: 'DM Sans', sans-serif; font-size: 12px;
+  color: var(--text-muted);
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 12px;
+}
+
+strong { color: var(--heading); }
+
+@media (max-width: 768px) {
+  header, main, footer { padding: 32px 24px; }
+  header h1 { font-size: 28px; }
+  .parts-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-label">Clinical Reference Series — Pain Neuroscience · MSK · Chiropractic</div>
+  <h1>Neurology of Musculoskeletal Pain</h1>
+  <p>A three-part clinical reference designed to bridge competent MSK practice and pain neurology specialisation. Written at a clinician-researcher level — mechanistic depth at the level of the dorsal horn, thalamus, glial cells, and descending modulatory systems — with direct clinical application throughout.</p>
+  <div class="header-meta">
+    <span class="meta-pill">30 Sections</span>
+    <span class="meta-pill">Clinician–Researcher Level</span>
+    <span class="meta-pill">Chiropractic · Physiotherapy · Pain Neuroscience</span>
+    <span class="meta-pill">Perth, Western Australia</span>
+  </div>
+</header>
+
+<main>
+
+  <div class="parts-grid">
+
+    <!-- PART 1 -->
+    <a class="part-card p1" href="Neuro_Mastersheet_Part1.html">
+      <div class="part-card-top">
+        <span class="part-num">Part 1 — Sections 01–15</span>
+        <h2>Foundations of MSK Pain Neurology</h2>
+        <p>Core mechanisms, central sensitisation, neuroanatomy by region, motor control, descending modulation, SMT neurophysiology, neurodynamics, ANS, sleep, comorbidities, emerging research, and clinical reasoning frameworks.</p>
+      </div>
+      <div class="part-card-sections">
+        <ul class="section-list">
+          <li><span class="snum">01</span>Pain Mechanism Classification</li>
+          <li><span class="snum">02</span>Central Sensitisation</li>
+          <li><span class="snum">03</span>Neurological Involvement by Region</li>
+          <li><span class="snum">04</span>Neuro-Biomechanical Feedback Loop</li>
+          <li><span class="snum">05</span>Motor Control and Neurology</li>
+          <li><span class="snum">06</span>Descending Pain Modulation</li>
+          <li><span class="snum">07</span>Effects of Spinal Manipulation</li>
+          <li><span class="snum">08</span>Neurodynamics in Practice</li>
+          <li><span class="snum">09–15</span>ANS · Sleep · Comorbidities · Treatment Framework</li>
+        </ul>
+      </div>
+      <div class="open-btn">Open Part 1 <span>→</span></div>
+    </a>
+
+    <!-- PART 2 -->
+    <a class="part-card p2" href="Neuro_Mastersheet_Part2.html">
+      <div class="part-card-top">
+        <span class="part-num">Part 2 — Sections 16–25</span>
+        <h2>Advanced Clinical Reference</h2>
+        <p>Visceral pain, hormonal neuroscience, ageing nervous system, CRPS, neuroplasticity as treatment target, advanced PNE delivery, QST in practice, nutrition, clinical phenotyping, and the neuroscience of communication.</p>
+      </div>
+      <div class="part-card-sections">
+        <ul class="section-list">
+          <li><span class="snum">16</span>Visceral Pain and Somatic Referral</li>
+          <li><span class="snum">17</span>Hormonal Influences on Pain</li>
+          <li><span class="snum">18</span>Pain in the Ageing Nervous System</li>
+          <li><span class="snum">19</span>CRPS: Neuroscience and Management</li>
+          <li><span class="snum">20</span>Neuroplasticity as a Treatment Target</li>
+          <li><span class="snum">21</span>Pain Neuroscience Education — Advanced</li>
+          <li><span class="snum">22</span>Quantitative Sensory Testing</li>
+          <li><span class="snum">23–25</span>Nutrition · Phenotyping · Communication</li>
+        </ul>
+      </div>
+      <div class="open-btn">Open Part 2 <span>→</span></div>
+    </a>
+
+    <!-- PART 3 -->
+    <a class="part-card p3" href="Neuro_Mastersheet_Part3.html">
+      <div class="part-card-top">
+        <span class="part-num">Part 3 — Sections 26–30</span>
+        <h2>Practice-Focused Advanced Reference</h2>
+        <p>Headache and migraine neuroscience, sports neuroscience, sensitisation in OA/disc/tendinopathy/shoulder, chronic pain as neurological disease, and complete consult templates for neurology-informed chiropractic practice.</p>
+      </div>
+      <div class="part-card-sections">
+        <ul class="section-list">
+          <li><span class="snum">26</span>Headache and Migraine</li>
+          <li><span class="snum">27</span>Sports Neuroscience and Performance</li>
+          <li><span class="snum">28</span>Sensitisation in Specific Conditions</li>
+          <li><span class="snum">29</span>Chronic Pain as Neurological Disease</li>
+          <li><span class="snum">30</span>Neurology-Informed Chiro Practice</li>
+        </ul>
+      </div>
+      <div class="open-btn">Open Part 3 <span>→</span></div>
+    </a>
+
+  </div>
+
+  <div class="about">
+    <h3>About This Reference</h3>
+    <p>This document series sits above standard chiropractic and physiotherapy undergraduate and CPD-level education. It assumes a competent MSK clinician foundation and builds well beyond it — functioning as a bridge between everyday clinical practice and genuine pain neurology specialisation.</p>
+    <p>Each section covers: core neurobiological mechanism, clinical presentation, assessment approach, treatment and management considerations, referral flags, and pointers for further specialisation. The content level reflects actual neuroscience — dorsal horn, thalamus, cortex, glial cells, autonomic nervous system — with the mechanistic depth that sharpens clinical reasoning because the underlying biology is understood, not just the surface pattern.</p>
+    <p><strong>Recommended reading order:</strong> Part 1 establishes all foundational mechanisms. Parts 2 and 3 build on them and reference them throughout — start with Part 1 if you haven't already.</p>
+  </div>
+
+</main>
+
+<footer>
+  <span>Neurology of MSK Pain — Clinical Reference Series</span>
+  <span>Beyond Health Chiropractic · Perth, WA</span>
+</footer>
+
+</body>
+</html>

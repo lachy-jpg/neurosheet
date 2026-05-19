@@ -1,0 +1,1868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neurology of Musculoskeletal Pain — Clinical Reference</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #111318;
+  --surface: #181c26;
+  --card: #1e2233;
+  --border: #2a2f45;
+  --accent: #6eb5d4;
+  --accent-warm: #c9a84c;
+  --accent-muted: #3a6b85;
+  --danger: #c45c5c;
+  --success: #5c9e78;
+  --text: #ddd8ce;
+  --text-secondary: #8a8578;
+  --text-muted: #5a5650;
+  --heading: #e8e2d6;
+  --link: #7ec3de;
+  --highlight-bg: rgba(110,181,212,0.08);
+  --sidebar-width: 300px;
+  --header-height: 56px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Lora', Georgia, serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* HEADER */
+#top-header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: var(--header-height);
+  background: rgba(17,19,24,0.96);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; padding: 0 20px;
+  gap: 16px;
+}
+#top-header h1 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 14px; font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--accent); flex: 1;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+#search-box {
+  background: var(--card); border: 1px solid var(--border);
+  color: var(--text); padding: 6px 12px; border-radius: 6px;
+  font-family: 'DM Sans', sans-serif; font-size: 13px; width: 240px;
+  outline: none; transition: border-color 0.2s;
+}
+#search-box:focus { border-color: var(--accent); }
+#search-box::placeholder { color: var(--text-muted); }
+.header-btn {
+  background: var(--card); border: 1px solid var(--border);
+  color: var(--text-secondary); padding: 6px 12px; border-radius: 6px;
+  font-family: 'DM Sans', sans-serif; font-size: 12px; cursor: pointer;
+  transition: all 0.2s; white-space: nowrap;
+}
+.header-btn:hover { border-color: var(--accent); color: var(--accent); }
+#progress-bar {
+  position: fixed; top: var(--header-height); left: 0; right: 0;
+  height: 2px; background: var(--border); z-index: 99;
+}
+#progress-fill {
+  height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent-warm));
+  width: 0%; transition: width 0.1s;
+}
+
+/* SIDEBAR */
+#sidebar {
+  position: fixed; top: var(--header-height); left: 0; bottom: 0;
+  width: var(--sidebar-width); background: var(--surface);
+  border-right: 1px solid var(--border); overflow-y: auto;
+  padding: 20px 0; z-index: 80; transition: transform 0.3s ease;
+}
+#sidebar::-webkit-scrollbar { width: 4px; }
+#sidebar::-webkit-scrollbar-track { background: transparent; }
+#sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+.sidebar-label {
+  font-family: 'DM Sans', sans-serif; font-size: 10px; font-weight: 500;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted);
+  padding: 0 20px 8px; display: block;
+}
+.nav-item {
+  display: block; padding: 7px 20px; text-decoration: none;
+  font-family: 'DM Sans', sans-serif; font-size: 12.5px; color: var(--text-secondary);
+  border-left: 2px solid transparent; transition: all 0.15s; line-height: 1.4;
+}
+.nav-item:hover { color: var(--text); background: var(--highlight-bg); }
+.nav-item.active { color: var(--accent); border-left-color: var(--accent); background: var(--highlight-bg); }
+.nav-item .num { color: var(--text-muted); margin-right: 6px; font-size: 11px; }
+.nav-divider { height: 1px; background: var(--border); margin: 12px 0; }
+
+/* MAIN CONTENT */
+#main {
+  margin-left: var(--sidebar-width);
+  margin-top: var(--header-height);
+  padding: 60px 80px 100px;
+  max-width: calc(var(--sidebar-width) + 860px);
+}
+@media (max-width: 1100px) { #main { padding: 40px 40px 80px; } }
+
+/* DOCUMENT TITLE */
+#doc-title {
+  margin-bottom: 60px; padding-bottom: 40px;
+  border-bottom: 1px solid var(--border);
+}
+#doc-title h1 {
+  font-family: 'Libre Baskerville', serif; font-size: 36px;
+  font-weight: 700; color: var(--heading); line-height: 1.25;
+  margin-bottom: 16px;
+}
+#doc-title .subtitle {
+  font-family: 'DM Sans', sans-serif; font-size: 13px; color: var(--text-muted);
+  letter-spacing: 0.06em; text-transform: uppercase;
+}
+#doc-title .meta {
+  margin-top: 20px; display: flex; gap: 24px; flex-wrap: wrap;
+}
+.meta-pill {
+  background: var(--card); border: 1px solid var(--border);
+  padding: 4px 12px; border-radius: 20px;
+  font-family: 'DM Sans', sans-serif; font-size: 12px; color: var(--text-secondary);
+}
+
+/* SECTIONS */
+.section {
+  margin-bottom: 80px; padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+.section-header {
+  display: flex; align-items: baseline; gap: 16px; margin-bottom: 32px;
+}
+.section-num {
+  font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--accent); opacity: 0.8; white-space: nowrap;
+}
+.section h2 {
+  font-family: 'Libre Baskerville', serif; font-size: 26px;
+  font-weight: 700; color: var(--heading); line-height: 1.3;
+}
+.section h3 {
+  font-family: 'Libre Baskerville', serif; font-size: 18px;
+  font-weight: 700; color: var(--heading); margin: 32px 0 12px;
+  padding-left: 14px; border-left: 3px solid var(--accent);
+}
+.section h4 {
+  font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500;
+  letter-spacing: 0.05em; text-transform: uppercase;
+  color: var(--accent-warm); margin: 24px 0 8px;
+}
+.section p { margin-bottom: 16px; color: var(--text); }
+.section p:last-child { margin-bottom: 0; }
+.overview {
+  background: var(--card); border: 1px solid var(--border);
+  border-left: 3px solid var(--accent); padding: 20px 24px;
+  border-radius: 0 6px 6px 0; margin-bottom: 32px;
+  font-style: italic; color: var(--text-secondary);
+}
+
+/* TABLES */
+.table-wrap { overflow-x: auto; margin: 24px 0; }
+table {
+  width: 100%; border-collapse: collapse;
+  font-family: 'DM Sans', sans-serif; font-size: 13px;
+}
+thead { background: var(--card); }
+thead th {
+  padding: 10px 14px; text-align: left; font-weight: 500;
+  color: var(--accent); border-bottom: 2px solid var(--border);
+  white-space: nowrap;
+}
+tbody tr { border-bottom: 1px solid var(--border); }
+tbody tr:hover { background: var(--highlight-bg); }
+tbody td { padding: 9px 14px; color: var(--text); vertical-align: top; }
+tbody td:first-child { color: var(--text-secondary); font-weight: 500; white-space: nowrap; }
+
+/* CALLOUT BOXES */
+.callout {
+  border-radius: 6px; padding: 16px 20px; margin: 20px 0;
+  border: 1px solid; font-size: 14.5px;
+}
+.callout.flag {
+  background: rgba(196,92,92,0.07); border-color: rgba(196,92,92,0.3);
+}
+.callout.flag-title {
+  font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--danger); margin-bottom: 8px;
+}
+.callout.note {
+  background: rgba(110,181,212,0.07); border-color: rgba(110,181,212,0.25);
+}
+.callout.note-title {
+  font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 8px;
+}
+.callout.clinical {
+  background: rgba(92,158,120,0.07); border-color: rgba(92,158,120,0.3);
+}
+.callout.clinical-title {
+  font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--success); margin-bottom: 8px;
+}
+
+/* LISTS */
+.section ul, .section ol {
+  padding-left: 24px; margin: 12px 0 16px;
+}
+.section li { margin-bottom: 8px; color: var(--text); }
+.section ul li::marker { color: var(--accent); }
+.section ol li::marker { color: var(--accent); font-weight: 600; }
+
+/* DEEPER BOX */
+.deeper {
+  background: var(--surface); border: 1px solid var(--border);
+  border-top: 2px solid var(--accent-warm); padding: 20px 24px;
+  border-radius: 0 0 6px 6px; margin-top: 40px;
+}
+.deeper-title {
+  font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--accent-warm); margin-bottom: 12px;
+}
+.deeper ul { padding-left: 0; list-style: none; }
+.deeper li {
+  font-family: 'DM Sans', sans-serif; font-size: 13px;
+  color: var(--text-secondary); padding: 5px 0;
+  border-bottom: 1px solid var(--border); margin: 0;
+}
+.deeper li:last-child { border-bottom: none; }
+.deeper li strong { color: var(--text); }
+
+/* PRIORITY TABLE */
+.priority-grid {
+  display: grid; gap: 16px; margin: 20px 0;
+  grid-template-columns: 1fr 1fr;
+}
+@media (max-width: 800px) { .priority-grid { grid-template-columns: 1fr; } }
+.priority-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 6px; padding: 16px;
+}
+.priority-card h5 {
+  font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--accent-warm); margin-bottom: 10px;
+}
+.priority-card ol {
+  padding-left: 18px; margin: 0;
+}
+.priority-card li {
+  font-family: 'DM Sans', sans-serif; font-size: 13px; margin-bottom: 5px;
+}
+
+/* SEARCH HIGHLIGHT */
+.search-highlight { background: rgba(201,168,76,0.3); border-radius: 2px; }
+
+/* PRINT */
+@media print {
+  #top-header, #sidebar, #progress-bar { display: none !important; }
+  #main { margin: 0; padding: 20px; max-width: 100%; }
+  .section { page-break-inside: avoid; }
+  body { color: #000; background: #fff; font-size: 11pt; }
+  .section h2 { color: #000; } .section h3 { color: #111; }
+  table { font-size: 10pt; }
+}
+
+/* SIDEBAR TOGGLE */
+#sidebar-toggle {
+  background: var(--card); border: 1px solid var(--border);
+  color: var(--text-secondary); width: 32px; height: 32px;
+  border-radius: 6px; cursor: pointer; display: flex;
+  align-items: center; justify-content: center; font-size: 16px;
+  transition: all 0.2s; flex-shrink: 0;
+}
+#sidebar-toggle:hover { border-color: var(--accent); color: var(--accent); }
+
+/* MECHANISM TAG */
+.mech-tag {
+  display: inline-block; font-family: 'DM Sans', sans-serif;
+  font-size: 11px; font-weight: 500; letter-spacing: 0.06em;
+  text-transform: uppercase; padding: 2px 8px; border-radius: 3px;
+  margin: 2px;
+}
+.mech-tag.noci { background: rgba(92,158,120,0.15); color: #7bc49a; border: 1px solid rgba(92,158,120,0.3); }
+.mech-tag.neuro { background: rgba(110,181,212,0.12); color: #7ec3de; border: 1px solid rgba(110,181,212,0.3); }
+.mech-tag.cs { background: rgba(196,92,92,0.12); color: #e08080; border: 1px solid rgba(196,92,92,0.3); }
+.mech-tag.mixed { background: rgba(201,168,76,0.12); color: #d4b060; border: 1px solid rgba(201,168,76,0.3); }
+
+strong { color: var(--heading); }
+em { color: var(--text-secondary); }
+hr { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+</style>
+</head>
+<body>
+
+<div id="top-header">
+  <button id="sidebar-toggle" onclick="toggleSidebar()" title="Toggle navigation">☰</button>
+  <h1>Neurology of Musculoskeletal Pain — Clinical Reference</h1>
+  <input type="text" id="search-box" placeholder="Search document…" oninput="searchDoc(this.value)">
+  <button class="header-btn" onclick="window.print()">⎙ Print</button>
+</div>
+<div id="progress-bar"><div id="progress-fill"></div></div>
+
+<nav id="sidebar">
+  <span class="sidebar-label">Contents</span>
+  <a class="nav-item" href="#doc-title"><span class="num">—</span>Overview</a>
+  <div class="nav-divider"></div>
+  <a class="nav-item" href="#s1"><span class="num">01</span>Pain Mechanism Classification</a>
+  <a class="nav-item" href="#s2"><span class="num">02</span>Central Sensitisation</a>
+  <a class="nav-item" href="#s3"><span class="num">03</span>Neurological Involvement by Region</a>
+  <a class="nav-item" href="#s4"><span class="num">04</span>Neuro-Biomechanical Feedback Loop</a>
+  <a class="nav-item" href="#s5"><span class="num">05</span>Motor Control and Neurology</a>
+  <a class="nav-item" href="#s6"><span class="num">06</span>Descending Pain Modulation</a>
+  <a class="nav-item" href="#s7"><span class="num">07</span>Effects of Spinal Manipulation</a>
+  <a class="nav-item" href="#s8"><span class="num">08</span>Neurodynamics in Practice</a>
+  <a class="nav-item" href="#s9"><span class="num">09</span>Autonomic Nervous System</a>
+  <a class="nav-item" href="#s10"><span class="num">10</span>Sleep and Pain Neuroscience</a>
+  <a class="nav-item" href="#s11"><span class="num">11</span>Comorbid Conditions</a>
+  <a class="nav-item" href="#s12"><span class="num">12</span>Emerging Research Areas</a>
+  <a class="nav-item" href="#s13"><span class="num">13</span>Clinical Reasoning Framework</a>
+  <a class="nav-item" href="#s14"><span class="num">14</span>Yellow and Orange Flags</a>
+  <a class="nav-item" href="#s15"><span class="num">15</span>Integrated Treatment Approach</a>
+</nav>
+
+<main id="main">
+
+<div id="doc-title">
+  <div class="subtitle">Clinical Reference Document</div>
+  <h1>Neurology of Musculoskeletal Pain</h1>
+  <div class="meta">
+    <span class="meta-pill">Clinician–Researcher Level</span>
+    <span class="meta-pill">15 Sections</span>
+    <span class="meta-pill">MSK · Chiropractic · Pain Neuroscience</span>
+    <span class="meta-pill">Perth, Western Australia</span>
+  </div>
+  <p style="margin-top:24px; color:var(--text-secondary); font-size:15px; font-style:italic;">
+    This document bridges competent MSK clinical practice and pain neurology specialisation. It assumes a solid chiropractic or physiotherapy foundation and builds well beyond it — referencing established consensus and cutting-edge research, with mechanistic depth at the level of the dorsal horn, thalamus, cortex, glial cells, and autonomic nervous system. Each section covers: core neurobiological mechanism, clinical presentation, assessment approach, treatment and management considerations, referral flags, and pointers for further specialisation.
+  </p>
+</div>
+
+
+<!-- SECTION 1 -->
+<div class="section" id="s1">
+  <div class="section-header">
+    <span class="section-num">Section 01</span>
+    <h2>Pain Mechanism Classification: Clinical Identification</h2>
+  </div>
+  <div class="overview">
+    Pain mechanism classification is the foundational act of clinical reasoning in MSK neurology. Before treatment can be meaningfully sequenced, the clinician needs to identify <em>what the nervous system is actually doing</em> — not just where it hurts. The three broad categories — nociceptive, peripheral neuropathic, and central sensitisation/nociplastic — are not descriptive labels. Each represents a distinct neurobiological state with different drivers, different clinical footprints, and different treatment levers. Misclassification doesn't just produce suboptimal outcomes; it can actively worsen the neurological picture.
+  </div>
+
+  <h3>1.1 The Neurobiological Basis of Each Category</h3>
+
+  <h4>Nociceptive Pain</h4>
+  <p>Nociceptive pain is the output of a normally functioning nociceptive system responding to actual or threatened tissue damage. It is <strong>protective by design</strong>.</p>
+
+  <h4>Transduction and Peripheral Sensitisation</h4>
+  <p>Tissue injury triggers release of the "inflammatory soup" — bradykinin, prostaglandin E2 (PGE2), histamine, serotonin (5-HT), ATP, protons (H⁺), nerve growth factor (NGF), and neuropeptides including CGRP and substance P. These mediators act on nociceptors via specific receptor proteins: TRPV1 (heat, capsaicin, protons), TRPA1 (mechanical, chemical), TRPM8 (cold), and voltage-gated sodium channels Nav1.7 and Nav1.8, which are predominantly expressed on nociceptive afferents.</p>
+  <p><strong>Aδ fibres</strong> are thinly myelinated (2–5 µm), conduct at 5–30 m/s, and mediate sharp, well-localised, first-pain. <strong>C fibres</strong> are unmyelinated (0.2–1.5 µm), conduct at 0.5–2 m/s, and mediate dull, burning, diffuse second-pain and ongoing tissue damage aching.</p>
+  <p>Repetitive nociceptor activation in inflammation reduces the activation threshold of these fibres — <strong>peripheral sensitisation</strong>. PGE2 acting via EP2 receptors activates PKA, which phosphorylates Nav1.8, lowering its threshold. NGF acting via TrkA receptors upregulates TRPV1 expression and increases channel density at the peripheral terminal. The result: lowered activation threshold at the site of injury — the neurobiological basis of <strong>primary hyperalgesia</strong>.</p>
+
+  <h4>Spinal Transmission</h4>
+  <p>First-order Aδ and C fibre afferents synapse in the dorsal horn (Rexed laminae I, II, V for pain). Glutamate is the primary fast excitatory neurotransmitter acting on AMPA/kainate receptors. Substance P acts as a neuromodulator at NK1 receptors, prolonging and amplifying transmission. Second-order neurons — nociceptive-specific (NS) in lamina I or wide dynamic range (WDR) neurons in lamina V — transmit signals via the spinothalamic tract to the thalamus, then to SI, SII, ACC, and insula. In a pure nociceptive state, pain intensity broadly correlates with tissue state. The system resets when tissue heals.</p>
+
+  <h4>Peripheral Neuropathic Pain</h4>
+  <p>Peripheral neuropathic pain arises from a lesion or disease of the <strong>somatosensory nervous system itself</strong> — the axon, the DRG, or both — rather than from nociceptor activation by tissue damage. It represents pathological signal generation within neural tissue.</p>
+  <p><strong>Ectopic discharge and sodium channel pathology:</strong> Following nerve injury, Nav1.3 — normally absent in adult peripheral neurons — is <em>re-expressed</em> at injury sites and in DRG cell bodies. Nav1.3 produces rapid, persistent depolarisation with minimal inactivation, contributing to spontaneous <strong>ectopic discharge</strong>: action potentials generated at the injury site or DRG without any peripheral stimulus. This is the neurobiological source of spontaneous neuropathic pain — burning, electric sensations at rest.</p>
+  <p><strong>DRG sensitisation and cross-talk:</strong> Injured neurons release ATP and other mediators that activate satellite glial cells surrounding each DRG soma, which release pro-inflammatory cytokines (IL-1β, TNF-α) that lower electrical thresholds of neighbouring, uninjured neurons — <strong>cross-excitation</strong>. This contributes to secondary hyperalgesia beyond the primary nerve territory.</p>
+  <p><strong>Sympathetic sprouting:</strong> In established peripheral neuropathic pain, noradrenergic sympathetic postganglionic fibres can sprout into the DRG and form basket structures around large-diameter sensory neurons (Aβ fibres — normally non-nociceptive). These neurons acquire adrenergic responsiveness — the neurobiological basis of <strong>sympathetically maintained pain</strong>.</p>
+
+  <h4>Central Sensitisation / Nociplastic Pain</h4>
+  <p>Central sensitisation (CS) is a state of amplified neuronal excitability within the central nervous system — the dorsal horn, brainstem, thalamus, and cortex — such that the gain of the pain system is pathologically elevated. The peripheral tissue may be normal, minimally damaged, or have healed, yet pain persists and is amplified beyond any peripheral signal.</p>
+  <p>The IASP introduced <strong>nociplastic pain</strong> in 2017 to describe pain arising from altered nociception without clear evidence of actual or threatened tissue damage activating peripheral nociceptors. Mechanistically, CS is the primary driver of nociplastic pain, though the terms are not perfectly synonymous: CS is a neurophysiological state; nociplastic is a clinical classification.</p>
+  <p><strong>Wind-up and LTP:</strong> Wind-up is the progressive increase in action potential discharge from WDR neurons in response to repeated C fibre stimulation at frequencies above 0.33 Hz. Repeated C fibre input → sustained post-synaptic depolarisation → Mg²⁺ block relieved from NMDA receptor channel → Ca²⁺ influx → activation of PKC, PKA, CaMKII, and ERK → phosphorylation and increased conductance of AMPA receptors → trafficking of additional AMPA receptors to the synapse. With sufficient sustained drive, these same cascades trigger gene transcription via CREB, producing structural synaptic changes — including increased NR2B NMDA receptor subunit expression — constituting <strong>LTP at dorsal horn synapses</strong>.</p>
+  <p><strong>Loss of inhibitory tone:</strong> GABAergic and glycinergic inhibitory interneurons in lamina II are compromised in CS. Prostaglandins produced locally in the dorsal horn act on EP2 receptors on glycinergic interneurons, inhibiting glycine release. This <strong>disinhibition</strong> means Aβ fibre inputs — normally subthreshold for pain — now reach suprathreshold WDR neurons and are processed as painful: the neurobiological basis of <strong>static mechanical allodynia</strong>.</p>
+  <p><strong>Glial involvement:</strong> Activated microglia release IL-1β, IL-6, TNF-α, BDNF, and nitric oxide. BDNF from microglia acts on TrkB receptors on dorsal horn neurons, downregulating the KCC2 cotransporter — which normally maintains the Cl⁻ gradient for GABA inhibition — converting GABAergic inhibition to excitation. Astrocytes impair glutamate clearance (downregulation of GLT-1/GLAST), open connexin 43/30 hemichannels releasing glutamate and D-serine, and propagate neuroinflammatory signals across the dorsal horn via gap junctions.</p>
+  <p><strong>Supraspinal changes:</strong> The thalamus develops increased spontaneous activity and reduced thresholds. The ACC is hyperactivated — driving pain catastrophising, fear-avoidance, and descending facilitation via RVM on-cell activation. The PFC shows reduced grey matter density and impaired top-down inhibitory control over the ACC and amygdala. The insula contributes interoceptive hypervigilance and amplified body awareness.</p>
+
+  <h3>1.2 Clinical Identification: Distinguishing Features</h3>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Feature</th><th><span class="mech-tag noci">Nociceptive</span></th><th><span class="mech-tag neuro">Peripheral Neuropathic</span></th><th><span class="mech-tag cs">Central Sensitisation</span></th></tr></thead>
+    <tbody>
+      <tr><td>Distribution</td><td>Localised to injury site or regional</td><td>Dermatomal / nerve territory</td><td>Widespread, non-anatomical</td></tr>
+      <tr><td>Pain quality</td><td>Aching, throbbing, sharp on movement</td><td>Burning, electric, shooting, stabbing</td><td>Variable; diffuse aching, burning</td></tr>
+      <tr><td>Provocation</td><td>Proportionate to mechanical load on tissue</td><td>Nerve tension, compression, specific positions</td><td>Disproportionate, widespread mechanical triggers</td></tr>
+      <tr><td>Temporal</td><td>Consistent with tissue healing trajectory</td><td>Episodic or constant; tied to nerve status</td><td>Persistent; fluctuating without clear pattern</td></tr>
+      <tr><td>Allodynia</td><td>Local primary hyperalgesia only</td><td>Within nerve/dermatomal territory</td><td>Widespread, beyond injury region</td></tr>
+      <tr><td>Neurological signs</td><td>Absent</td><td>May be present (motor, reflex, sensory changes)</td><td>Absent true deficit (sensory testing may be altered)</td></tr>
+      <tr><td>Sleep</td><td>May be disturbed if severe</td><td>Often significantly disturbed</td><td>Commonly and significantly disturbed</td></tr>
+      <tr><td>Response to analgesia</td><td>Good to NSAIDs / paracetamol</td><td>Poor to NSAIDs; may respond to SNRIs, gabapentinoids</td><td>Poor to peripheral analgesics; context and lifestyle are primary levers</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>1.3 Validated Screening Tools</h3>
+  <h4>Neuropathic Pain Screening</h4>
+  <ul>
+    <li><strong>LANSS</strong> — 7-item clinician-administered. Score ≥12/24 suggests neuropathic mechanism. Sensitivity 82–91%, specificity 80–94%. Includes bedside sensory testing.</li>
+    <li><strong>DN4</strong> — 10-item (7 symptoms, 3 examination). Score ≥4/10 indicates probable neuropathic component. Well-validated across MSK populations.</li>
+    <li><strong>painDETECT</strong> — Self-report, 9 items. Score ≥19 indicates likely neuropathic component. No examination component required.</li>
+  </ul>
+  <h4>Central Sensitisation Screening</h4>
+  <ul>
+    <li><strong>Central Sensitisation Inventory (CSI)</strong> — 25-item self-report. Score ≥40/100 is the primary cut-off for probable CS (sensitivity 81%, specificity 75%). Does not diagnose CS but identifies the clinical syndrome.</li>
+    <li><strong>STarT Back Screening Tool</strong> — 9-item stratification into low, medium, high risk based on physical and psychosocial factors. High-risk score identifies patients requiring psychologically informed intervention.</li>
+    <li><strong>Pain Catastrophising Scale (PCS)</strong> — 13-item. Scores ≥30 indicate clinically significant catastrophising. Strong predictor of CS severity and poor treatment response to peripheral interventions.</li>
+    <li><strong>Tampa Scale for Kinesiophobia (TSK-11)</strong> — Fear of movement/reinjury. Elevated scores predict pain persistence and disability.</li>
+    <li><strong>FABQ</strong> — Fear-avoidance beliefs for work and physical activity. Identifies fear-avoidance patterns that perpetuate CS.</li>
+    <li><strong>PSEQ</strong> — 10-item pain self-efficacy measure. Inversely correlates with CS severity; a protective prognostic factor.</li>
+  </ul>
+
+  <h3>1.4 How Classification Drives Management Priority</h3>
+  <p><strong>Nociceptive dominant:</strong> The nervous system is functioning normally but responding to a real peripheral input. Treatment priority is tissue-directed: load management, manual therapy to the affected structure, exercise progressed within tissue tolerance. Patient education focuses on tissue healing timelines and graded activity resumption. If the peripheral input does not resolve within the clinically expected timeframe, reassess for emerging CS.</p>
+  <p><strong>Peripheral neuropathic dominant:</strong> The lesion is in the peripheral nerve or DRG. Treatment priority is nerve health — reducing mechanical tension, reducing local ischaemia and intraneural oedema, graded neural loading. Neural mobilisation techniques are primary tools (Section 8). Left untreated, peripheral neuropathic pain is a primary driver of CS over time — treating the peripheral lesion early is also CS prevention.</p>
+  <p><strong>Central sensitisation dominant:</strong> Peripheral tissue-directed treatment applied as the primary intervention in this presentation often has poor outcomes and can worsen the neurological picture. Management priority shifts to: (1) pain neuroscience education (PNE), (2) graded motor imagery and graded exposure, (3) sleep optimisation, (4) aerobic exercise for descending modulation, (5) stress/ANS regulation, and (6) addressing psychosocial drivers. Manual therapy and exercise remain in the toolkit — but their mechanism of action, dose, and sequencing changes fundamentally.</p>
+
+  <div class="deeper">
+    <div class="deeper-title">Going Deeper</div>
+    <ul>
+      <li><strong>Woolf CJ (2011)</strong> — "Central sensitization: Implications for the diagnosis and treatment of pain." <em>Pain</em> 152(3 Suppl): S2–15.</li>
+      <li><strong>Treede RD et al. (2019)</strong> — Chronic pain classification in ICD-11. <em>Pain</em> 160(1):19–27.</li>
+      <li><strong>Nijs J et al. (2021)</strong> — Nociplastic pain criteria and clinical decision-making framework. <em>J Clin Med.</em></li>
+      <li><strong>Jensen TS & Finnerup NB (2014)</strong> — Allodynia and hyperalgesia in neuropathic pain. <em>Lancet Neurol.</em></li>
+      <li><strong>Costigan M, Scholz J, Woolf CJ (2009)</strong> — Neuropathic pain: a maladaptive response of the nervous system to damage. <em>Annu Rev Neurosci.</em></li>
+    </ul>
+  </div>
+</div>
+
+<!-- SECTION 2 -->
+<div class="section" id="s2">
+  <div class="section-header">
+    <span class="section-num">Section 02</span>
+    <h2>Central Sensitisation: Neuroscience and Clinical Management</h2>
+  </div>
+  <div class="overview">
+    Central sensitisation (CS) is arguably the most clinically important concept in modern MSK pain management. It explains why pain persists beyond tissue healing, why patients with minimal structural findings have severe disability, why conventional tissue-focused treatment fails in a substantial proportion of chronic pain patients, and why the same injury produces vastly different outcomes in different people. Understanding CS at a mechanistic level changes how you think about every patient in your consult room.
+  </div>
+
+  <h3>2.1 Dorsal Horn Mechanisms</h3>
+  <h4>Wide Dynamic Range Neurons</h4>
+  <p>WDR neurons in laminae IV–VI receive convergent input from Aβ (low threshold mechanoreceptors), Aδ, and C fibres, as well as from multiple segmental and regional inputs. This convergence is the neuroanatomical basis of referred pain. In normal function, WDR neurons encode stimulus intensity faithfully. In CS, firing thresholds drop, firing rates increase, and receptive fields expand — a single WDR neuron responds to inputs from a larger area of tissue.</p>
+
+  <h4>Wind-Up: Molecular Cascade</h4>
+  <p>Wind-up requires C fibre stimulation at ≥0.33 Hz. The molecular sequence:</p>
+  <ol>
+    <li>Repeated C fibre input → repetitive glutamate and substance P release</li>
+    <li>Glutamate activates AMPA receptors → initial fast EPSP → partial depolarisation</li>
+    <li>Substance P acts on NK1 receptors → slower, sustained depolarisation via Gq-coupled PLC pathway</li>
+    <li>Combined depolarisation exceeds threshold → Mg²⁺ relief from NMDA receptor channel</li>
+    <li>Ca²⁺ influx through NMDA receptor → activation of CaMKII, PKC, PKA, and ERK</li>
+    <li>PKC and PKA phosphorylate AMPA receptors (GluA1 Ser831 and Ser845) → increased channel conductance</li>
+    <li>ERK activation → trafficking of GluA1-containing AMPA receptors to the synapse</li>
+    <li>Increased synaptic AMPA density → amplified response to subsequent inputs</li>
+  </ol>
+  <p>Wind-up is transient. With sustained C fibre drive, the same cascade triggers gene transcription via CREB, producing structural synaptic changes — including increased NR2B NMDA receptor subunit expression (larger conductance, slower deactivation) — constituting <strong>long-term potentiation (LTP)</strong>.</p>
+
+  <h4>Spinal LTP — The Pain Memory Analogy</h4>
+  <p>Spinal LTP has been demonstrated in vivo following high-frequency C fibre conditioning stimulation, and is mechanistically indistinguishable from hippocampal LTP. It requires NMDA receptor activation, Ca²⁺ influx, and downstream kinase cascades. Via glial cell activation and diffusion of inflammatory mediators, it can become heterosynaptic — sensitising adjacent synapses. The critical clinical implication: <strong>chronic pain involves a memory-like synaptic change in the dorsal horn</strong>. Patients with long-standing CS do not simply "get better" when peripheral input resolves — the sensitised synaptic state persists, requiring active reversal.</p>
+
+  <h4>Loss of Inhibitory Tone</h4>
+  <p>The dorsal horn operates under substantial GABAergic and glycinergic inhibitory control from local interneurons in lamina II. In CS, PGE2 produced locally acts on EP2 receptors on glycinergic interneurons, inhibiting glycine release. GABAergic interneurons may undergo apoptosis following intense nociceptive input. This <strong>disinhibition</strong> converts Aβ fibre input from sub-threshold to supra-threshold: light touch producing pain — static mechanical allodynia.</p>
+
+  <h3>2.2 Glial Cell Involvement</h3>
+  <h4>Microglia</h4>
+  <p>Activated by ATP (P2X4/P2X7), fractalkine/CX3CL1 (CX3CR1), substance P (NK1), and TLR4, microglia release: <strong>BDNF, IL-1β, IL-6, TNF-α, nitric oxide, ROS, and PGE2</strong>.</p>
+  <p>BDNF from microglia acts on TrkB receptors on lamina I neurons, downregulating <strong>KCC2</strong> — the potassium-chloride cotransporter maintaining the Cl⁻ gradient that makes GABA inhibitory. When KCC2 is downregulated, GABA depolarises rather than hyperpolarises the post-synaptic neuron — <strong>GABAergic inhibition converts to excitation</strong>. This is a critical step in allodynia development, particularly in neuropathic pain, and explains why benzodiazepines can be paradoxically ineffective or harmful in some CS states.</p>
+  <p>IL-1β acts on IL-1R1 receptors, directly potentiating NMDA-mediated currents and upregulating COX-2. TNF-α activates NF-κB, upregulating Nav1.3 and Nav1.8 expression. <strong>Low-dose naltrexone (LDN)</strong> achieves analgesic effects primarily through TLR4 antagonism on microglia — not opioid receptor antagonism — reducing microglial activation and the downstream neuroinflammatory cascade.</p>
+
+  <h4>Astrocytes</h4>
+  <p>In CS, astrocyte activation leads to: downregulation of GLT-1/GLAST glutamate transporters → elevated synaptic glutamate → sustained NMDA activation; opening of connexin 43/30 hemichannels → release of ATP, glutamate, and D-serine into the extracellular space. <strong>D-serine</strong> is a co-agonist at the NMDA receptor glycine site — astrocyte-derived D-serine directly potentiates NMDA receptor opening probability. Gap junction syncytia allow neuroinflammatory signalling to propagate widely across the dorsal horn.</p>
+
+  <h3>2.3 Thalamic and Cortical Changes</h3>
+  <h4>Thalamic Sensitisation and Gating Failure</h4>
+  <p>In CS, thalamic neurons develop increased spontaneous firing rates (bursting activity — perceived as spontaneous pain), expanded receptive fields, and reduced activation thresholds. The medial thalamic nuclei process affective-motivational dimensions; the lateral nuclei (VPL, VPM) process sensory-discriminative dimensions. Both systems are dysregulated. Thalamic gating — which normally filters ascending nociceptive signals under descending modulatory control — becomes inefficient, allowing increased pain signal transmission from minimal peripheral inputs.</p>
+
+  <h4>Anterior Cingulate Cortex (ACC)</h4>
+  <p>The ACC mediates the <em>unpleasantness</em> and suffering of pain — the affective-motivational dimension. In CS: ACC shows increased connectivity with the medial thalamus and insula; NR2B-containing NMDA receptor density is increased (LTP-type mechanism); ACC hyperactivation produces catastrophic appraisal, fear-avoidance, and the subjective quality of pain as threatening and uncontrollable. Critically, ACC projects to the RVM via descending pathways — <strong>ACC hyperactivation drives descending pain facilitation from RVM on-cells</strong>, meaning cortical pain amplification actively feeds back to the dorsal horn. ACC activation correlates directly with PCS scores — catastrophising reflects measurable ACC hyperactivation, not simply a psychological trait.</p>
+
+  <h4>Prefrontal Cortex</h4>
+  <p>The dorsolateral PFC (dlPFC) provides top-down inhibitory regulation of the ACC and amygdala. In chronic pain: dlPFC shows reduced grey matter density (documented in fibromyalgia, CRPS, and CLBP populations), reduced connectivity with the ACC, and impaired inhibitory function. The dlPFC also projects to the PAG as part of cognitive-evaluative descending inhibition — impaired dlPFC therefore impairs the effectiveness of distraction, reappraisal, and placebo, explaining why these fail in high-catastrophising patients. <strong>TMS and tDCS targeting the dlPFC</strong> are under investigation for fibromyalgia and CLBP.</p>
+
+  <h4>Insular Cortex</h4>
+  <p>Integrates interoceptive signals with nociceptive inputs. Insular hyperactivation in CS produces heightened body awareness, somatic hypervigilance, and amplified perception of innocuous interoceptive signals as threatening. The insula-ACC-hippocampal circuit explains how memory and contextual learning modulate pain in CS states — and why context is such a potent treatment variable.</p>
+
+  <h3>2.4 Clinical Presentation of Central Sensitisation</h3>
+  <h4>History Features</h4>
+  <ul>
+    <li>Pain <strong>disproportionate</strong> to the apparent severity of the tissue finding or initial injury</li>
+    <li>Pain that is <strong>widespread</strong> or has spread beyond the original injury region over time</li>
+    <li>Pain triggered by stimuli not normally painful — light touch, vibration, temperature, sound, smell, bright light</li>
+    <li><strong>Temporal summation</strong> evident — pain that winds up with sustained activity, peaks, and remains elevated well after activity ceases</li>
+    <li>Multiple CS-associated conditions: frequent headaches, IBS, bladder hypersensitivity, TMJ, dysmenorrhoea</li>
+    <li><strong>Poor response to tissue-directed treatment</strong> with multiple previous practitioners</li>
+    <li>Sleep disturbance and fatigue prominent; high CSI (≥40)</li>
+    <li>Significant psychosocial loading — anxiety, catastrophising language, fear-avoidance, depression</li>
+  </ul>
+  <h4>Examination Features</h4>
+  <ul>
+    <li>Allodynia on QST or clinical sensory testing — light touch, brush, or vibration producing pain</li>
+    <li>Widespread tenderness on palpation beyond the primary complaint region</li>
+    <li>Pressure pain threshold reduced remote from injury site</li>
+    <li>Hyperalgesia — increased pain response to a mildly noxious stimulus</li>
+    <li>Absence of clear peripheral structural pathology explaining severity</li>
+    <li>High STarT Back, high PCS, high TSK-11</li>
+  </ul>
+
+  <div class="callout flag">
+    <div class="callout flag-title">⚠ Red Flags for CS as Dominant Driver — Lower Referral Threshold</div>
+    <ul>
+      <li>CSI ≥40 with multiple CS-associated comorbidities (fibromyalgia, IBS, chronic fatigue, TMJ)</li>
+      <li>Widespread pain (≥4 of 5 body regions) persisting &gt;3 months</li>
+      <li>Significant allodynia on examination</li>
+      <li>PCS ≥30 combined with high fear avoidance (TSK elevated)</li>
+      <li>History of childhood adversity or trauma — significant predictor of CS vulnerability via early HPA axis programming</li>
+      <li>Multiple failed conventional treatments with no adequate explanation</li>
+      <li>Significant functional disability disproportionate to structural findings</li>
+      <li>Active comorbid anxiety, depression, or PTSD symptoms</li>
+    </ul>
+  </div>
+
+  <h3>2.5 Treatment Approach: How CS Changes Management Priority</h3>
+  <p>When CS is identified as the dominant driver, the treatment framework shifts fundamentally. The following hierarchy applies:</p>
+  <ol>
+    <li><strong>Pain neuroscience education (PNE):</strong> Reconceptualising the patient's neurobiological model — shifting from a tissue-damage threat model to a nervous system sensitisation model. Reduces threat appraisal → reduces ACC activation and descending facilitation. Reduces PCS and TSK scores. Improves dlPFC engagement in top-down regulation. PNE is not simple explanation — it requires the clinician to understand the neuroscience deeply enough to build a genuinely accurate neurobiological model with the patient using their specific history.</li>
+    <li><strong>Graded activity and exercise:</strong> Exercise is the most powerful non-pharmacological tool for modifying CS, primarily via descending modulation (Section 6). In high-sensitivity CS states, poorly dosed exercise can activate the sensitised system. Graded exposure — starting well below symptom threshold and progressing by small, predetermined increments regardless of symptom fluctuation — is essential.</li>
+    <li><strong>Sleep optimisation:</strong> Sleep deprivation and poor sleep quality directly degrade descending inhibitory tone and amplify CS. Without addressing sleep, other interventions operate against a persistently dysregulated system (Section 10).</li>
+    <li><strong>Stress and ANS management:</strong> Chronic stress maintains HPA axis activation and sympathetic dominance, perpetuating CS. Aerobic exercise, diaphragmatic breathing, sleep, and social connection are the primary clinical tools.</li>
+    <li><strong>Manual therapy — modified role:</strong> Not contraindicated, but its primary mechanism shifts to descending modulation effects (endorphin/serotonin release, sympathoinhibitory effects, mechanoreceptor-mediated gating) rather than tissue structural change. Dose and force must be calibrated to avoid activating the sensitised system.</li>
+    <li><strong>Pharmacological considerations:</strong> CS does not respond to NSAIDs or opioids. Evidence-based options: SNRIs (duloxetine, venlafaxine), TCAs (amitriptyline — NMDA antagonism, NE/5-HT reuptake), gabapentinoids (α2δ calcium channel blockade), low-dose naltrexone (glial TLR4 antagonism). Co-prescriber decisions.</li>
+    <li><strong>Pain specialist / pain psychology referral:</strong> CS with high psychosocial loading, duration &gt;6 months, significant functional impairment, or failed conservative management warrants referral. Multidisciplinary pain programme is gold standard for established CS.</li>
+  </ol>
+
+  <div class="deeper">
+    <div class="deeper-title">Going Deeper</div>
+    <ul>
+      <li><strong>Woolf CJ (2011)</strong> — "Central sensitization: Implications for the diagnosis and treatment of pain." <em>Pain</em> 152 (Suppl 3): S2–15.</li>
+      <li><strong>Latremoliere A, Woolf CJ (2009)</strong> — "Central sensitization: a generator of pain hypersensitivity by central neural plasticity." <em>J Pain</em> 10(9):895–926.</li>
+      <li><strong>Ji RR, Nackley A, Huh Y, Terrando N, Maixner W (2018)</strong> — "Neuroinflammation and Central Sensitization in Chronic and Widespread Pain." <em>Anesthesiology</em> 129(2):343–366.</li>
+      <li><strong>Moseley GL, Butler DS (2015)</strong> — "Fifteen years of explaining pain: The past, present, and future." <em>J Pain</em> 16(9):807–813.</li>
+      <li><strong>Kuner R, Flor H (2017)</strong> — "Structural plasticity and reorganisation in chronic pain." <em>Nat Rev Neurosci</em> 18(1):20–30.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- SECTION 3 -->
+<div class="section" id="s3">
+  <div class="section-header">
+    <span class="section-num">Section 03</span>
+    <h2>Neurological Involvement in Common MSK Conditions by Region</h2>
+  </div>
+  <div class="overview">
+    MSK pain presentations that do not respond predictably to tissue-directed treatment often have an unrecognised or underweighted neurological component. For each region: neuroanatomy of the key nerves and their vulnerability; clinical presentation distinguishing neuropathic involvement from pure tissue pathology; differentiation between entrapment neuropathy, radiculopathy, and sensitisation overlay; assessment and management.
+  </div>
+
+  <h3>3.1 Lumbar Spine and Gluteal Region</h3>
+
+  <h4>Sciatic Nerve (L4–S3)</h4>
+  <p>The sciatic nerve forms from ventral rami of L4–S3, exits the pelvis through the greater sciatic foramen (inferior to piriformis in ~85% of individuals), descends through the posterior thigh, and bifurcates into the <strong>tibial nerve</strong> and <strong>common peroneal nerve</strong> at or above the popliteal fossa.</p>
+  <p><strong>Lumbar radiculopathy</strong> involves compression or irritation of the nerve root within the spinal canal or foramen — most commonly at L4–5 (L5 root) or L5–S1 (S1 root). The DRG sits within or just outside the foramen and is exquisitely sensitive to both mechanical compression and inflammatory sensitisation from nucleus pulposus-derived mediators (PLA2, IL-1β, TNF-α). Pain is generated primarily at the DRG, not the root itself. Clinical signature: dermatomal pain (posterior leg to foot for S1; lateral leg to dorsal foot for L5; anterior thigh to medial leg for L4), aggravated by neural tension tests, with neurological deficits consistent with root level.</p>
+  <p><strong>Deep gluteal syndrome / piriformis syndrome</strong> involves compression of the sciatic nerve within the deep gluteal space between the piriformis, obturator internus, gemellus muscles, and ischium. Underdiagnosed and clinically indistinguishable from S1/S2 radiculopathy by symptom description alone. Distinguishing features: no spinal movement component; positive FAIR test (flexion, adduction, internal rotation compressing piriformis on nerve); tenderness at the greater sciatic notch; negative lumbar MRI; pain aggravated by prolonged sitting and hip flexion under load.</p>
+
+  <h4>Superior Gluteal Nerve (L4–S1)</h4>
+  <p>Exits above the piriformis; supplies gluteus medius, gluteus minimus, and TFL. Entrapment produces lateral hip pain, hip abductor weakness, and Trendelenburg pattern — mimics greater trochanteric pain syndrome. Distinguishable by neurological testing (hip abductor strength and EMG).</p>
+
+  <h4>Posterior Femoral Cutaneous Nerve (S1–S3)</h4>
+  <p>Purely sensory, exits inferior to the sciatic nerve, supplies posterior thigh and perineum. Entrapment in the deep gluteal space or between biceps femoris and ischial tuberosity produces posterior thigh pain and dysaesthesia without motor deficit — commonly misattributed to hamstring pathology or sacroiliac joint referral.</p>
+
+  <h4>Pudendal Nerve (S2–S4)</h4>
+  <p>Exits greater sciatic foramen, loops around the ischial spine, re-enters via the lesser sciatic foramen, and runs through <strong>Alcock's canal</strong> within the obturator fascia. Supplies the perineum, genitalia, and external sphincters.</p>
+  <p><strong>Pudendal neuralgia:</strong> perineal, rectal, or genital pain worse with sitting (compressing Alcock's canal), partially relieved by standing. Underdiagnosed in MSK practice. <strong>Nantes criteria</strong>: pain in pudendal nerve territory, aggravated by sitting, not waking from sleep, no objective sensory loss, positive anaesthetic nerve block. Clinically relevant in patients presenting with chronic coccydynia, chronic pelvic pain, or unexplained groin/adductor pain. Refer to specialist pain physician for diagnostic/therapeutic pudendal nerve block.</p>
+
+  <h4>Superior Cluneal Nerves (dorsal rami L1–L3)</h4>
+  <p>Cross the iliac crest and can be entrapped at the thoracolumbar fascia. Produces lateral buttock pain with potential dysaesthesia aggravated by spinal flexion/extension. An underrecognised cause of apparent "low back pain" or "sacroiliac pain." Tinel's sign at the posterior iliac crest and provocation palpation at the entrapment site are key examination tools.</p>
+
+  <h3>3.2 Cervical Spine and Upper Limb</h3>
+
+  <h4>Cervical Radiculopathy — Root Level Reference</h4>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Root</th><th>Primary muscles tested</th><th>Reflex</th><th>Sensory territory</th></tr></thead>
+    <tbody>
+      <tr><td>C5</td><td>Deltoid, supraspinatus, infraspinatus</td><td>Biceps</td><td>Lateral arm</td></tr>
+      <tr><td>C6</td><td>Biceps, wrist extensors (ECRL/ECRB)</td><td>Brachioradialis</td><td>Lateral forearm, thumb, index finger</td></tr>
+      <tr><td>C7</td><td>Triceps, wrist flexors, finger extensors</td><td>Triceps</td><td>Middle finger, dorsal forearm</td></tr>
+      <tr><td>C8</td><td>Finger flexors, hand intrinsics</td><td>None reliable</td><td>Medial forearm, ring/little finger</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>The pain quality of radiculopathy — electric, shooting, burning, with paraesthesia in dermatomal distribution — reflects ectopic DRG discharge. C6 radiculopathy (C5–6 disc pathology) is most common. Neural tension testing: ULNT 1 (median nerve/C6-7), ULNT 2a (radial nerve/C5-6), ULNT 3 (ulnar nerve/C8-T1).</p>
+
+  <h4>Thoracic Outlet Syndrome (TOS)</h4>
+  <p>Compression of the brachial plexus (neurogenic TOS — 95%), subclavian artery, or vein between the first rib, clavicle, and scalenes. True neurogenic TOS involves lower trunk compression (C8–T1) producing Gilliatt-Sumner hand: thenar and hypothenar wasting with medial forearm sensory loss. More commonly seen in MSK: <em>disputed/symptomatic TOS</em> — diffuse arm pain, paraesthesia, and heaviness without definitive neurological deficit. Assessment integrates posture (forward head, elevated first rib, scalene hypertonicity), neurodynamic testing (ROOS, ULNT), and vascular assessment. High overlap with cervical radiculopathy and double crush syndrome.</p>
+
+  <h4>Median Nerve Entrapment — CTS and Double Crush</h4>
+  <p><strong>Carpal tunnel syndrome:</strong> nocturnal paraesthesia in median territory (thumb, index, middle, radial half of ring finger), Flick sign, positive Phalen's/Durkan's. Established CTS: thenar wasting and weakness of thumb opposition. <strong>Double crush phenomenon:</strong> simultaneous nerve compromise at two points (C6 root + CTS) — each subthreshold alone, but combined producing significant neuropathic symptoms. Always evaluate the entire nerve course before attributing symptoms to a single site.</p>
+
+  <h4>Ulnar Nerve — Cubital Tunnel and Guyon's Canal</h4>
+  <p>Primary compression: cubital tunnel at the medial elbow. Cubital tunnel syndrome: medial elbow aching, paraesthesia in little and ring fingers, intrinsic hand weakness (intrinsic minus posture, Froment's sign), aggravated by sustained elbow flexion. Second site: Guyon's canal at the wrist hook of hamate (cyclist's palsy).</p>
+
+  <h4>Radial Nerve</h4>
+  <p>Vulnerable in the spiral groove of the humerus (Saturday night palsy). <strong>Posterior interosseous nerve (PIN)</strong> compressed at arcade of Frohse within the supinator: finger and wrist extensor weakness without sensory loss (motor branch only distal to arcade). <strong>Superficial radial nerve</strong> (Wartenberg's syndrome): sensory compression at the wrist producing dorsal thumb and radial hand paraesthesia.</p>
+
+  <h3>3.3 Shoulder</h3>
+
+  <h4>Suprascapular Nerve (C5–C6)</h4>
+  <p>Passes through the suprascapular notch (under the superior transverse scapular ligament) to supraspinatus, then around the spinoglenoid notch to infraspinatus. Entrapment at the suprascapular notch: posterolateral shoulder pain, supraspinatus and infraspinatus weakness, suprascapular fossa wasting. Compression at the spinoglenoid notch (most common site, often associated with paralabral cyst from posterior labral tear): isolated infraspinatus weakness and posterior shoulder pain. <strong>Commonly misattributed to rotator cuff tendinopathy.</strong> Infraspinatus wasting, weakness out of proportion to a structural tendon finding, or persistent pain not responding to standard rotator cuff rehab should prompt evaluation. Neural tension test: contralateral cervical lateral flexion combined with ipsilateral shoulder depression and scapular protraction.</p>
+
+  <h4>Axillary Nerve (C5–C6)</h4>
+  <p>Exits axilla through the quadrilateral space. Supplies deltoid, teres minor, and lateral arm skin. <strong>Quadrilateral space syndrome:</strong> posterolateral shoulder pain with deltoid weakness. Axillary nerve injury is common after anterior shoulder dislocation — always assess deltoid strength and lateral arm sensation post-dislocation; absent or reduced function warrants EMG/NCS. The combination of suprascapular neuropathy, axillary neuropathy, and C5 radiculopathy can mimic rotator cuff tears or impingement syndrome — systematic motor testing is essential.</p>
+
+  <h3>3.4 Hip and Thigh</h3>
+
+  <h4>Femoral Nerve (L2–L4)</h4>
+  <p>Supplies quadriceps, sartorius, and pectineus; sensory supply to anterior thigh and medial leg via saphenous nerve. Entrapment at the inguinal ligament (hip hyperextension — prone positioning, surgery) or within the iliopsoas compartment (haematoma). Presentation: anterior thigh pain, quadriceps weakness, reduced/absent patellar reflex, anterior thigh sensory disturbance. <strong>Femoral nerve tension test (FNST):</strong> prone knee bend — hip extension with knee flexion reproduces anterior thigh symptoms.</p>
+
+  <h4>Lateral Femoral Cutaneous Nerve (L2–L3) — Meralgia Paraesthetica</h4>
+  <p>Purely sensory, passes under or through the inguinal ligament medial to the ASIS. One of the most commonly misdiagnosed peripheral neuropathies in MSK practice. <strong>Presentation:</strong> burning, numbness, or tingling over the anterolateral thigh, worsened by prolonged standing/walking and tight clothing. No motor deficit. Palpation medial to the ASIS reproduces symptoms. <strong>Distinguishing feature:</strong> purely sensory, anterolateral thigh only, no motor involvement, no spinal component. Differential: L2–L3 radiculopathy and femoral nerve involvement (latter will have motor findings).</p>
+
+  <h4>Obturator Nerve (L2–L4)</h4>
+  <p>Passes through the obturator foramen; supplies adductor muscles and medial thigh skin. Entrapment important in athletes: adductor/groin pain with exertion, medial thigh dysaesthesia, adductor weakness. Obturator hernia (older women): medial thigh pain with <strong>Howship-Romberg sign</strong> — medial thigh pain with medial rotation and extension of the hip.</p>
+
+  <h3>3.5 Knee and Lower Leg</h3>
+
+  <h4>Common Peroneal Nerve (L4–S2)</h4>
+  <p>Most commonly injured peripheral nerve in the lower limb. Wraps around the fibular neck — vulnerable to compression (prolonged squatting, leg crossing, plaster cast, fibular fracture). Injury produces <strong>footdrop:</strong> weakness of dorsiflexion and eversion (superficial peroneal) and toe extension (deep peroneal), with sensory loss over the dorsum of the foot. Deep peroneal nerve compression at the anterior tarsal tunnel: isolated pain and sensory loss over the first webspace.</p>
+
+  <h4>Saphenous Nerve (L3–L4)</h4>
+  <p>Purely sensory terminal branch of the femoral nerve; exits Hunter's canal at the medial knee. <strong>Saphenous neuropathy:</strong> medial knee and lower leg pain and dysaesthesia — common contributor to medial knee pain presentations where structural medial compartment pathology is absent. Hunter's canal is the primary entrapment site. <strong>Infrapatellar branch of the saphenous nerve (IPBSN)</strong> entrapment produces medial inferior patellar pain — common after anterior knee surgery ("no-man's land" pain).</p>
+
+  <h4>Tibial Nerve — Tarsal Tunnel Syndrome and Baxter's Neuropathy</h4>
+  <p><strong>Tarsal tunnel syndrome:</strong> compression at the tarsal tunnel posterior to the medial malleolus. Burning plantar foot pain, plantar paraesthesia, intrinsic muscle weakness in established cases. Tinel's sign posterior to the medial malleolus; positive dorsiflexion-eversion test.</p>
+  <p><strong>Baxter's neuropathy</strong> (inferior calcaneal nerve entrapment — first branch of the lateral plantar nerve) is estimated responsible for ~20% of chronic heel pain diagnosed as plantar fasciitis. Clinically identical to plantar fasciitis but distinguished by: (1) maximal tenderness at medial heel at the abductor hallucis/flexor digitorum brevis interface (lateral border), (2) weakness of abductor digiti minimi, and (3) failure to respond to standard plantar fasciitis management.</p>
+
+  <h3>3.6 Headache and Craniocervical Region</h3>
+
+  <h4>Trigeminocervical Nucleus and Cervicogenic Referral</h4>
+  <p>The <strong>trigeminocervical nucleus (TCN)</strong> is the anatomical convergence point explaining why cervical dysfunction produces headache. The spinal trigeminal nucleus (pars caudalis) descends from the brainstem into the C1–C3 dorsal horn, receiving convergent input from: the trigeminal nerve (face and scalp) and C1, C2, C3 dorsal rami (suboccipital muscles, atlanto-axial joints, C2–3 facet joints, upper cervical dura). Upper cervical nociceptive input is therefore perceived as frontal, orbital, or temporal headache — not referred pain in the peripheral neuropathic sense but a convergence phenomenon at the TCN. The <strong>CCFT</strong> (craniocervical flexion test) identifies upper cervical motor control deficits associated with cervicogenic headache.</p>
+
+  <h4>Greater Occipital Nerve (GON) — C2 Dorsal Ramus</h4>
+  <p>Pierces semispinalis capitis and trapezius, ascending to supply the posterior and superior scalp. Entrapment produces <strong>occipital neuralgia:</strong> paroxysmal, shooting, electric pain in the occipital, retroauricular, and parietal regions. Tinel's sign at the GON exit point (2 cm inferior and 1.5 cm lateral to the inion). Diagnostic/therapeutic GON block confirms diagnosis. Must be distinguished from cervicogenic headache (broader TCN convergence mechanism, responds to upper cervical manipulation) and from migraine with cervical trigger (a primary brain disorder).</p>
+
+  <h4>Cortical Spreading Depression and Migraine</h4>
+  <p>Migraine is a primary neurological disorder. The <strong>aura</strong> reflects <strong>cortical spreading depression (CSD):</strong> a slowly propagating (2–5 mm/min) wave of neuronal and glial depolarisation, followed by sustained suppression, spreading across the cortex. CSD activates the trigeminovascular system — meningeal nociceptors activated by CSD release CGRP and substance P, producing the throbbing headache via TCN activation and CS. Cervical musculoskeletal dysfunction can act as a <em>trigger</em> for migraine in susceptible individuals via TCN activation, but does not cause migraine. Treating cervical dysfunction can reduce migraine frequency but will not abort an established attack. Patients with frequent or disabling migraine should be under neurologist care.</p>
+
+  <h3>3.7 Cross-Regional Assessment Principles</h3>
+  <p>The following examination sequence applies across all regions:</p>
+  <ol>
+    <li><strong>Myotomal testing</strong> — isometric testing of key muscles at mid-range, graded 0–5 MRC. Weakness indicates motor root or peripheral nerve involvement.</li>
+    <li><strong>Dermatomal sensory testing</strong> — light touch (Aβ), pinprick (Aδ), temperature (C fibre). Compare bilaterally.</li>
+    <li><strong>Reflex testing</strong> — biceps (C5), brachioradialis (C6), triceps (C7), patellar (L3–4), Achilles (S1). Absent or diminished = compromised root or peripheral nerve; hyperreflexia with clonus = upper motor neuron pathology requiring urgent referral.</li>
+    <li><strong>Neurodynamic testing</strong> — see Section 8.</li>
+    <li><strong>Tinel's sign</strong> — tapping over a known peripheral nerve compression site reproduces distal paraesthesia in the nerve territory.</li>
+    <li><strong>Region-specific provocation tests</strong> — as described above.</li>
+  </ol>
+
+  <div class="deeper">
+    <div class="deeper-title">Going Deeper</div>
+    <ul>
+      <li><strong>Bogduk N (2003)</strong> — <em>Clinical Anatomy of the Lumbar Spine and Sacrum.</em> Elsevier. Definitive neuroanatomical reference.</li>
+      <li><strong>Butler DS (2000)</strong> — <em>The Sensitive Nervous System.</em> NOI Group.</li>
+      <li><strong>Tiel RL (2008)</strong> — "Piriformis and related entrapment syndromes: myth and fallacy." <em>Neurosurg Clin N Am.</em></li>
+      <li><strong>Loeser JD, Treede RD (2008)</strong> — IASP terminology. <em>Pain</em> 137(3):473–477.</li>
+      <li><strong>Netter FH</strong> — <em>Atlas of Human Anatomy.</em> Saunders. Brachial plexus and peripheral nerve anatomy.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- SECTION 4 -->
+<div class="section" id="s4">
+  <div class="section-header">
+    <span class="section-num">Section 04</span>
+    <h2>The Neuro-Biomechanical Feedback Loop</h2>
+  </div>
+  <div class="overview">
+    One of the most clinically significant yet underappreciated relationships in MSK practice is the bidirectional interaction between neurological dysfunction and biomechanical change. The common narrative — "biomechanical fault causes pain" — captures only one direction of a dynamic, mutually reinforcing loop. In many chronic presentations, the neurological changes are primary and the biomechanical findings are secondary consequences of those neurological changes. Treating the biomechanical expression while the neurological driver remains unaddressed produces temporary improvement followed by recurrence.
+  </div>
+
+  <h3>4.1 How Neurological Dysfunction Drives Biomechanical Change</h3>
+
+  <h4>Arthrogenic Muscle Inhibition (AMI)</h4>
+  <p>AMI is the neural inhibition of muscles around a painful or injured joint, driven by aberrant afferent input from the joint rather than structural muscle damage. Mechanism: joint inflammation or injury activates group III (Aδ) and group IV (C fibre) mechanonociceptors in the capsule and synovium → increased afferent discharge → spinal interneurons inhibit alpha motor neurons supplying the muscles controlling that joint, through Ib afferent interneuron pathways and pain-mediated inhibitory interneuron circuits.</p>
+  <p>The quadriceps-knee system is most studied: even 20–30 mL of knee effusion produces measurable quadriceps inhibition measurable by interpolated twitch technique — far disproportionate to what structural explanation would predict. <strong>The clinical implication: strengthening exercises will be ineffective as long as the joint is generating sufficient nociceptive afferent discharge to maintain inhibition.</strong> This is the neurological explanation for why heavy quadriceps strengthening in active patellofemoral pain often fails.</p>
+  <p>AMI applies across the MSK system:</p>
+  <ul>
+    <li><strong>Lumbar facet joint pain → multifidus inhibition:</strong> well-documented in chronic LBP research (Hides, Hodges) — multifidus ipsilateral to a painful segment shows atrophy and inhibited activation on EMG even without structural muscle pathology</li>
+    <li><strong>Hip pain/OA → gluteal inhibition:</strong> altered gluteus medius and maximus activation timing in hip OA and FAI</li>
+    <li><strong>Shoulder pain → rotator cuff inhibition:</strong> altered rotator cuff activation timing in subacromial pain syndrome — including inhibition of the infraspinatus during rapid arm elevation, not explained by structural tendon changes alone</li>
+  </ul>
+
+  <h4>Gamma Motor Neuron Dysfunction and Altered Muscle Spindle Sensitivity</h4>
+  <p>Muscle spindles (Ia and II afferents) monitor muscle length and rate of change. The spindle's sensitivity is set by gamma (γ) motor neurons — static gamma (regulating baseline spindle tension) and dynamic gamma (regulating sensitivity to length changes).</p>
+  <p>In pain states, descending drive to gamma motor neurons is altered: increased gamma drive to spindles of muscles with high cortical threat representation (neurological basis of guarding and splinting); reduced gamma drive to muscles with pain-mediated inhibition. The result is a disorganised sensorimotor landscape: some muscles are over-recruited and tonically shortened; others are under-recruited and apparently "weak." Neither pattern reflects the structural state of the muscle.</p>
+  <p><strong>This is the neurological explanation for why "weak glutes" or "poor core activation" is often not a strength deficit but a motor control problem rooted in neural inhibition or altered sensorimotor processing.</strong> Testing isometric strength in isolation underestimates the true functional deficit — which manifests during movement, particularly under dual-task or attentionally loaded conditions.</p>
+
+  <h4>Cortical Reorganisation and Movement Pattern Change</h4>
+  <p>Chronic nociceptive inputs alter the somatotopic representation of body regions in M1 and S1. In CLBP patients, the cortical representation of lumbar paraspinal muscles is contracted and shifted, and the precision of motor commands to these muscles is reduced. Similar changes are documented in CRPS, shoulder pain, and after immobilisation. The movement pattern changes common in chronic MSK presentations — altered trunk coordination, reduced hip extension sequencing, over-reliance on superficial global muscles — are partially neurally mediated changes in cortical motor organisation. <strong>Motor relearning can reverse these cortical changes.</strong></p>
+
+  <h3>4.2 How Biomechanical Factors Create and Perpetuate Neurological Changes</h3>
+
+  <h4>Sustained Neural Tissue Tension and Ischaemia</h4>
+  <p>When surrounding tissues are tight, adherent, or when postural load consistently applies tension along a nerve's course, the nerve experiences repetitive localised strain at restriction points. This produces <strong>intraneural oedema</strong> (increased pressure within the nerve fascicles, compressing intrafascicular capillaries), which in turn produces <strong>intraneural ischaemia</strong>. Ischaemic axons develop increased mechanosensitivity — the mechanical threshold for ectopic discharge drops dramatically. This is why nerve tests reproducing neural tension reproduce the patient's pain — the mechanical stimulus excites a sensitised, ischaemic axon.</p>
+  <p><strong>Forward head posture and cervical neural tissue:</strong> forward head posture increases tension on the cervical dura and nerve roots by 1–2 cm of relative lengthening. Over time, this contributes to chronic cervical root irritation, altered mechanoreceptor afferent input from cervical structures, and altered proprioceptive input to the trigeminocervical nucleus — contributing to cervicogenic headache and upper limb dysaesthesia.</p>
+
+  <h4>Chronic Loading Patterns and Peripheral Nociceptor Sensitisation</h4>
+  <p>Repetitive or sustained mechanical loading beyond tissue adaptive capacity sensitises peripheral nociceptors — sensitised Aδ and C fibre terminals begin generating afferent activity at lower mechanical thresholds. This is the neurological basis for the clinical observation that patients with chronic tendinopathy, disc pathology, or facet irritation demonstrate progressive lowering of mechanical pain threshold over time — activities previously comfortable become intolerable not because the tissue is getting structurally worse, but because the nociceptor threshold is decreasing. This peripheral sensitisation, if uncorrected, drives the CS cascade via persistent afferent discharge.</p>
+
+  <h4>Mechanical Compression and Dorsal Horn Excitability</h4>
+  <p>Sustained compression of neural structures upregulates the dorsal horn excitability of the segments receiving that neural input. Via sustained ectopic discharge from compressed DRG neurons and the downstream neuroinflammatory cascade, the biomechanical event produces a central neurological state change that persists even after compression is relieved. <strong>Critical clinical point: decompression (surgical or conservative) does not guarantee pain resolution if the accompanying central sensitisation is not also addressed.</strong> Post-surgical pain syndromes — persistent pain after structurally successful discectomy or decompression — often reflect residual CS, not ongoing structural compression.</p>
+
+  <h3>4.3 Clinical Framework: Identifying the Primary Driver</h3>
+
+  <div class="callout note">
+    <div class="callout note-title">Clinical Decision Framework</div>
+    <p><strong>Step 1: Does a clear biomechanical/structural lesion exist that adequately explains the neurological findings?</strong><br>
+    If a disc herniation produces L5 radiculopathy, and the radiculopathy resolves proportionately with disc resorption and deloading → primary driver is mechanical. Treatment entry point: mechanical deloading, posture, activity modification, neural mobilisation.<br><br>
+    If apparent "gluteal weakness" and "poor hip stability" exist with no structural hip or lumbar pathology, and the weakness is variable, context-dependent, and associated with pain provocation → primary driver is neurological → biomechanical. Treatment entry point: reduce the afferent drive (joint mobility, pain management), then rebuild motor control.</p>
+    <p><strong>Step 2: Proportionality check.</strong> Does the degree of impairment match the structural finding? If structural findings are minimal but impairment is significant → neurological → biomechanical direction is more likely dominant.</p>
+    <p><strong>Step 3: Temporal pattern.</strong> Did the neurological changes precede or follow the biomechanical findings? In many CLBP presentations, multifidus inhibition and altered deep stabiliser activation develop <em>before</em> structural disc or facet changes — altered motor control may precipitate structural changes over time.</p>
+    <p><strong>Step 4: Treatment response.</strong> If targeted manual therapy and load modification produce meaningful improvement in neurological findings → the biomechanical driver was primary. If only transient benefit with rapid recurrence → the central neurological state is likely driving the presentation and should be the primary treatment target.</p>
+  </div>
+
+  <div class="deeper">
+    <div class="deeper-title">Going Deeper</div>
+    <ul>
+      <li><strong>Hodges PW & Tucker K (2011)</strong> — "Moving differently in pain: A new theory to explain the adaptation to pain." <em>Pain</em> 152(3 Suppl): S90–98.</li>
+      <li><strong>Rice DA & McNair PJ (2010)</strong> — "Quadriceps arthrogenic muscle inhibition: neural mechanisms and treatment perspectives." <em>Semin Arthritis Rheum.</em></li>
+      <li><strong>Hides JA et al. (1994)</strong> — Multifidus inhibition in LBP. <em>Spine.</em></li>
+      <li><strong>Butler DS (2000)</strong> — <em>The Sensitive Nervous System.</em> Neural tissue mechanics.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- SECTION 5 -->
+<div class="section" id="s5">
+  <div class="section-header">
+    <span class="section-num">Section 05</span>
+    <h2>Motor Control and Neurology</h2>
+  </div>
+  <div class="overview">
+    Motor control abnormalities are nearly universal in chronic MSK pain. Understanding why requires moving beyond "compensation patterns" to the neurological reality: pain and central sensitisation alter motor output at every level of the nervous system, from cortical representation through descending motor drive, gamma motor neuron control, and spinal interneuron inhibition. These are measurable, documented neurobiological changes with direct implications for how rehabilitation is sequenced.
+  </div>
+
+  <h3>5.1 Cortical Motor Changes in Pain</h3>
+
+  <h4>Primary Motor Cortex (M1) Reorganisation</h4>
+  <p>M1 maintains a continuous somatotopic map of the body that is shaped by afferent input and use. In chronic pain states, this map undergoes measurable reorganisation: representations contract, shift, and become less precise.</p>
+  <p>In CLBP: cortical representations of lumbar paraspinal muscles are smaller in area and shifted medially; motor cortex outputs to these muscles are temporally delayed and spatially diffuse. This manifests clinically as the inability to isolate deep segmental muscle contraction from superficial global muscle activation.</p>
+  <p>In CRPS and chronic hand/wrist pain: digit representations in M1 and S1 become blurred — the cortical distinction between individual fingers degrades, producing the "fuzzy hand" phenomenon some CRPS patients describe.</p>
+  <p>In shoulder pain: rotator cuff muscle representations alter, with delayed anticipatory postural activation prior to voluntary arm movement (measurable by TMS and EMG).</p>
+  <p><strong>The critical implication: cortical M1 reorganisation is a neurological impairment that directly limits the effectiveness of conventional strength-based rehabilitation.</strong> A patient with CLBP cannot reliably isolate and activate deep stabilisers under voluntary command — not because of structural weakness, but because cortical motor output to those muscles is imprecise and temporally dysregulated.</p>
+
+  <h4>Interventions Targeting Cortical Reorganisation</h4>
+  <ul>
+    <li><strong>Graded motor imagery (GMI):</strong> staged progression through (1) left/right discrimination training (normalising body schema), (2) imagined movement (activating M1 without peripheral movement), and (3) mirror therapy (visual feedback to normalise cortical body representation). Strongest evidence in CRPS; emerging evidence in CLBP and phantom limb pain.</li>
+    <li><strong>Motor relearning and motor control training:</strong> precise, cognitively attentive movement practice drives cortical representational normalisation. The quality of attention and precision during movement, not the load, is the primary driver of cortical plasticity.</li>
+    <li><strong>SMT effects on M1:</strong> Haavik's research (Section 7) demonstrates that SMT at dysfunctional spinal segments produces measurable changes in cortical drive and M1 map organisation — providing a neurological mechanism for why spinal manipulation can improve motor control output in the treated region.</li>
+  </ul>
+
+  <h3>5.2 Descending Motor Drive Alteration</h3>
+  <p>In pain states, corticospinal tract (CST) output to motor neuron pools is altered: (1) reduced amplitude of the corticospinal EPSP — measurable as reduced MEP amplitude on TMS in CLBP patients; and (2) altered temporal recruitment — a shift in timing of motor unit recruitment relative to movement onset. The delayed onset of deep stabiliser activation (transversus abdominis, multifidus) seen in LBP patients reflects altered CST timing generated centrally. Reticulospinal pathways — regulated by the brainstem reticular formation, which receives limbic inputs from the amygdala — are also altered in pain and anxiety states, producing the altered postural tone and bracing patterns characteristic of pain states.</p>
+
+  <h3>5.3 Gamma Motor Neuron and Spindle Dynamics</h3>
+  <p>Voluntary movement requires alpha-gamma co-activation — gamma motor neurons adjust spindle sensitivity to maintain Ia afferent discharge during shortening. In pain states, alpha-gamma co-activation is disrupted:</p>
+  <ul>
+    <li><strong>Acute pain:</strong> increased gamma dynamic drive to spindles of the painful muscle → increased dynamic spindle sensitivity → altered stretch reflex → neurological basis of muscle guarding and splinting</li>
+    <li><strong>Chronic pain:</strong> reduced static gamma drive to inhibited muscles → reduced resting spindle discharge and proprioceptive fidelity; increased static gamma drive to bracing muscles → elevated resting tension and reduced range</li>
+  </ul>
+  <p>The combined effect: a <strong>proprioceptive landscape distortion</strong>. Spindle feedback from the affected region is unreliable, producing imprecise joint position sense and reduced motor control precision. Multiple studies document impaired joint position sense in CLBP, chronic cervical pain (Jull et al.), and chronic shoulder pain — not explained by receptor damage but by altered central processing of afferent input.</p>
+
+  <h3>5.4 Spinal Interneuron Inhibition</h3>
+  <p>Pain-mediated motor inhibition operates at the spinal level through Ib inhibitory interneurons (Golgi tendon organ pathway) and reciprocal Ia inhibitory interneurons. In pain states: increased Ib afferent discharge from sensitised capsule and ligament receptors activates Ib inhibitory interneurons, suppressing the homonymous alpha motor neuron pool — a direct spinal inhibitory mechanism bypassing the cortex. Reciprocal inhibition patterning becomes dysregulated, producing simultaneous agonist-antagonist co-contraction: the motor system sacrifices movement efficiency for stability around a perceived threat.</p>
+
+  <h3>5.5 Practical Implications for Rehabilitation</h3>
+  <div class="priority-grid">
+    <div class="priority-card">
+      <h5>Sequencing Principle</h5>
+      <ol>
+        <li>Reduce nociceptive afferent drive from the joint (manual therapy, pain management, neural mobilisation)</li>
+        <li>Restore cortical motor representation (GMI, low-load precise movement training)</li>
+        <li>Establish reliable deep stabiliser activation patterns</li>
+        <li>Progressive load</li>
+      </ol>
+    </div>
+    <div class="priority-card">
+      <h5>Motor Learning Principles</h5>
+      <ol>
+        <li>Low load, high precision before high load, high intensity</li>
+        <li>Attentive, feedback-rich movement drives cortical plasticity — not load</li>
+        <li>Dual-task loading for functional integration</li>
+        <li>EMG biofeedback to compensate for degraded proprioceptive signal</li>
+      </ol>
+    </div>
+  </div>
+  <p><strong>Aerobic exercise as a primer:</strong> exercise-induced hypoalgesia (EIH) lowers the background nociceptive noise and improves motor control performance. A short aerobic primer before motor control or precision movement training may improve efficacy by reducing the competing afferent pain signal.</p>
+
+  <div class="deeper">
+    <div class="deeper-title">Going Deeper</div>
+    <ul>
+      <li><strong>Hodges PW & Tucker K (2011)</strong> — Motor adaptation to pain. <em>Pain</em> 152(Suppl 3): S90–98.</li>
+      <li><strong>Moseley GL et al. (2012)</strong> — Graded motor imagery: evidence and clinical application. <em>Man Ther.</em></li>
+      <li><strong>Haavik H (2014)</strong> — <em>The Reality Check.</em> NZCC. SMT and motor cortex. See Section 7.</li>
+      <li><strong>Jull G et al. (2007)</strong> — Cervical musculoskeletal impairment in frequent intermittent headache. <em>Cephalalgia.</em></li>
+      <li><strong>Tsao H & Hodges PW (2007)</strong> — Immediate changes in feedforward postural adjustments following voluntary motor training. <em>Exp Brain Res.</em></li>
+    </ul>
+  </div>
+</div>
+
+<!-- SECTION 6 -->
+<div class="section" id="s6">
+  <div class="section-header">
+    <span class="section-num">Section 06</span>
+    <h2>Descending Pain Modulation: Mechanisms and Clinical Application</h2>
+  </div>
+  <div class="overview">
+    The nervous system is not a passive pain relay. Powerful endogenous inhibitory pathways continuously modulate nociceptive transmission at the dorsal horn — capable of dramatically amplifying or suppressing the pain signal depending on the system's state. Understanding these pathways explains why identical injuries produce vastly different pain experiences in different people, why exercise is analgesic, why sleep deprivation amplifies pain, and which treatments are actively engaging the inhibitory system and at what dose.
+  </div>
+
+  <h3>6.1 The Descending Modulation Pathway</h3>
+
+  <h4>Periaqueductal Grey (PAG)</h4>
+  <p>The PAG is the master regulator of descending pain modulation. Located in the midbrain surrounding the cerebral aqueduct, the PAG receives inputs from the frontal cortex, hypothalamus, amygdala, ACC, and directly from ascending spinomesencephalic fibres. Two functionally distinct columns: the <strong>ventrolateral PAG (vlPAG)</strong> drives opioidergic and serotonergic descending inhibition and produces behavioural quiescence; the <strong>dorsolateral PAG (dlPAG)</strong> drives noradrenergic inhibition and active coping/fight-or-flight responses. The PAG achieves descending modulation via relay through the RVM.</p>
+
+  <h4>Rostral Ventromedial Medulla (RVM)</h4>
+  <p>The RVM (nucleus raphe magnus and adjacent reticular formation) projects directly to the dorsal horn via the dorsolateral funiculus. It contains two functionally opposing neuron populations:</p>
+  <ul>
+    <li><strong>"Off cells"</strong> — tonically active; inhibit dorsal horn pain transmission; activated by opioids; responsible for opioid-mediated analgesia</li>
+    <li><strong>"On cells"</strong> — activated by noxious stimuli and stress; facilitate dorsal horn pain transmission; their activation contributes to allodynia, hyperalgesia, and CS maintenance</li>
+  </ul>
+  <p>The balance between on-cell and off-cell activity determines whether the descending modulatory influence is net inhibitory or net facilitatory. In chronic pain and CS states, this balance shifts toward <strong>on-cell dominance</strong>. Stress, anxiety, sleep deprivation, and opioid-induced hyperalgesia all shift the RVM toward on-cell dominance.</p>
+
+  <h4>Descending Noradrenergic Pathways</h4>
+  <p>The <strong>locus coeruleus (LC)</strong> in the pons is the primary source of descending noradrenergic modulation. Noradrenaline acts on <strong>α2-adrenergic receptors</strong> on dorsal horn neurons and presynaptic terminals, producing inhibitory effects — reduced glutamate release, hyperpolarisation, and inhibition of substance P release. This is the mechanism of action of <strong>SNRIs (duloxetine, venlafaxine)</strong> and <strong>TCAs</strong> in chronic pain — they increase synaptic NA in the dorsal horn, enhancing descending inhibitory tone. Exercise-induced LC activation is one mechanism of EIH.</p>
+
+  <h4>Descending Serotonergic Pathways</h4>
+  <p>The nucleus raphe magnus projects serotonergically to the dorsal horn via the dorsolateral funiculus. Serotonin has bidirectional effects at the dorsal horn: <strong>5-HT1A/5-HT1B receptors</strong> mediate inhibition; <strong>5-HT2A/5-HT3 receptors</strong> mediate excitation. Net effect depends on receptor population at the target synapse. This complexity explains why SSRIs alone are generally less effective for pain than SNRIs, which combine serotonergic and noradrenergic effects.</p>
+
+  <h3>6.2 Conditioned Pain Modulation (CPM) and DNIC</h3>
+  <p><strong>Diffuse Noxious Inhibitory Controls (DNIC)</strong> is the phenomenon whereby a noxious stimulus applied to one body region reduces pain sensitivity across the rest of the body — "pain inhibits pain." The conditioning noxious stimulus activates descending inhibitory pathways (PAG-RVM-spinal), globally suppressing dorsal horn excitability.</p>
+  <p><strong>CPM</strong> is the clinical test: a test stimulus (PPT) is measured before and after a conditioning stimulus (cold pressor test, ischaemic cuff, contralateral PPT). Normal CPM produces ≥10% increase in PPT (analgesic effect of the conditioner). <strong>Impaired or reversed CPM</strong> (conditioning stimulus increases primary site pain) is consistently documented in fibromyalgia, chronic widespread pain, PTSD, and CLBP. It reflects deficient descending inhibitory function and predicts: poor clinical outcomes, post-surgical chronic pain development, and benefit from descending modulation-targeting treatments (SNRIs, exercise, sleep optimisation).</p>
+  <p>Clinical estimation without laboratory equipment: applying pressure to a remote site (e.g., squeezing the thenar eminence while assessing lumbar PPT) that <em>increases</em> rather than decreases lumbar sensitivity is a strong indicator of descending modulation failure.</p>
+
+  <h3>6.3 Identifying Compromised Descending Modulation — Clinical Indicators</h3>
+  <ul>
+    <li>Widespread pain beyond original injury region</li>
+    <li>Pain that fluctuates with stress/sleep/emotional state rather than physical load</li>
+    <li>Impaired or reversed CPM on clinical testing</li>
+    <li>CSI ≥40, PCS ≥30</li>
+    <li>Significant sleep disturbance; history of anxiety, depression, or PTSD</li>
+    <li>Fibromyalgia diagnosis or overlapping sensitivity syndromes</li>
+    <li>Temporal summation evident clinically (pain winds up with repeated fixed-intensity stimulation)</li>
+    <li>Post-surgical persistent pain without structural explanation</li>
+  </ul>
+
+  <h3>6.4 Exercise-Induced Hypoalgesia (EIH): Mechanisms and Dose</h3>
+  <p>EIH is the well-documented reduction in pain sensitivity — increased PPT across multiple body sites — that follows an acute bout of aerobic or resistance exercise. Multiple mechanisms contribute:</p>
+  <ol>
+    <li><strong>Endogenous opioid release:</strong> exercise activates β-endorphin release from the hypothalamus/pituitary, and dynorphin/enkephalin in the spinal cord and brainstem. EIH is partially blocked by naloxone, confirming the opioid mechanism.</li>
+    <li><strong>Endocannabinoid system activation:</strong> aerobic exercise increases circulating anandamide (AEA) and 2-AG, acting on CB1 receptors in the PAG and dorsal horn, activating the descending inhibitory pathway. The runner's high is substantially cannabinoid-mediated.</li>
+    <li><strong>Noradrenergic LC activation:</strong> aerobic exercise activates the LC, increasing noradrenergic descending inhibitory tone.</li>
+    <li><strong>Serotonergic activation:</strong> exercise increases 5-HT synthesis and release in the raphe nuclei.</li>
+  </ol>
+
+  <h4>Dose Considerations</h4>
+  <p><strong>Aerobic exercise</strong> produces the most robust and consistent EIH. Cycling, brisk walking, and running at moderate intensity (50–70% VO2max; RPE 12–14 on Borg scale) for <strong>≥20 minutes</strong> produces reliable EIH in healthy subjects. In chronic pain populations with impaired EIH (fibromyalgia, PTSD), high-intensity exercise can paradoxically worsen pain sensitivity via sympathetic activation. For these patients: <strong>moderate intensity, longer duration, consistent frequency (3–5 days/week)</strong> — building EIH capacity gradually over weeks. <strong>Resistance training</strong> produces EIH primarily at the exercising limb via local opioid and endocannabinoid mechanisms, less consistent than aerobic for generalised EIH but valuable for restoring motor function. Timing: aerobic exercise before a manual therapy session primes the descending inhibitory system, potentially enhancing the hypoalgesic effects of subsequent hands-on treatment.</p>
+
+  <h3>6.5 Treatment Influence on Descending Modulation</h3>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Treatment</th><th>Primary Modulation Mechanism</th><th>Evidence</th></tr></thead>
+    <tbody>
+      <tr><td>Aerobic exercise</td><td>Endorphin/endocannabinoid release, LC noradrenergic activation, serotonergic activation</td><td>Strong</td></tr>
+      <tr><td>Resistance training</td><td>Local opioid and cannabinoid mechanisms, motor cortex normalisation</td><td>Moderate</td></tr>
+      <tr><td>SMT</td><td>Endorphin release, sympathoinhibitory effects, PAG activation (see Section 7)</td><td>Moderate</td></tr>
+      <tr><td>Manual therapy (non-SMT)</td><td>Mechanoreceptor-mediated gating, descending inhibitory tone via PAG</td><td>Moderate</td></tr>
+      <tr><td>Sleep</td><td>Restores thalamic gating, prevents RVM on-cell activation, maintains HPA regulation</td><td>Strong</td></tr>
+      <tr><td>Stress reduction</td><td>Reduces limbic-driven on-cell activation, restores PFC top-down PAG engagement</td><td>Moderate</td></tr>
+      <tr><td>SNRIs/TCAs</td><td>Direct enhancement of noradrenergic and serotonergic dorsal horn inhibition</td><td>Strong</td></tr>
+      <tr><td>CBT and PNE</td><td>ACC/PFC recalibration, reduced threat appraisal, improved top-down PAG engagement</td><td>Moderate–Strong</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="deeper">
+    <div class="deeper-title">Going Deeper</div>
+    <ul>
+      <li><strong>Ossipov MH, Dussor GO, Porreca F (2010)</strong> — "Central modulation of pain." <em>J Clin Invest</em> 120(11):3779–3787.</li>
+      <li><strong>Yarnitsky D (2015)</strong> — "Role of endogenous pain modulation in chronic pain mechanisms and treatment." <em>Pain</em> 156 (Suppl 1): S24–31.</li>
+      <li><strong>Naugle KM et al. (2012)</strong> — "A meta-analytic review of the hypoalgesic effects of exercise." <em>J Pain.</em></li>
+      <li><strong>Millan MJ (2002)</strong> — "Descending control of pain." <em>Prog Neurobiol</em> 66(6):355–474.</li>
+      <li><strong>Sluka KA & Danielson J (2013)</strong> — "Exercise-induced pain and hyperalgesia." <em>Clin J Pain.</em></li>
+    </ul>
+  </div>
+</div>
+
+<!-- SECTION 7 -->
+<div class="section" id="s7">
+  <div class="section-header">
+    <span class="section-num">Section 07</span>
+    <h2>Neurological Effects of Chiropractic Spinal Manipulation</h2>
+  </div>
+  <div class="overview">
+    Spinal manipulative therapy (SMT) is frequently reduced to a mechanical intervention. This is neurologically inaccurate and clinically limiting. The evidence base from Heidi Haavik's lab at the New Zealand College of Chiropractic, and from Bialosky, Coronado, and others, demonstrates that SMT produces measurable, significant changes across the entire nervous system: at the level of the cortex, subcortical sensorimotor integration circuits, descending modulatory pathways, and the peripheral mechanoreceptor-to-dorsal-horn input chain. Understanding this evidence base changes how the clinician explains SMT to patients, when they choose to use it, and why it is or is not the appropriate tool for a given pain mechanism.
+  </div>
+
+  <h3>7.1 Haavik's Research: Cortical Drive and Sensorimotor Integration</h3>
+
+  <h4>Subcortical Dysfunction and the Sensorimotor Model</h4>
+  <p>Haavik's foundational framework begins with <strong>subcortical dysfunction</strong>: when a spinal segment has restricted or altered movement — reduced mobility, asymmetrical end-range, altered proprioceptive input — the afferent signal from that segment's mechanoreceptors is altered in quality and reliability. This distorts the brain's internal representation of that segment's position and movement — the segment's contribution to the sensorimotor loop becomes unreliable. The brain must rely more heavily on other inputs and uses increased central processing resources to manage the uncertainty.</p>
+
+  <h4>Key Findings: TMS, MEP, SSEP, and ERP Research</h4>
+  <ul>
+    <li><strong>SMT to cervical dysfunctional segments → increased cortical drive to upper limb muscles:</strong> Motor evoked potential (MEP) amplitudes to biceps, deltoid, and triceps increase significantly after cervical SMT, indicating increased corticospinal excitability. This effect is <em>not</em> produced by SMT to segments without clinical dysfunction, nor by mobilisation alone — it is specific to restoring afferent input from the dysfunctional segment.</li>
+    <li><strong>SMT and somatosensory evoked potentials:</strong> cervical SMT produces changes in early-latency cortical SSEP components (N20/P25) reflecting altered processing of somatosensory input from the treated region. Later components (P300, N2) reflecting attentional and cognitive processing of sensorimotor input are also altered.</li>
+    <li><strong>SMT and spatial discrimination / position sense:</strong> two-point discrimination threshold and position sense tasks at the treated region show improved sensorimotor accuracy after SMT — consistent with normalised afferent input restoring the brain's internal body map resolution.</li>
+    <li><strong>SMT and cortical maps:</strong> using EEG source localisation and TMS cortical mapping, Haavik's group has documented shifts in somatotopic cortical representation corresponding to the treated segment — analogous to map normalisation seen after motor relearning.</li>
+  </ul>
+
+  <h4>The Proposed Mechanism: Resetting the Afferent Signal</h4>
+  <p>SMT to a dysfunctional segment delivers a high-velocity, brief mechanical impulse that activates a large population of mechanoreceptors simultaneously — particularly type I (Ruffini) and type II (Pacinian corpuscle equivalent) mechanoreceptors in the facet capsule. This burst of mechanoreceptor activity delivers a high-frequency, temporally coherent afferent volley to the dorsal horn and ascending proprioceptive pathways — essentially resetting the afferent signal from that segment. The restored afferent input updates the brain's internal model, restoring the reliability of that segment's contribution to the sensorimotor loop, and reduces the central processing load associated with managing the dysfunctional signal.</p>
+
+  <h3>7.2 SMT and Descending Pain Modulation</h3>
+
+  <h4>Hypoalgesic Effects — QST Evidence</h4>
+  <p>Multiple QST studies demonstrate that SMT produces immediate, segmentally localised hypoalgesia as well as <strong>extraterritorial hypoalgesia</strong> (increased PPT at remote body sites, including contralateral). The extraterritorial component confirms that the hypoalgesic effect is not purely peripheral but involves descending modulatory pathway activation. The proposed mechanisms:</p>
+  <ol>
+    <li><strong>PAG-RVM axis activation:</strong> the mechanoreceptor afferent burst travels via the dorsal horn and spinomesencephalic tract to the PAG, activating descending inhibitory pathways. Hypoalgesic effects of SMT are partially blocked by naloxone in animal models, confirming an endogenous opioid component.</li>
+    <li><strong>Serotonergic activation:</strong> SMT is associated with increases in serum serotonin in several studies, consistent with raphe nucleus activation.</li>
+    <li><strong>Sympathoexcitatory/sympathoinhibitory pattern:</strong> SMT produces a sympathetic nervous system response — increased skin conductance, respiratory rate, pupil dilation, heart rate — followed by a sympathoinhibitory rebound. This pattern is consistent with PAG activation (initial sympathoexcitation via dlPAG; subsequent inhibition via vlPAG). This transient sympathetic response is not a sign of harm — it is a physiological signature of PAG engagement and correlates with the hypoalgesic effect.</li>
+    <li><strong>Endocannabinoid release:</strong> emerging evidence suggests SMT may trigger local endocannabinoid release, contributing to the hypoalgesic effect.</li>
+  </ol>
+
+  <h3>7.3 Bialosky's Neurophysiological Model</h3>
+  <p>Bialosky and colleagues (2009, 2018) proposed a comprehensive neurophysiological model of manual therapy integrating peripheral, spinal, and supraspinal mechanisms — including the legitimate neurobiological role of placebo, expectation, and therapeutic context.</p>
+  <p>The model describes a hierarchical cascade:</p>
+  <ol>
+    <li><strong>Peripheral mechanisms:</strong> mechanical loading of neural tissue, joint capsule mechanoreceptors, and soft tissue structures → mechanical stimulus to Aβ/Aδ afferents</li>
+    <li><strong>Spinal cord mechanisms:</strong> afferent volley → dorsal horn → <strong>gate control</strong>: Aβ afferent input activates inhibitory interneurons in substantia gelatinosa, inhibiting C fibre nociceptive transmission at the same and adjacent spinal levels. Substance P and CGRP release; opioid peptide release in the dorsal horn.</li>
+    <li><strong>Supraspinal mechanisms:</strong> ascending signals → brainstem → PAG activation → descending modulation via RVM and LC → spinal opioid, serotonergic, and noradrenergic inhibition.</li>
+    <li><strong>Placebo, expectation, and context:</strong> Bialosky's model incorporates these as <em>genuine neurobiological mechanisms, not confounds</em>. Expectation of benefit activates PFC circuits that project to the PAG, producing <em>real</em> endogenous opioid release — placebo analgesia of SMT is partially blocked by naloxone, confirming it is mediated by the same opioid system as pharmacological analgesia.</li>
+  </ol>
+
+  <div class="callout clinical">
+    <div class="callout clinical-title">Clinical Implication — Context Is a Neurobiological Mechanism</div>
+    <p>How the clinician explains the treatment, the confidence conveyed, the quality of the therapeutic alliance, and the congruence between the patient's explanatory model and the treatment rationale are measurable modulators of the neurobiological outcome. PNE before manual therapy — which improves therapeutic alliance and sets accurate expectations — is not merely psychologically helpful. It neurobiologically primes the PAG for enhanced descending modulation during subsequent hands-on treatment.</p>
+  </div>
+
+  <h3>7.4 Mechanoreceptor Effects and Gate Control</h3>
+  <p>The facet joint capsule and paraspinal muscles contain a dense population of mechanoreceptors:</p>
+  <ul>
+    <li><strong>Type I (Ruffini endings):</strong> in joint capsule; low threshold, slowly adapting; respond to static and dynamic stretch; continuously active; primary source of joint position information</li>
+    <li><strong>Type II (Pacinian corpuscles):</strong> in joint capsule; low threshold, rapidly adapting; respond to rapid pressure changes — specifically activated by the high-velocity impulse of SMT; project to cerebellum and thalamus via dorsal columns</li>
+    <li><strong>Type III (Golgi tendon organ-like):</strong> in ligaments and joint capsule; high threshold; provide protective reflex signals</li>
+    <li><strong>Type IV (free nerve endings):</strong> pain and inflammatory mediator detection; high threshold mechanonociceptors</li>
+  </ul>
+  <p>SMT primarily activates type I and II receptors. This mechanoreceptor burst: (1) projects via Aβ fibres to the dorsal horn → <strong>gate control mechanism</strong>: Aβ afferent input activates inhibitory interneurons in substantia gelatinosa (lamina II), synaptically inhibiting C fibre transmission; (2) projects via dorsal columns and spinocerebellar tracts to cerebellum and thalamus → updated proprioceptive feed → refined cerebellar motor coordination; (3) projects to the PAG via spinomesencephalic pathways → descending modulation activation.</p>
+
+  <h3>7.5 When SMT Is and Is Not the Appropriate Neurological Tool</h3>
+
+  <h4>SMT is most neurologically appropriate when:</h4>
+  <ul>
+    <li><strong>Nociceptive dominant</strong> with a clear segmental or joint component — SMT targets mechanoreceptor input from the dysfunctional segment, engages gate control and descending modulation, and restores afferent signal quality</li>
+    <li><strong>Subcortical sensorimotor dysfunction</strong> is present — restricted segmental mobility, altered proprioception in the region, associated motor control deficits — where restoring afferent input is a treatment priority</li>
+    <li><strong>Peripheral neuropathic</strong> presentations where reducing mechanical afferent noise at adjacent segments may reduce the total nociceptive load on the dorsal horn</li>
+  </ul>
+
+  <h4>SMT neurological efficacy is reduced or risk-benefit changes when:</h4>
+  <ul>
+    <li><strong>Central sensitisation is dominant:</strong> the nociceptive afferent component of SMT (type III/IV receptor activation, procedure-related pain) can feed the sensitised dorsal horn and worsen the presentation. If SMT is used: low-force, non-provocative, applied at well-chosen segments, with maximum PNE priming of the therapeutic context</li>
+    <li><strong>Active radiculopathy with significant neurological deficit</strong> (progressive weakness, bowel/bladder involvement): SMT at the affected level is relatively contraindicated; gentle mobilisation away from the symptomatic level, combined with neural mobilisation and deloading, is more appropriate</li>
+    <li><strong>Absolute contraindications:</strong> fracture, malignancy, infection, severe osteoporosis, inflammatory arthropathy in acute phase, vascular instability (follow current pre-manipulation vascular screening clinical guidelines)</li>
+  </ul>
+
+  <div class="deeper">
+    <div class="deeper-title">Going Deeper</div>
+    <ul>
+      <li><strong>Haavik H (2014)</strong> — <em>The Reality Check.</em> NZCC. Accessible summary of the research program.</li>
+      <li><strong>Haavik H & Murphy B (2012)</strong> — "The role of spinal manipulation in addressing disordered sensorimotor integration and altered motor control." <em>J Electromyogr Kinesiol.</em></li>
+      <li><strong>Bialosky JE et al. (2009)</strong> — "The mechanisms of manual therapy in the treatment of musculoskeletal pain: a comprehensive model." <em>Man Ther</em> 14(5):531–538.</li>
+      <li><strong>Bialosky JE et al. (2018)</strong> — "Unraveling the mechanisms of manual therapy." <em>J Orthop Sports Phys Ther</em> 48(1):8–18.</li>
+      <li><strong>Coronado RA et al. (2012)</strong> — "Changes in pain sensitivity following spinal manipulation: a systematic review and meta-analysis." <em>J Electromyogr Kinesiol.</em></li>
+      <li><strong>Reed WR et al. (2014)</strong> — "Spinothalamic tract responses to mechanically assisted spinal manipulation." <em>J Manipulative Physiol Ther.</em></li>
+    </ul>
+  </div>
+</div>
+
+<!-- SECTION 8 -->
+<div class="section" id="s8">
+  <div class="section-header">
+    <span class="section-num">Section 08</span>
+    <h2>Neurodynamics in Clinical Practice</h2>
+  </div>
+  <div class="overview">
+    Neurodynamics — the mechanical and physiological study of the nervous system's ability to move, glide, and tolerate mechanical loads — is frequently reduced to a set of provocative tests. The clinical reality is more important: neurodynamic assessment identifies genuine mechanical pathology of the peripheral nervous system, and neural mobilisation techniques have measurable physiological effects on intraneural pressure, ischaemia, and mechanosensitivity. Applied correctly, neurodynamic management addresses real neurobiological pathology that both perpetuates pain and drives central sensitisation.
+  </div>
+
+  <h3>8.1 Adverse Neural Tension — Mechanistic Basis</h3>
+
+  <h4>Normal Neural Tissue Mechanics</h4>
+  <p>Peripheral nerves accommodate mechanical loading through nerve excursion (gliding relative to surrounding structures) and strain (longitudinal elongation). Key structural elements: <strong>epineurium</strong> (outer sheath, provides tensile strength, allows gliding); <strong>perineurium</strong> (innermost fascicular sheath, highly tensile, primary diffusion barrier); <strong>endoneurium</strong> (loose connective tissue within fascicles, accommodates mild intrinsic strain). Axons undulate within their sheaths, providing strain reserve before tension is transmitted to axons.</p>
+
+  <h4>Pathological Neural Tension: Three-Stage Cascade</h4>
+  <p>When nerve excursion is restricted — by tight fascia, scar tissue, oedematous tissue, adjacent muscle hypertonicity, or sustained postural mechanical loading — the nerve is subjected to abnormal mechanical stress at restriction points:</p>
+  <ol>
+    <li><strong>Intraneural oedema:</strong> mechanical restriction and repetitive strain damage the perineurial barrier, increasing permeability. Protein-rich oedema accumulates within the endoneurial space, increasing endoneurial fluid pressure (EFP). EFP above 30 mmHg begins to compress intrafascicular capillaries.</li>
+    <li><strong>Intraneural ischaemia:</strong> EFP above 20–30 mmHg produces measurable reduction in intrafascicular blood flow; above 60–80 mmHg, intraneural circulation ceases. Ischaemic axons develop <strong>increased mechanosensitivity</strong> — their threshold for ectopic discharge in response to mechanical stress falls dramatically. This is why nerve tests applying tension to an ischaemic, restricted nerve reproduce the patient's pain — the mechanical stimulus excites a sensitised, ischaemic axon.</li>
+    <li><strong>Intraneural fibrosis:</strong> chronic oedema and ischaemia are followed by perineurial and endoneurial connective tissue changes that permanently restrict nerve compliance and gliding. End-stage of long-standing adverse neural tension — explains why early neurodynamic management is preferable to late.</li>
+  </ol>
+  <p>The mechanosensitivity from intraneural ischaemia and oedema is a form of <strong>peripheral sensitisation of the neural tissue itself</strong>: the nerve has become a pain generator, not just a pain conductor. If sustained, this peripheral neural sensitisation drives central sensitisation of the dorsal horn segments receiving that nerve's input.</p>
+
+  <h3>8.2 Clinical Differentiation: Adverse Neural Tension vs Muscle Tightness vs Joint Restriction</h3>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Feature</th><th>Adverse Neural Tension</th><th>Muscle Tightness</th><th>Joint Restriction</th></tr></thead>
+    <tbody>
+      <tr><td>Symptom quality</td><td>Burning, electric, dysaesthetic, radiating</td><td>Aching, tension, pulling</td><td>Aching, stiff, end-range pain</td></tr>
+      <tr><td>Distribution</td><td>Follows nerve path / dermatomal</td><td>Follows muscle belly / trigger point pattern</td><td>Local to joint ± local referral</td></tr>
+      <tr><td>Response to sensitising manoeuvres</td><td>Reproduces or increases distal nerve territory symptoms</td><td>Increases local muscle tension/pulling</td><td>Increases local joint pain</td></tr>
+      <tr><td>Response to desensitising manoeuvres</td><td>Distal symptoms reduce when neural tissue is unloaded</td><td>Tension reduces with shortened position</td><td>Joint pain reduces when decompressed</td></tr>
+      <tr><td>Movement end-feel</td><td>Neurogenic: distal symptom reproduction before structural end-range</td><td>Muscular: resistive, gradual, tension quality</td><td>Capsular/articular: hard, springy</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>8.3 Neurodynamic Assessment: Key Tests</h3>
+
+  <h4>Straight Leg Raise (SLR)</h4>
+  <p>Primary test for the sciatic nerve (L4–S2) and lumbar root contributions. Passive hip flexion with knee extended applies progressive tension to the sciatic nerve and lumbar roots via the fixed dural attachment at the intervertebral foramen. Normal range: 70–90° hip flexion before posterior thigh tension. Positive test: reproduction of the patient's lower limb pain/dysaesthesia at reduced range. <strong>Sensitising manoeuvre:</strong> ankle dorsiflexion at the point of symptom reproduction → if this increases distal symptoms, neural tissue is mechanically involved. <strong>Desensitising manoeuvre:</strong> slight knee flexion or ankle plantarflexion → if this reduces distal symptoms, neural tissue involvement confirmed. Distinguish from hamstring tightness: dorsiflexion added to an SLR adds neural tension; if symptom quality changes to dysaesthetic/burning with dorsiflexion, the neural component is present regardless of overall range.</p>
+
+  <h4>Slump Test</h4>
+  <p>More sensitive than the SLR for detecting neural mechanosensitivity; loads the entire posterior neuraxis simultaneously. Sequence: (1) thoracolumbar slump (seated, thoracic and lumbar flexion, overpressure), (2) cervical flexion (adds dural tension from cranial end), (3) knee extension (adds sciatic tension), (4) ankle dorsiflexion (further sensitisation). Key differentiation: cervical extension removes cervical end tension — if this reduces distal symptoms, dural/neural involvement is confirmed (structural tissue factors cannot be de-tensioned from the cervical end).</p>
+
+  <h4>Upper Limb Neurodynamic Tests (ULNT 1–4)</h4>
+  <ul>
+    <li><strong>ULNT 1 (median nerve bias):</strong> shoulder abduction, lateral rotation, wrist/finger extension, elbow extension, contralateral cervical lateral flexion (sensitises) / ipsilateral (desensitises). Tests median nerve and C5–7 roots.</li>
+    <li><strong>ULNT 2a (radial nerve/median bias):</strong> shoulder girdle depression, shoulder abduction, medial rotation, wrist/finger extension, elbow extension. Tests C5–6.</li>
+    <li><strong>ULNT 2b (radial nerve bias):</strong> shoulder girdle depression, shoulder internal rotation, pronation, wrist/finger flexion, elbow extension. Tests radial nerve/C5-6.</li>
+    <li><strong>ULNT 3 (ulnar nerve bias):</strong> shoulder abduction/lateral rotation, elbow flexion, wrist extension, contralateral cervical lateral flexion. Tests ulnar nerve/C8-T1.</li>
+  </ul>
+  <p>Abnormal responses: (a) reproduction of the patient's symptoms, (b) reduced range compared to contralateral (&gt;10% difference), (c) sensitisation response — cervical lateral flexion alters distal symptoms.</p>
+
+  <h4>Femoral Nerve Tension Test (FNST)</h4>
+  <p>Prone position, passive knee flexion — applies tension to the femoral nerve via hip extension. Positive: reproduction of anterior thigh pain/dysaesthesia. Differentiates femoral neuropathy from quadriceps tightness: hip extension in prone sensitises only the neural component — if symptom quality changes with hip extension, the neural component is present.</p>
+
+  <h3>8.4 Neural Mobilisation: Slider vs Tensioner — Neurobiological Rationale</h3>
+
+  <h4>Sliders</h4>
+  <p>A slider produces <strong>nerve excursion with minimal or no net strain</strong>. Achieved by simultaneously: movement at one end of the nerve that increases tension (e.g., ankle dorsiflexion), combined with movement at the other end that reduces tension (e.g., cervical extension or slight knee flexion). Net effect: the nerve moves through the tunnel/adjacent tissue, increasing blood flow and reducing intraneural pressure, without increasing axonal strain.</p>
+  <p><strong>Neurobiological rationale:</strong> oscillatory gliding motion (typically slow, smooth, within pain-free range — 3 sets of 10–15 repetitions) mechanically pumps the nerve through its surrounding tissue, reducing intraneural pressure (via pumping effect on endoneurial fluid), restoring intrafascicular blood flow, and reducing mechanosensitivity of sensitised axons. Animal models of sciatic nerve restriction demonstrate that slider-type neural mobilisation reduces intraneural oedema, increases axon diameter, and reduces substance P expression in the DRG.</p>
+  <p><strong>Appropriate for:</strong> acute or irritable neural tissue; early stages of neural mobilisation; maintenance of neural mobility during inflammation.</p>
+
+  <h4>Tensioners</h4>
+  <p>A tensioner applies a <strong>net elongation strain</strong> to the nerve — movements at both ends simultaneously increase tension. More aggressive neural tissue loading.</p>
+  <p><strong>Neurobiological rationale:</strong> elongation loading subjects axons and connective tissue to controlled mechanical stress within the threshold for beneficial adaptation. Stimulates fibroblast remodelling of endoneurial connective tissue, improving compliance and reducing fibrotic restriction.</p>
+  <p><strong>Appropriate for:</strong> chronic neural restriction / intraneural fibrosis; when primary pathology is reduced nerve compliance; progressive loading after sliders have achieved pain-free range; later stages of neural mobilisation.</p>
+
+  <h4>Dosage Principles</h4>
+  <ul>
+    <li><strong>Acute / irritable:</strong> sliders only, slow oscillatory, within the pain-free range, 10–15 reps × 2–3 sets, daily</li>
+    <li><strong>Subacute / moderate sensitivity:</strong> sliders progressed to end of comfortable range, beginning tensioners at low load, 3–5 days/week</li>
+    <li><strong>Chronic / low sensitivity, primarily mechanical restriction:</strong> tensioners as primary technique, progressive load and range, combined with adjacent tissue mobility work</li>
+    <li><strong>Red flags for neural mobilisation:</strong> progressive neurological deficit, signs of myelopathy, active malignancy or infection in the neural pathway — contraindicate neural mobilisation until excluded</li>
+  </ul>
+
+  <div class="deeper">
+    <div class="deeper-title">Going Deeper</div>
+    <ul>
+      <li><strong>Butler DS (2000)</strong> — <em>The Sensitive Nervous System.</em> NOI Group. The definitive clinical text on neurodynamics.</li>
+      <li><strong>Shacklock M (2005)</strong> — <em>Clinical Neurodynamics.</em> Elsevier. Detailed test methodology and clinical application.</li>
+      <li><strong>Coppieters MW & Butler DS (2008)</strong> — "Do 'sliders' slide and 'tensioners' tension?" <em>Man Ther.</em> Cadaveric study of neural excursion.</li>
+      <li><strong>Bove GM & Light AR (1995)</strong> — Intraneural microvasculature and ischaemia. <em>J Neurosci Res.</em></li>
+      <li><strong>Schmid AB et al. (2012)</strong> — Neural mechanosensitivity and intraneural inflammation. <em>Man Ther.</em></li>
+    </ul>
+  </div>
+</div>
+
+<!-- SECTION 9 -->
+<div class="section" id="s9">
+  <div class="section-header">
+    <span class="section-num">Section 09</span>
+    <h2>Autonomic Nervous System Involvement in MSK Pain</h2>
+  </div>
+  <div class="overview">
+    The autonomic nervous system is not a passive background system in MSK pain — it is an active participant in the generation, maintenance, and amplification of chronic pain states. Sympathetic nervous system activation influences peripheral nociceptor sensitisation, neurogenic inflammation, immune function, and tissue healing, while ANS dysregulation produces measurable clinical signs that can guide assessment and treatment decisions.
+  </div>
+
+  <h3>9.1 Sympathetic Nervous System and Peripheral Sensitisation</h3>
+
+  <h4>Sympathetically Maintained Pain (SMP)</h4>
+  <p>Under normal conditions, primary afferent nociceptors are not responsive to noradrenaline (NA) or sympathetic activation. Following peripheral nerve injury, several mechanisms establish aberrant sympatho-afferent coupling:</p>
+  <ol>
+    <li><strong>Adrenergic receptor expression on DRG neurons:</strong> injured neurons upregulate α1-adrenergic receptors on their cell bodies and peripheral terminals. NA released from sympathetic terminals now directly activates the nociceptor.</li>
+    <li><strong>Sympathetic sprouting into the DRG:</strong> sympathetic postganglionic fibres form basket structures around large-diameter DRG neurons — which then acquire adrenergic sensitivity.</li>
+    <li><strong>Noradrenaline sensitisation of peripheral terminals:</strong> at the injury site, sympathetic activation releases NA that acts on adrenergic receptors on mast cells → histamine release → increased nociceptor sensitivity; and directly on sensitised nociceptor terminals.</li>
+  </ol>
+  <p>SMP is most clearly demonstrated in CRPS but exists as a component in many chronic MSK presentations — particularly those with significant anxiety loading or autonomic dysregulation. Clinical indicators: pain worsened by stress, cold, or excitement; burning quality; vasomotor changes in the affected region; disproportionate response to emotional state.</p>
+
+  <h4>Neurogenic Inflammation</h4>
+  <p>Peripheral C fibres release neuropeptides <em>peripherally</em> from their terminals in antidromic release via the <strong>axon reflex</strong>. Substance P, CGRP, and neurokinin A released from C fibre terminals produce: vasodilation (flare response), increased vascular permeability → oedema, mast cell activation → histamine and prostaglandin release → further nociceptor sensitisation, immune cell recruitment. This is <strong>neurogenic inflammation</strong> — inflammation driven by the nervous system. It perpetuates peripheral sensitisation by continuously refreshing the inflammatory milieu. Sympathetic co-activation amplifies neurogenic inflammation via sympatho-sensory coupling.</p>
+
+  <h3>9.2 Vasomotor, Sudomotor, and Temperature Asymmetry as Clinical Indicators</h3>
+  <ul>
+    <li><strong>Vasomotor changes:</strong> colour asymmetry (redness vs pallor), visible oedema; reflects abnormal sympathetic vasoconstriction control — vasodilation (neurogenic inflammation, reduced sympathetic vasoconstriction) or excessive vasoconstriction (sympathetic overactivation)</li>
+    <li><strong>Sudomotor changes:</strong> excessive local sweating (hyperhidrosis) or reduced/absent sweating in an affected limb indicates sympathetic dysregulation. Assess clinically by examining skin texture (smooth/dry vs moist). Formal: QSART in a neurophysiology lab.</li>
+    <li><strong>Temperature asymmetry:</strong> skin temperature difference &gt;1°C between corresponding regions (measured with infrared thermometer) indicates ANS-mediated vasomotor asymmetry. In early CRPS: affected limb is typically warm (neurogenic inflammation, reduced sympathetic tone); in established CRPS and chronic SMP: affected limb is often cool (excessive vasoconstriction). Temperature asymmetry is one of the Budapest Criteria for CRPS but is clinically relevant in other chronic pain presentations as a marker of ANS involvement.</li>
+  </ul>
+
+  <h3>9.3 ANS Dysregulation in Chronic Pain</h3>
+  <p><strong>Heart rate variability (HRV):</strong> the gold-standard non-invasive measure of ANS balance. Reduced HRV — particularly reduced high-frequency (HF) power (reflecting vagal tone) — is consistently documented in fibromyalgia, CRPS, CLBP, and other chronic pain conditions. Reduced HRV indicates sympathetic dominance and reduced parasympathetic modulation. Sympathetic dominance: maintains central sensitisation via sympatho-spinal loops; degrades sleep quality; impairs descending modulation (reduced vagal tone correlates with reduced CPM efficiency); is associated with systemic inflammation (reduced vagal anti-inflammatory tone via the cholinergic anti-inflammatory pathway).</p>
+  <p>Modern wearables (Garmin, Apple Watch, Polar H10) provide accessible HRV data. A low resting HRV (relative to the individual's baseline) is a clinical signal supporting ANS dysregulation and should inform treatment emphasis toward parasympathetic tone restoration.</p>
+  <p><strong>The polyvagal perspective (Porges):</strong> three hierarchical ANS states: (1) ventral vagal (social engagement — safety, relaxation), (2) sympathetic (mobilisation — fight/flight), (3) dorsal vagal (immobilisation — shutdown/freeze). Chronic pain patients frequently oscillate between sympathetic activation and dorsal vagal shutdown — neither state is optimal for healing, therapeutic engagement, or descending modulation. A clinical approach that prioritises nervous system safety — predictable environments, therapeutic alliance, gentle early physical activity — addresses this dimension.</p>
+
+  <h3>9.4 What to Do With ANS Findings in an MSK Context</h3>
+
+  <div class="callout clinical">
+    <div class="callout clinical-title">Clinical Action Framework</div>
+    <ul>
+      <li><strong>Warm, sweating, erythematous affected region:</strong> active sympathetically driven neurogenic inflammation. Reduce provocation, consider neural mobilisation. Communicate findings to GP for formal assessment if meeting CRPS Budapest Criteria. Do not aggressively load or mobilise an inflamed region.</li>
+      <li><strong>Cool, dry, atrophic affected region with temperature asymmetry:</strong> established sympathetic dysregulation and potential SMP. Referral to pain specialist for consideration of sympathetic nerve block (diagnostic/therapeutic). Conservative management: graded desensitisation and aerobic exercise.</li>
+      <li><strong>Low HRV, chronic stress, autonomic dysregulation pattern:</strong> sympathetically dominant system will impair treatment response. Treatment emphasis: (a) aerobic exercise (most evidence-based HRV intervention), (b) diaphragmatic breathing at 6 breaths/minute (activates baroreflex, directly increases vagal tone), (c) sleep optimisation, (d) stress management, (e) psychological referral consideration.</li>
+      <li><strong>Stress-triggered exacerbations:</strong> sympatho-afferent coupling is significant. Frame accurately to patient: "Stress activates the sympathetic nervous system, which directly sensitises the pain system through these specific mechanisms" — reduces catastrophising and improves treatment engagement.</li>
+    </ul>
+  </div>
+
+  <div class="deeper">
+    <div class="deeper-title">Going Deeper</div>
+    <ul>
+      <li><strong>Jänig W & Baron R (2003)</strong> — "Complex regional pain syndrome: mystery explained?" <em>Lancet Neurol</em> 2(11):687–697.</li>
+      <li><strong>Porges SW (2011)</strong> — <em>The Polyvagal Theory.</em> Norton.</li>
+      <li><strong>McLean SA et al. (2005)</strong> — "Noradrenergic signaling contributes to the maintenance of inflammatory hyperalgesia." <em>Pain.</em></li>
+      <li><strong>Bruehl S (2010)</strong> — "An update on the pathophysiology of CRPS." <em>Anesthesiology</em> 113(3):713–725.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- SECTION 10 -->
+<div class="section" id="s10">
+  <div class="section-header">
+    <span class="section-num">Section 10</span>
+    <h2>Sleep and Pain Neuroscience</h2>
+  </div>
+  <div class="overview">
+    Sleep and pain are so deeply neurologically intertwined that addressing one without the other in a chronic pain presentation will reliably produce suboptimal outcomes. This is not a lifestyle adjunct — it is a fundamental neurobiological relationship with measurable mechanisms, and it should occupy a central position in every chronic pain management framework.
+  </div>
+
+  <h3>10.1 Sleep Deprivation → Pain Amplification</h3>
+
+  <h4>Thalamic Gating Failure</h4>
+  <p>During normal sleep, the thalamus undergoes a functional transition: the thalamocortical relay mode (transmitting sensory signals to the cortex) shifts to a bursting/oscillatory mode that actively suppresses sensory transmission — gating incoming nociceptive signals. Slow-wave sleep (SWS/N3) is particularly important for this gating function. Sleep deprivation and fragmented sleep impair thalamic gating, increasing the quantity of nociceptive signals reaching cortical pain processing areas during waking hours.</p>
+
+  <h4>Degraded Descending Inhibitory Tone</h4>
+  <p>Opioidergic and serotonergic descending modulation is sleep-dependent. Sleep deprivation reduces β-endorphin levels, reduces raphe nucleus serotonergic output, and shifts the RVM toward on-cell dominance — producing descending pain facilitation rather than inhibition. Clinical effect: impaired CPM, reduced pain threshold, widespread hyperalgesia.</p>
+
+  <h4>Glial Activation and Neuroinflammation</h4>
+  <p>Sleep deprivation activates microglia and promotes pro-inflammatory cytokine release (IL-1β, TNF-α, IL-6) — the same mediators that drive dorsal horn sensitisation. Chronic sleep deprivation produces a state of persistent low-grade neuroinflammation that maintains and amplifies CS. IL-1β specifically promotes sleep physiologically (the brain uses inflammation to drive sleep recovery after illness), but at chronically elevated levels disrupts sleep architecture, creating a self-reinforcing cycle.</p>
+
+  <h4>Cortisol and HPA Axis</h4>
+  <p>Sleep is the primary period of cortisol suppression — the circadian nadir of cortisol occurs in the early hours of sleep, allowing restoration of adrenal sensitivity and HPA axis regulation. Sleep deprivation produces cortisol elevation and dysregulated diurnal cortisol rhythm. Chronically elevated cortisol activates microglia via glucocorticoid receptor pathways, upregulates NMDA receptor expression in the dorsal horn, potentiates LTP at nociceptive synapses, increases ACC reactivity to pain stimuli, and degrades PFC top-down inhibitory function.</p>
+
+  <h3>10.2 Pain → Sleep Disruption</h3>
+  <p>Chronic pain disrupts sleep architecture in predictable ways:</p>
+  <ul>
+    <li><strong>Reduced sleep efficiency</strong> — increased wake after sleep onset (WASO)</li>
+    <li><strong>Reduced slow-wave sleep (N3)</strong> — the most restorative sleep stage; chronic pain patients consistently have lower SWS proportions</li>
+    <li><strong>Fragmented REM</strong> — important for emotional regulation and memory consolidation; disrupted REM impairs emotional processing of pain memories, contributing to pain catastrophising</li>
+    <li><strong>Alpha-delta sleep intrusion</strong> — alpha wave activity (associated with wakefulness) intrudes into delta-wave (slow-wave) sleep; this is the sleep signature of fibromyalgia and chronic pain, producing the characteristic "unrefreshing sleep"</li>
+    <li><strong>Heightened CNS arousal</strong> — sympathetic dominance in chronic pain maintains activation during sleep, preventing the parasympathetic transition needed for sleep-stage progression</li>
+  </ul>
+  <p>These mechanisms create a pathological cycle: poor sleep → degraded descending inhibition and increased CS → more pain → further sleep disruption → further degradation of descending inhibition → more CS. Without breaking the cycle, conservative pain management operates against a continuously reset nervous system state.</p>
+  <p>The cycle is further reinforced by: restricted activity to avoid pain → reduced daytime physical activity → reduced adenosine accumulation (sleep pressure) → difficulty initiating sleep; and by use of the bed as a pain-rest refuge during the day → breaking down the sleep-wake association of the bedroom. Opioids suppress REM sleep and reduce SWS; benzodiazepines reduce SWS — both commonly used in chronic pain, both with sleep-disrupting effects that paradoxically worsen the neurological pain state.</p>
+
+  <h3>10.3 Clinical Approach</h3>
+
+  <h4>Recognition and Screening</h4>
+  <ul>
+    <li><strong>PSQI</strong> (Pittsburgh Sleep Quality Index) — global sleep quality; score &gt;5 indicates poor sleep quality</li>
+    <li><strong>ISI</strong> (Insomnia Severity Index) — insomnia severity; score ≥10 indicates clinical insomnia</li>
+    <li><strong>Epworth Sleepiness Scale</strong> — daytime sleepiness / sleep apnoea screen; score ≥10–11 warrants OSA investigation</li>
+  </ul>
+  <p>Specifically ask about: sleep latency, nocturnal awakening frequency and ability to return to sleep, early morning wakening, refreshment quality (alpha-delta pattern: exhausted sleep with no refreshment), loss of vivid dreaming (REM suppression — common with opioids), and sleep position/pain relationship.</p>
+
+  <h4>The Clinical Conversation</h4>
+  <p>Framing sleep as a genuine neurobiological treatment target achieves better engagement than framing it as lifestyle advice: <em>"Your nervous system does a significant amount of pain regulation during sleep — rebalancing the pain-amplifying and pain-inhibiting pathways. When sleep is disrupted, those inhibitory pathways don't get restored, and your pain system starts the next day in an amplified state. This is why your pain is often worse in the morning and after a broken night — it's a direct neurological consequence, not coincidence."</em></p>
+
+  <h4>Conservative and Adjunct Strategies</h4>
+  <ul>
+    <li><strong>Sleep hygiene:</strong> consistent sleep/wake times (the single most evidence-based behavioural intervention for sleep quality), bedroom restricted to sleep only, stimulus control, light exposure management (morning light to anchor circadian rhythm, blue light avoidance 1–2 hours before bed)</li>
+    <li><strong>Aerobic exercise:</strong> improves sleep architecture — increases SWS duration, reduces sleep latency. Timing: morning or afternoon preferred; vigorous exercise within 3 hours of sleep onset may delay sleep onset via sympathetic activation</li>
+    <li><strong>CBT-I (Cognitive Behavioural Therapy for Insomnia):</strong> gold-standard, evidence-based treatment for insomnia, superior to pharmacological sleep aids in long-term outcomes. Includes sleep restriction therapy, stimulus control, cognitive restructuring of unhelpful sleep beliefs. Refer to a CBT-I trained psychologist when available.</li>
+    <li><strong>Diaphragmatic breathing / relaxation:</strong> activates parasympathetic ANS, reduces sympathetic arousal, improves sleep onset. Evidence base for progressive muscle relaxation, guided imagery, and paced breathing in improving sleep quality in chronic pain populations.</li>
+  </ul>
+
+  <div class="callout flag">
+    <div class="callout flag-title">Referral Indicators</div>
+    <ul>
+      <li><strong>OSA screening:</strong> loud snoring, witnessed apnoeas, excessive daytime sleepiness, high Epworth score (≥10–11), obesity, retrognathia. Refer to GP for polysomnography or home sleep study. OSA produces severe sleep fragmentation and intermittent hypoxia, massively amplifying central sensitisation. It is dramatically underdiagnosed in the MSK chronic pain population.</li>
+      <li><strong>Refractory insomnia</strong> unresponsive to CBT-I and conservative measures: psychiatry or sleep medicine referral.</li>
+    </ul>
+  </div>
+
+  <div class="deeper">
+    <div class="deeper-title">Going Deeper</div>
+    <ul>
+      <li><strong>Finan PH, Goodin BR, Smith MT (2013)</strong> — "The association of sleep and pain: an update and a path forward." <em>J Pain</em> 14(12):1539–1552.</li>
+      <li><strong>Nijs J et al. (2018)</strong> — "Sleep disturbance and central sensitisation." <em>Sleep Med Rev.</em></li>
+      <li><strong>Harvey AG & Tang NKY (2012)</strong> — CBT-I review. <em>Clin Psychol Rev.</em></li>
+      <li><strong>Lautenbacher S et al. (2006)</strong> — "Sleep deprivation and pain perception." <em>Sleep Med Rev.</em></li>
+    </ul>
+  </div>
+</div>
+
+<!-- SECTION 11 -->
+<div class="section" id="s11">
+  <div class="section-header">
+    <span class="section-num">Section 11</span>
+    <h2>Comorbid Conditions That Alter Pain Neurology</h2>
+  </div>
+  <div class="overview">
+    Anxiety, depression, PTSD, and chronic stress are not simply psychological comorbidities that make chronic pain harder to treat — they are neurobiological states that actively alter the architecture of pain processing. Each condition produces measurable changes in the same neural circuits that regulate pain: the HPA axis, the limbic system, the prefrontal cortex, and the descending modulatory pathways. Recognising this is not about psychologising MSK pain — it is about understanding why the nervous system of a patient with significant anxiety or depression responds differently to every intervention, and adjusting accordingly.
+  </div>
+
+  <h3>11.1 HPA Axis Dysregulation</h3>
+  <p>In chronic stress, anxiety, and depression, glucocorticoid receptor (GR) downregulation impairs negative feedback — the HPA axis loses its ability to self-terminate and remains activated even without ongoing stressors. Chronically elevated cortisol produces:</p>
+  <ul>
+    <li><strong>Hippocampal atrophy:</strong> glucocorticoid excess is neurotoxic to hippocampal CA3 neurons via NMDA-mediated excitotoxicity and reduced BDNF. The hippocampus is critical for contextual learning and fear extinction — hippocampal damage impairs the patient's ability to learn that pain is no longer dangerous (directly limiting graded exposure and PNE efficacy)</li>
+    <li><strong>Dorsal horn sensitisation:</strong> cortisol upregulates NMDA receptor expression in the dorsal horn and potentiates LTP at nociceptive synapses — a direct molecular mechanism at the spinal cord level, not simply attentional amplification</li>
+    <li><strong>Microglial priming:</strong> cortisol primes microglia toward a pro-inflammatory phenotype, increasing sensitivity to subsequent activating stimuli. A primed microglial system overreacts to subsequent nociceptive input, amplifying the CS cascade disproportionately</li>
+    <li><strong>Flattened diurnal cortisol rhythm:</strong> blunted cortisol awakening response (CAR) and mild chronic elevation — associated with fatigue, cognitive impairment, pain amplification, and poor treatment response</li>
+  </ul>
+
+  <h3>11.2 Amygdala Hyperactivation</h3>
+  <p>In anxiety, PTSD, and chronic stress, the amygdala is chronically hyperactivated — its activation threshold is lowered and outputs are amplified. Contributions to pain amplification:</p>
+  <ol>
+    <li><strong>Direct projection to the PAG:</strong> chronic amygdala hyperactivation drives dysregulated PAG output — shifting the descending modulatory system toward facilitation and away from inhibition</li>
+    <li><strong>Projection to the RVM:</strong> amygdala → RVM projections activate on-cells (facilitatory), directly amplifying dorsal horn nociceptive transmission</li>
+    <li><strong>Projection to the LC:</strong> amygdala → LC hyperactivation drives high-intensity noradrenergic arousal — at this intensity, LC output shifts from inhibitory to excitatory at dorsal horn α1-adrenergic receptors. Analgesia-producing noradrenergic effect requires moderate LC activation; hyperactivation produces the opposite.</li>
+    <li><strong>Central nucleus → dorsal horn:</strong> direct amygdaloid projections to the dorsal horn via descending pain facilitatory pathways</li>
+    <li><strong>Conditioned fear and anticipatory pain:</strong> the amygdala stores fear memories associated with pain. Pain-associated movements or contexts become conditioned stimuli, activating the amygdala and its pain-amplifying outputs <em>before any peripheral nociceptive input occurs</em>. This is the neurological mechanism of kinesiophobia and anticipatory pain — explains why graded exposure (systematic extinction of the pain-movement association) is effective: it extinguishes the amygdala's conditioned fear response through hippocampal extinction learning</li>
+  </ol>
+
+  <h3>11.3 Prefrontal Cortical Suppression</h3>
+  <p>In depression, anxiety, and chronic stress: PFC grey matter density is reduced (structural MRI); PFC-amygdala functional connectivity is impaired; the inhibitory brake on amygdala activity is weakened → amygdala hyperactivation becomes self-sustaining. PFC projections to the PAG (providing cognitive-evaluative top-down pain modulation) are impaired → the patient's ability to use cognitive strategies (reappraisal, distraction, acceptance) to modulate pain is neurologically compromised. This is why cognitive strategies that work in healthy controls are markedly less effective in patients with significant depression or anxiety — it is not failure of effort or motivation, it is failure of the PFC circuit needed to execute those strategies.</p>
+
+  <h3>11.4 PTSD and Pain Neuroscience</h3>
+  <p>PTSD is particularly relevant in the MSK chronic pain population: traumatic injury is a common precipitant of both; PTSD prevalence in chronic pain populations is significantly elevated (estimates 20–50% in some cohorts); and PTSD neurobiologically produces the most severe form of the limbic hyperactivation/PFC suppression pattern.</p>
+  <ul>
+    <li><strong>Amygdala fear memory consolidation:</strong> trauma memories are stored with high affective salience, resistant to extinction (hippocampal damage impairs extinction learning). Pain stimuli that occurred during or after the trauma become conditioned stimuli — reactivating the full PTSD amygdala-autonomic arousal response. Clinical or treatment contact involving pain provocation can trigger a PTSD response that neurobiologically amplifies pain during and after the session.</li>
+    <li><strong>Generalised sensory hypervigilance:</strong> PTSD produces chronic CNS hypervigilance — increased LC noradrenergic arousal, reduced thalamic gating, amplified sensory processing across all modalities — directly potentiating the CS state.</li>
+    <li><strong>Dissociation and interoceptive avoidance:</strong> in PTSD with dissociative features, disconnection from interoceptive awareness (a protective response to overwhelming body-related threat) impairs proprioceptive processing, distorts body schema, and produces the paradoxical finding of both pain hypervigilance and pain dissociation.</li>
+  </ul>
+
+  <div class="callout note">
+    <div class="callout note-title">Recognising PTSD in the MSK Pain Patient</div>
+    <p>PTSD in the pain patient often presents as: disproportionate startle response during examination, significant apprehension about touch, pain episodes that are contextually triggered (positions, environmental cues), significant hyperarousal with examination, dissociative episodes during treatment, highly variable pain intensity without clear mechanical correlate, or self-reported history of trauma with persistent intrusive or avoidant symptoms. The MSK clinician's role is not to conduct trauma therapy — it is to recognise the PTSD-pain interaction pattern, adjust the clinical environment to minimise triggering, and refer appropriately.</p>
+  </div>
+
+  <h3>11.5 Depression and Pain Neuroscience</h3>
+  <p>Depression and chronic pain share neurobiological substrates — they are partially overlapping neurological states:</p>
+  <ul>
+    <li><strong>Reduced BDNF</strong> in PFC and hippocampus impairs neuronal resilience and PFC-mediated pain modulation</li>
+    <li><strong>Monoamine depletion</strong> reduces descending inhibitory tone at the spinal cord — the same pathway targeted by SNRIs in chronic pain. Not coincidental: reduced monoaminergic descending modulation is both a pain-amplifying and a depression-maintaining mechanism</li>
+    <li><strong>Reduced neuroplasticity</strong> impairs capacity for new learning, fear extinction, and motor memory consolidation — directly limiting the efficacy of rehabilitation, PNE, and graded exposure</li>
+    <li><strong>Anhedonia-driven exercise avoidance</strong> is neurologically mediated (reduced mesolimbic dopamine signalling) — removing access to the most powerful non-pharmacological intervention for descending modulation</li>
+  </ul>
+
+  <h3>11.6 Clinical Screening Tools and Management Implications</h3>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Tool</th><th>Purpose</th><th>Action Threshold</th></tr></thead>
+    <tbody>
+      <tr><td>PHQ-9</td><td>Depression severity</td><td>≥5 mild; ≥10 moderate → GP/psychology referral; ≥15 severe → urgent referral</td></tr>
+      <tr><td>GAD-7</td><td>Anxiety severity</td><td>≥5 mild; ≥10 moderate → GP/psychology referral; ≥15 severe → urgent referral</td></tr>
+      <tr><td>PCL-5</td><td>PTSD symptom screening</td><td>≥31–33 probable PTSD → psychology / trauma specialist referral</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p><strong>How comorbidity changes management:</strong></p>
+  <ul>
+    <li><strong>Treatment response expectations:</strong> impaired descending modulation, elevated CS, and reduced neuroplasticity produce slower, less sustained responses — communicate this to patient and adjust plan accordingly</li>
+    <li><strong>Reduce treatment provocation:</strong> the amygdala is primed to associate treatment-related pain with threat. Non-provocative, predictable, patient-controlled treatment approaches are neurologically safer</li>
+    <li><strong>Exercise — dual neurobiological rationale:</strong> aerobic exercise is simultaneously the best MSK intervention for descending modulation and one of the most evidence-based interventions for mild-moderate depression and anxiety. Frame this dual mechanism to improve patient engagement</li>
+    <li><strong>PNE — expanded scope:</strong> explicitly address the anxiety-CS interaction. The nervous system's threat sensitivity is the common mechanism driving both anxiety and pain amplification — and both respond to the same treatment strategies</li>
+  </ul>
+
+  <div class="deeper">
+    <div class="deeper-title">Going Deeper</div>
+    <ul>
+      <li><strong>Vachon-Presseau E et al. (2013)</strong> — "The stress model of chronic pain: evidence from basal cortisol and hippocampal structure and function in humans." <em>Brain</em> 136(3):815–827.</li>
+      <li><strong>Neugebauer V (2015)</strong> — "Amygdala pain mechanisms." <em>Handb Exp Pharmacol.</em></li>
+      <li><strong>Asmundson GJG & Katz J (2009)</strong> — "Understanding the co-occurrence of anxiety disorders and chronic pain." <em>Depress Anxiety.</em></li>
+      <li><strong>Sharp TJ & Harvey AG (2001)</strong> — "Chronic pain and posttraumatic stress disorder: mutual maintenance?" <em>Clin Psychol Rev.</em></li>
+    </ul>
+  </div>
+</div>
+
+<!-- SECTION 12 -->
+<div class="section" id="s12">
+  <div class="section-header">
+    <span class="section-num">Section 12</span>
+    <h2>Emerging and Cutting-Edge Areas in Pain Neurology</h2>
+  </div>
+  <div class="overview">
+    The following areas sit at or beyond the current edge of clinical consensus. They represent research trajectories actively reshaping the field — some with emerging clinical applicability, others as conceptual frameworks that change how mechanistic thinking about pain is structured. A practitioner aiming to specialise in pain neurology needs familiarity with these concepts to engage with the current literature and to understand where the field is heading.
+  </div>
+
+  <h3>12.1 Glial-Mediated Sensitisation: Beyond Established Teaching</h3>
+
+  <h4>Microglial Heterogeneity and Disease-Associated States</h4>
+  <p>Single-cell RNA sequencing has revealed distinct microglial subtypes with different transcriptional profiles, activation states, and functional roles in chronic pain. <strong>DAM (Disease-Associated Microglia)</strong> — characterised by upregulation of TREM2, APOE, and complement pathway genes — represent a more sustained, self-perpetuating activation state than the classically described "M1/M2" dichotomy (an oversimplification now largely abandoned). DAM were initially characterised in Alzheimer's disease but are increasingly identified in chronic pain models.</p>
+  <p><strong>Sex-dependent microglial signalling (Mogil, 2015):</strong> spinal cord microglia mediate neuropathic pain hypersensitivity in male mice but not female mice — in females, T cells and different signalling pathways mediate the equivalent sensitisation. This sex difference may explain why gabapentinoids and microglial-targeting approaches show sex-differential efficacy in some human trials, and why fibromyalgia and CS-dominated conditions are disproportionately prevalent in females.</p>
+
+  <h4>Microglia-Neuron Synaptic Remodelling</h4>
+  <p>Microglia actively participate in synaptic remodelling — they extend processes to contact synapses (synaptic surveillance) and eliminate or strengthen specific synapses via complement-mediated phagocytosis. In the context of chronic pain, this microglial synaptic remodelling may contribute to the persistent structural synaptic changes underlying CS by selectively eliminating inhibitory synapses and preserving or strengthening excitatory connections — providing a structural maintenance mechanism for CS that goes beyond pharmacologically reversible molecular changes.</p>
+
+  <h4>Astrocyte Gap Junction Propagation</h4>
+  <p>Astrocytes form syncytia connected by gap junctions (connexin 43, 30, 26). Astrocyte activation at a focal injury point can propagate waves of gap junction-mediated calcium signalling and glutamate release across the spinal cord grey matter — potentially contributing to bilateral and widespread sensitisation patterns even when the original injury is unilateral and localised. Connexin 43 hemichannel blockers (e.g., Gap19) are under investigation as experimental analgesic agents in animal models.</p>
+
+  <h3>12.2 Neuroimmune Interactions: Cytokine Signalling and Immune-Mediated Sensitisation</h3>
+
+  <h4>Peripheral Immune-to-CNS Signalling Routes</h4>
+  <ol>
+    <li><strong>Circumventricular organs (CVOs):</strong> areas lacking a complete BBB (area postrema, organum vasculosum) — peripheral cytokines can directly access CNS through these windows and activate local glial cells</li>
+    <li><strong>Vagal afferent signalling:</strong> cytokine receptors on vagal afferent neurons in the liver and gut signal to the nucleus tractus solitarius (NTS) in the brainstem, triggering central cytokine release — the neural pathway of the "sickness behaviour" response (fatigue, malaise, hypersensitivity to pain). Explains why systemic inflammation from any cause amplifies central pain processing.</li>
+    <li><strong>BBB compromise:</strong> chronic stress and neuroinflammation compromise BBB integrity via reduced tight junction protein expression, allowing peripheral cytokines and immune cells to access the CNS parenchyma directly. LPS from gut permeability ("leaky gut") is a particularly studied activator of this pathway</li>
+    <li><strong>Choroid plexus gateway:</strong> brain-border macrophages and choroid plexus epithelial cells regulate CNS access by peripheral immune cells. T cell infiltration via the choroid plexus is upregulated in chronic stress and may contribute to neuroimmune pain sensitisation</li>
+  </ol>
+  <p><strong>Cytokines as direct pain modulators:</strong> peripheral TNF-α, IL-1β, IL-6, IL-17, IL-33 act on peripheral nociceptors directly — upregulating ion channel expression, lowering activation thresholds. In patients with subclinical systemic inflammation (metabolic syndrome, sleep apnoea, gut dysbiosis, chronic stress), elevated circulating cytokines may be contributing to nociceptor sensitisation and CS maintenance independently of any focal tissue injury.</p>
+
+  <h3>12.3 The Gut-Brain Axis and Pain</h3>
+  <h4>Microbiome Mechanisms</h4>
+  <ol>
+    <li><strong>Short-chain fatty acids (SCFAs):</strong> gut bacteria ferment dietary fibre to produce SCFAs (butyrate, propionate, acetate). Butyrate crosses the BBB and inhibits HDACs, promoting anti-inflammatory gene expression in microglia. Dysbiosis removes this microglial regulatory signal.</li>
+    <li><strong>Tryptophan metabolism:</strong> dysbiosis shifts tryptophan metabolism toward the kynurenine pathway → elevated quinolinic acid (a potent NMDA agonist and neurotoxin). Elevated quinolinic acid from dysbiosis may directly potentiate NMDA-mediated CS.</li>
+    <li><strong>LPS and microglial activation:</strong> gram-negative gut bacteria release LPS when they die. Increased gut permeability allows LPS to enter systemic circulation, activating TLR4 receptors on peripheral macrophages and CNS microglia — direct link between gut dysbiosis, gut permeability, and microglial activation in the pain CNS.</li>
+    <li><strong>Vagal afferent modulation:</strong> the gut microbiome directly modulates vagal afferent signalling to the brainstem, influencing HPA axis activity, descending pain modulation, and emotional regulation.</li>
+  </ol>
+  <p><strong>Clinical relevance:</strong> multiple CS-associated conditions (fibromyalgia, IBS, CRPS) show documented gut dysbiosis and increased gut permeability. Gut health is a legitimate target in complex chronic pain management — primarily through diet quality, prebiotic/probiotic approaches, and sleep optimisation (which strongly regulates gut microbiome composition and permeability).</p>
+
+  <h3>12.4 Predictive Processing / Active Inference Models of Pain</h3>
+
+  <h4>The Brain as a Prediction Machine</h4>
+  <p>The predictive processing (PP) framework — championed by Karl Friston and applied to pain most significantly by Moseley and colleagues — proposes that the brain continuously generates <strong>top-down predictions</strong> about the state of the body, and sensory signals serve primarily as <strong>prediction errors</strong> — discrepancies between the predicted state and actual sensory input.</p>
+  <p>Pain, in this framework, is a <strong>prediction</strong> that the body is in danger or requires protective action. Nociceptive input is one source of evidence for this conclusion, but context, prior experience, expectation, emotional state, and attention all contribute to the prediction.</p>
+  <p>Chronic pain is a state in which the brain's predictive model has been <em>miscalibrated</em> — the model persistently predicts danger even when actual tissue threat is absent or resolved. The model has "learned" (via CS mechanisms — synaptic LTP, cortical reorganisation) that this body region is chronically dangerous, and generates pain accordingly.</p>
+
+  <h4>Clinical Implications of Predictive Processing</h4>
+  <ul>
+    <li><strong>PNE through PP:</strong> explaining to a patient that their pain is a prediction, not a readout of tissue damage — and that predictions can be updated through new experiences — is more mechanistically accurate and aligns with the PP framework</li>
+    <li><strong>Graded exposure as prediction updating:</strong> each successful graded exposure trial provides a <em>prediction error signal</em> — the brain predicted pain and damage, but the movement was completed without harm. Accumulated prediction errors update the model, gradually recalibrating the danger prediction downward. This is why exposure must be (a) done, not imagined, (b) sufficient to violate the prediction, and (c) progressive</li>
+    <li><strong>Context, meaning, and expectation as neurological variables:</strong> in the PP model, the therapeutic context, the patient's pain narrative, and their expectation of improvement are direct inputs to the predictive model that generates the pain experience. Changing the narrative changes the prediction, changes the experience</li>
+    <li><strong>Attentional narrowing:</strong> attending to pain preferentially allocates predictive processing resources to the pain prediction, strengthening it — explains pain amplification during idle periods and under stress</li>
+  </ul>
+
+  <h3>12.5 Epigenetic Changes in Chronic Pain</h3>
+  <p>Epigenetic changes in dorsal horn neurons and DRG cells represent mechanisms by which the sensitised state is maintained long-term:</p>
+  <ul>
+    <li><strong>DNA hypomethylation</strong> in the DRG and dorsal horn in animal models of neuropathic pain — reducing repression of pain-related genes including Nav1.3, Nav1.8, TRPV1, and pro-inflammatory cytokine genes. DNMT3a is downregulated in the dorsal horn after nerve injury — reducing methylation of pain gene promoters</li>
+    <li><strong>Histone modifications:</strong> HDAC inhibitors (HDAC2 and HDAC4 specifically) reduce pain hypersensitivity in animal models. Histone H3 methylation at the μ-opioid receptor gene (OPRM1) promoter is increased following peripheral nerve injury, reducing OPRM1 expression and contributing to opioid tolerance at the spinal cord level</li>
+    <li><strong>MicroRNA (miRNA) regulation:</strong> miR-30c-5p targets Nav1.8 mRNA; its downregulation in neuropathic pain contributes to Nav1.8 upregulation. miR-7a targets voltage-gated sodium channel β2 subunit in the DRG — suppression contributes to sodium channel upregulation and hyperexcitability</li>
+  </ul>
+  <p>Epigenetic changes explain why chronic pain persists long after the initial sensitising stimulus has resolved — the gene expression changes have "locked in" the sensitised state. It also means early, effective treatment of acute pain is not just about patient comfort — it is prevention of the epigenetic consolidation of CS. The "window" during which the sensitised state remains pharmacologically or physiologically reversible without epigenetic consolidation is a compelling argument for aggressive early management of acute neuropathic and sensitisation presentations.</p>
+
+  <div class="deeper">
+    <div class="deeper-title">Going Deeper</div>
+    <ul>
+      <li><strong>Mogil JS (2012)</strong> — "Sex differences in pain and pain inhibition: multiple explanations of a controversial phenomenon." <em>Nat Rev Neurosci.</em></li>
+      <li><strong>Coull JAM et al. (2005)</strong> — Microglial BDNF-KCC2 in spinal pain. <em>Nature</em> 438:1017–1021.</li>
+      <li><strong>Moseley GL & Vlaeyen JWS (2015)</strong> — "Beyond nociception: the imprecision hypothesis of chronic pain." <em>Pain</em> 156(1):35–38.</li>
+      <li><strong>Friston K (2010)</strong> — "The free-energy principle: a unified brain theory?" <em>Nat Rev Neurosci.</em></li>
+      <li><strong>Descalzi G et al. (2015)</strong> — "Epigenetic mechanisms of chronic pain." <em>Trends Neurosci.</em></li>
+      <li><strong>Dinan TG, Stanton C, Cryan JF (2013)</strong> — "Psychobiotics: a novel class of psychotropic." <em>Biol Psychiatry.</em></li>
+    </ul>
+  </div>
+</div>
+
+<!-- SECTION 13 -->
+<div class="section" id="s13">
+  <div class="section-header">
+    <span class="section-num">Section 13</span>
+    <h2>Clinical Reasoning Framework: Dominant Pain Mechanism</h2>
+  </div>
+  <div class="overview">
+    This section provides a structured, repeatable approach to classifying a patient's dominant pain mechanism within a standard clinical encounter. The framework integrates subjective history, validated screening tools, physical examination, and neurodynamic testing into a coherent working diagnosis — and translates that diagnosis into a prioritised treatment hierarchy. It is designed to be usable within a 45–60 minute initial consultation, with abbreviated versions applicable to shorter follow-up encounters.
+  </div>
+
+  <h3>13.1 Stage 1: Pre-Assessment Tool Review</h3>
+  <p>If screening tools have been completed pre-consultation (ideal practice), review:</p>
+  <ul>
+    <li><strong>CSI score:</strong> ≥40 flags probable CS as a significant component</li>
+    <li><strong>PCS score:</strong> ≥30 indicates high catastrophising — alters treatment communication and sequencing</li>
+    <li><strong>TSK-11:</strong> high score indicates significant kinesiophobia — graded exposure will be required</li>
+    <li><strong>STarT Back:</strong> medium/high risk — psychosocial management components are required</li>
+    <li><strong>PHQ-9 / GAD-7:</strong> ≥10 on either — comorbid mental health involvement is significant</li>
+    <li><strong>PSQI or ISI:</strong> elevated scores flag sleep disruption as a major modifiable variable</li>
+  </ul>
+  <p>Before the patient speaks, these scores give a provisional working model of the neurological landscape.</p>
+
+  <h3>13.2 Stage 2: Structured History — The Neurological Lens</h3>
+
+  <h4>Pain Quality</h4>
+  <ul>
+    <li>Aching/throbbing/sharp on movement → nociceptive</li>
+    <li>Burning/electric/shooting/stabbing/dysaesthetic → neuropathic or CS</li>
+    <li>Diffuse, poorly localised, multiple areas → CS/nociplastic</li>
+  </ul>
+
+  <h4>Distribution</h4>
+  <ul>
+    <li>Localised to injury region → nociceptive</li>
+    <li>Dermatomal/nerve territory → peripheral neuropathic</li>
+    <li>Widespread, bilateral, non-anatomical → CS</li>
+  </ul>
+
+  <h4>Proportionality</h4>
+  <p>Does pain intensity broadly match the structural finding or tissue state? Proportionate → nociceptive. Disproportionate → neuropathic or CS.</p>
+
+  <h4>Temporal Pattern</h4>
+  <ul>
+    <li>Consistent with tissue healing → nociceptive</li>
+    <li>Episodic, provoked by specific nerve tensions → peripheral neuropathic</li>
+    <li>Constant or fluctuating with stress/sleep/weather/context → CS</li>
+  </ul>
+
+  <h4>Allodynia History</h4>
+  <p>Light touch, light clothing, vibration, temperature provocation → CS. Specific joint/nerve loading only → nociceptive/peripheral neuropathic.</p>
+
+  <h4>Multi-Site Sensitivity</h4>
+  <p>Ask specifically: headaches, jaw pain, IBS symptoms, bladder hypersensitivity, fatigue, sensitivity to light/sound/smell. Three or more CS-associated conditions → CS is a significant driver.</p>
+
+  <h4>Treatment History</h4>
+  <p>What has been tried and what happened? Poor or inconsistent response to well-delivered tissue-directed treatment, combined with good temporary responses that don't hold → CS overlay likely.</p>
+
+  <h3>13.3 Stage 3: Physical Examination — The Neurological Filter</h3>
+
+  <h4>Neurological Examination</h4>
+  <p>Myotomal testing, dermatomal sensory testing, reflexes (as per Section 3). Positive findings → peripheral neuropathic component. Absent findings in the presence of neuropathic-quality symptoms → CS or early peripheral sensitisation without axonal compromise.</p>
+
+  <h4>Pressure Pain Threshold Assessment</h4>
+  <p>If an algometer is available: measure PPT at the primary complaint site and at a standardised remote site. Remote site PPT reduced below normative values → generalised mechanical hyperalgesia → CS component. Without an algometer: direct palpation of adjacent or remote muscles for tenderness — tenderness at multiple remote sites including clearly non-structural areas suggests CS.</p>
+
+  <h4>CPM Estimation</h4>
+  <p>With the patient reporting their primary site pain intensity (0–10), apply a non-noxious pressure stimulus remotely (e.g., blood pressure cuff inflated to mild discomfort, or contralateral limb pressure). If remote conditioning <em>increases</em> primary site pain → reversed CPM → descending modulation failure → CS is dominant.</p>
+
+  <h4>Neurodynamic Testing</h4>
+  <p>Appropriate test battery for the region with sensitising/desensitising manoeuvres, as per Section 8.</p>
+
+  <h3>13.4 Stage 4: Mechanism Classification — Working Diagnosis</h3>
+
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Mechanism</th><th>Key Criteria</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><span class="mech-tag noci">Nociceptive</span></td>
+        <td>Proportionate pain, localised, mechanical provocation, consistent with healing trajectory. Negative or minimal neurological exam. Low CSI, PCS, STarT Back. Structural finding adequate to explain presentation.</td>
+      </tr>
+      <tr>
+        <td><span class="mech-tag neuro">Peripheral Neuropathic</span></td>
+        <td>Dermatomal/nerve territory distribution. Neuropathic pain quality. Positive neurological exam (motor, reflex, sensory). Positive neurodynamic tests with clear sensitisation gradient. DN4 ≥4 or LANSS ≥12. Proportionate to identified nerve lesion or compression site.</td>
+      </tr>
+      <tr>
+        <td><span class="mech-tag cs">Central Sensitisation</span></td>
+        <td>Disproportionate, widespread, or non-anatomical distribution. CSI ≥40, PCS ≥30, multiple CS-associated conditions. Allodynia on clinical assessment, remote PPT reduction. Poor or inconsistent response to previous tissue-directed treatment. Prominent psychosocial drivers. Reversed CPM.</td>
+      </tr>
+      <tr>
+        <td><span class="mech-tag mixed">Mixed Presentation</span></td>
+        <td>Most common in chronic MSK. Document the dominant and secondary mechanism. CS overlay on structural neuropathic presentation requires both components to be addressed — CS management prioritised until CS state sufficiently reduces to allow tissue-directed treatment to work effectively.</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>13.5 Stage 5: Treatment Priority Hierarchy</h3>
+
+  <div class="priority-grid">
+    <div class="priority-card">
+      <h5><span class="mech-tag noci">Nociceptive</span> Priority Order</h5>
+      <ol>
+        <li>Tissue load management (activity modification, ergonomics)</li>
+        <li>Manual therapy to the relevant structure/segment</li>
+        <li>Exercise — progressive loading within tissue tolerance</li>
+        <li>PNE — realistic tissue healing timelines, activity resumption expectations</li>
+        <li>Monitor for CS development — reassess at 4–6 weeks if not progressing</li>
+      </ol>
+    </div>
+    <div class="priority-card">
+      <h5><span class="mech-tag neuro">Peripheral Neuropathic</span> Priority Order</h5>
+      <ol>
+        <li>Reduce mechanical compromise of the nerve (posture, ergonomics, neural mobilisation — sliders first)</li>
+        <li>Reduce local inflammatory environment if present</li>
+        <li>Neural mobilisation program (progressive slider → tensioner)</li>
+        <li>PNE — explaining the nerve pathology and its treatment</li>
+        <li>Assess for double crush / proximal sensitisation</li>
+        <li>Progressive neurological deficit → refer for NCS/EMG and imaging</li>
+        <li>Medical co-management if severe or not resolving (gabapentinoid, SNRI)</li>
+      </ol>
+    </div>
+    <div class="priority-card">
+      <h5><span class="mech-tag cs">Central Sensitisation</span> Priority Order</h5>
+      <ol>
+        <li><strong>PNE first</strong> — without reconceptualisation, subsequent interventions will be interpreted through a tissue-damage lens and will have reduced efficacy</li>
+        <li>Sleep assessment and optimisation</li>
+        <li>Aerobic exercise — graded, below symptom threshold, consistent frequency</li>
+        <li>Graded motor imagery if cortical reorganisation is significant</li>
+        <li>Stress/ANS management</li>
+        <li>Manual therapy — low provocation, selected segments, primarily for descending modulation</li>
+        <li>Psychosocial referral if PHQ-9/GAD-7 elevated, PTSD suspected, or catastrophising dominant</li>
+        <li>Pain specialist referral if established, disabling CS</li>
+      </ol>
+    </div>
+    <div class="priority-card">
+      <h5><span class="mech-tag mixed">Mixed Presentation</span> Priority Order</h5>
+      <ol>
+        <li>PNE + CS management first</li>
+        <li>Reduce CS state (sleep, exercise, stress management)</li>
+        <li>Then reintroduce tissue-directed treatment as CS reduces</li>
+        <li>Progressive rehabilitation</li>
+        <li>Reassess mechanism classification at each milestone</li>
+      </ol>
+    </div>
+  </div>
+
+  <h3>13.6 Reassessment Framework</h3>
+  <p>Classification is not a one-time act. At each follow-up:</p>
+  <ul>
+    <li>Has the dominant mechanism shifted? (CS reducing → nociceptive presentation emerging as treatment focus)</li>
+    <li>Are screening tool scores changing? (PCS, CSI should reduce with effective CS management)</li>
+    <li>Is the treatment response proportionate to the predicted mechanism? If not — reassess classification.</li>
+    <li>A patient classified as nociceptive dominant who is not progressing at the expected tissue-healing rate at 4–6 weeks should be formally reassessed for CS overlay.</li>
+  </ul>
+
+  <div class="deeper">
+    <div class="deeper-title">Going Deeper</div>
+    <ul>
+      <li><strong>Smart KM et al. (2010)</strong> — "Mechanisms-based classifications of musculoskeletal pain." <em>Man Ther.</em> Validation of clinical mechanism classification.</li>
+      <li><strong>Nijs J et al. (2010)</strong> — "How to explain central sensitization to patients with unexplained chronic musculoskeletal pain: Practice guidelines." <em>Man Ther.</em></li>
+      <li><strong>O'Sullivan P (2012)</strong> — "It's time for change with the management of non-specific chronic low back pain." <em>Br J Sports Med.</em></li>
+      <li><strong>Moseley GL (2003)</strong> — "A pain neuromatrix approach to patients with chronic pain." <em>Man Ther.</em></li>
+    </ul>
+  </div>
+</div>
+
+<!-- SECTION 14 -->
+<div class="section" id="s14">
+  <div class="section-header">
+    <span class="section-num">Section 14</span>
+    <h2>Yellow and Orange Flags: Clinical Decision Making</h2>
+  </div>
+  <div class="overview">
+    Yellow and orange flags are not a checklist exercise. In the context of this document's neurological framework, each flag category represents a specific neurobiological state or risk factor that alters the pain mechanism landscape, changes the neurological model being worked with, and demands a specific management response. The clinical value lies not in their identification per se, but in understanding what each flag means for the underlying neuroscience — and what it therefore demands of the management approach.
+  </div>
+
+  <h3>14.1 Yellow Flags: Psychosocial Obstacles to Recovery</h3>
+
+  <h4>Pain Catastrophising</h4>
+  <p><strong>Neurological significance:</strong> catastrophic appraisal of pain directly activates and maintains ACC hyperactivation, driving descending pain facilitation from RVM on-cells. High PCS predicts poor CPM (impaired descending inhibition), predicts worse post-surgical outcomes, and predicts CS persistence. High PCS reflects measurable ACC hyperactivation — not a psychological character trait.</p>
+  <p><strong>Management demand:</strong> PNE is non-negotiable as a treatment priority. Cannot effectively progress to rehabilitation until the threat-pain model is reconceptualised. Standard tissue-directed treatment applied without addressing this belief will be interpreted as confirming tissue damage — worsening the catastrophising loop. PCS ≥30 combined with high CSI and poor response to PNE alone → CBT referral.</p>
+
+  <h4>Fear of Movement / Kinesiophobia (TSK-11 elevated)</h4>
+  <p><strong>Neurological significance:</strong> kinesiophobia is maintained by amygdala-conditioned fear associations between movement and pain. Each avoidance of the feared movement reinforces the conditioned fear — the amygdala's threat model is never violated. Avoidance also reduces physical activity → reduces EIH → reduces descending modulation → CS worsens.</p>
+  <p><strong>Management demand:</strong> graded exposure (not reassurance alone — reassurance without exposure does not extinguish amygdala fear conditioning). The patient must make the movement to generate the prediction error that updates the amygdala model. Severe kinesiophobia with significant functional disability not responding to graded exposure → ACT or exposure-based CBT with a pain-trained psychologist.</p>
+
+  <h4>Passive Coping / External Locus of Control</h4>
+  <p><strong>Neurological significance:</strong> patients with external locus of control have reduced engagement of PFC self-efficacy networks. Reduced PFC engagement impairs top-down descending inhibition via voluntary reappraisal. They are also less likely to maintain exercise compliance, reducing the EIH benefit.</p>
+  <p><strong>Management demand:</strong> treatment approach should emphasise patient agency. Self-managed home exercise program (not entirely passive in-clinic treatment), PSEQ monitoring, motivational interviewing principles in clinical communication.</p>
+
+  <h4>Anxiety and Depression</h4>
+  <p>See Section 11 for full mechanisms. PHQ-9 ≥10 or GAD-7 ≥10 → GP referral for formal assessment and management. Treatment proceeds concurrently but with expectations adjusted for impaired descending modulation and reduced neuroplasticity.</p>
+
+  <h4>Work and Social Factors</h4>
+  <p><strong>Work dissatisfaction, conflict, or threatened job loss:</strong> a chronic stressor maintaining HPA axis activation, sympathetic dominance, and CS. The threat is ongoing and cannot be resolved by MSK treatment alone — it continuously resets the neurological state.</p>
+  <p><strong>Compensation/medico-legal involvement:</strong> the neurological explanation is that ongoing litigation or compensation processes maintain the pain as a legally, financially, and socially relevant experience. The pain maintains a threat-relevance and socially reinforced status that resists resolution. The prediction (that the body is damaged and deserving of compensation) is continuously reconfirmed by the compensation process itself. This is not about malingering.</p>
+
+  <h3>14.2 Orange Flags: Psychiatric Indicators</h3>
+
+  <div class="callout flag">
+    <div class="callout flag-title">⚠ Orange Flags — Require Concurrent Psychological/Psychiatric Management</div>
+    <ul>
+      <li><strong>Clinical depression with somatic focus:</strong> somatic focus in depression reflects over-allocation of predictive processing resources to body-state monitoring, amplifying interoceptive signals including pain. GP/psychiatrist referral. SNRIs may be both psychiatric and analgesic in this context.</li>
+      <li><strong>PTSD (PCL-5 ≥31):</strong> psychological trauma treatment is a prerequisite for effective pain management in established PTSD. EMDR and trauma-focused CBT are first-line treatments. MSK management should proceed at a pace dictated by trauma treatment progress.</li>
+      <li><strong>Substance use disorder:</strong> opioid-induced hyperalgesia (OIH) — sustained opioid exposure upregulates NMDA receptors and activates pro-nociceptive systems, paradoxically worsening pain sensitivity. Active substance use significantly limits the effectiveness of rehabilitation. Addiction medicine and medical management of OIH are essential co-management components.</li>
+      <li><strong>Significant personality disorder features:</strong> significant structure and consistency required in the treatment relationship. Psychology involvement is recommended. These presentations are not untreatable but require additional clinical awareness.</li>
+    </ul>
+  </div>
+
+  <h3>14.3 How Flags Change the Neurological Model</h3>
+  <p>The presence of significant yellow and/or orange flags does not change the neuroanatomy of the patient's pain — but it changes <strong>which neurological mechanisms are dominant drivers</strong>. Flags elevate the following:</p>
+  <ul>
+    <li>CS probability (particularly high catastrophising, fear-avoidance, and comorbid anxiety)</li>
+    <li>Descending modulation failure (depression, sleep disruption, PTSD)</li>
+    <li>Amygdala-driven pain facilitation (anxiety, PTSD, fear-avoidance)</li>
+    <li>Reduced PFC top-down modulation (depression, anxiety, chronic stress)</li>
+    <li>Persistence of HPA dysregulation (all of the above)</li>
+  </ul>
+  <p><strong>The practical output:</strong> flag findings elevate the CS working diagnosis and lower the threshold for PNE, graduated exercise, sleep focus, and psychological referral as treatment priorities. They should reduce the priority of passive tissue-directed treatment relative to active neurological system management.</p>
+
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Flag</th><th>Neurobiological Mechanism</th><th>Primary Management Response</th></tr></thead>
+    <tbody>
+      <tr><td>High PCS ≥30</td><td>ACC hyperactivation, RVM on-cell facilitation, impaired CPM</td><td>PNE priority; CBT if severe; reassess treatment framing</td></tr>
+      <tr><td>High TSK</td><td>Amygdala-conditioned fear, avoidance-reinforcement cycle, reduced EIH</td><td>Graded exposure; ACT/CBT referral if severe</td></tr>
+      <tr><td>PHQ-9 ≥10</td><td>Reduced descending inhibition, reduced neuroplasticity, reduced BDNF</td><td>GP referral; SNRI consideration; exercise prescription</td></tr>
+      <tr><td>GAD-7 ≥10</td><td>Amygdala hyperactivation, HPA dysregulation, sympatho-afferent coupling</td><td>GP referral; reduce treatment provocation; ANS management</td></tr>
+      <tr><td>PCL-5 ≥31</td><td>PTSD-amygdala fear circuit, hippocampal extinction failure, generalised hypervigilance</td><td>Trauma psychology referral; adjust treatment environment; go slow</td></tr>
+      <tr><td>Compensation/litigation</td><td>Ongoing threat maintenance → HPA/sympathetic dysregulation persistence</td><td>Function-based goals; realistic expectations; acknowledge occupational context</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="deeper">
+    <div class="deeper-title">Going Deeper</div>
+    <ul>
+      <li><strong>Kendall NAS et al. (1997)</strong> — New Zealand Acute Low Back Pain Guide. Original yellow flag framework.</li>
+      <li><strong>Nicholas MK et al. (2011)</strong> — "Early identification and management of psychological risk factors ('yellow flags') in patients with low back pain." <em>Phys Ther.</em></li>
+      <li><strong>Linton SJ (2000)</strong> — "A review of psychological risk factors in back and neck pain." <em>Spine.</em></li>
+      <li><strong>Vlaeyen JWS & Linton SJ (2000)</strong> — Fear-avoidance model of chronic musculoskeletal pain. <em>Pain.</em></li>
+    </ul>
+  </div>
+</div>
+
+<!-- SECTION 15 -->
+<div class="section" id="s15">
+  <div class="section-header">
+    <span class="section-num">Section 15</span>
+    <h2>Integrated Treatment Approaches</h2>
+  </div>
+  <div class="overview">
+    This section synthesises the entire document into a coherent, mechanism-driven treatment framework. The core principle is that the dominant pain mechanism determines the treatment hierarchy — and that hierarchy is not fixed across a treatment plan but evolves as the neurological picture changes. Effective treatment is continuous neurological reassessment translated into adaptive clinical decision-making.
+  </div>
+
+  <h3>15.1 The Principle: Mechanism Determines Hierarchy</h3>
+  <p>The failure mode of most chronic MSK treatment is not the use of wrong techniques — it is the use of correct techniques applied in the wrong sequence, at the wrong dose, or to the wrong mechanism. Manual therapy is not wrong for CS patients, but using it as the <em>primary</em> treatment when CS is dominant, while neglecting sleep, exercise, and PNE, is a sequencing failure that produces the outcome patterns familiar to most MSK clinicians: temporary benefit, inconsistent response, repeat presentations.</p>
+
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Dominant Mechanism</th><th>Priority 1</th><th>Priority 2</th><th>Priority 3</th><th>Priority 4+</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><span class="mech-tag noci">Nociceptive</span></td>
+        <td>Load management + tissue-directed manual therapy</td>
+        <td>Progressive exercise</td>
+        <td>PNE (tissue healing)</td>
+        <td>Monitor for CS</td>
+      </tr>
+      <tr>
+        <td><span class="mech-tag neuro">Peripheral Neuropathic</span></td>
+        <td>Neural mobilisation + nerve decompression</td>
+        <td>Load/posture management</td>
+        <td>Progressive neural loading</td>
+        <td>Medical co-management if needed</td>
+      </tr>
+      <tr>
+        <td><span class="mech-tag cs">Central Sensitisation</span></td>
+        <td>PNE</td>
+        <td>Sleep + aerobic exercise</td>
+        <td>Graded exposure + motor control</td>
+        <td>Manual therapy (descending modulation role)</td>
+      </tr>
+      <tr>
+        <td><span class="mech-tag mixed">Mixed CS + Nociceptive</span></td>
+        <td>PNE + CS management first</td>
+        <td>Reduce CS state</td>
+        <td>Reintroduce tissue-directed treatment</td>
+        <td>Progressive rehabilitation</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>15.2 Pain Neuroscience Education: Neurological Priority and Timing</h3>
+  <p>PNE is not a single session of education delivered once at the beginning of care. It is an ongoing process of building a neurobiologically accurate model of pain with the patient — one that changes as the clinical picture evolves.</p>
+  <p><strong>When PNE is the absolute first priority (before any hands-on treatment):</strong></p>
+  <ul>
+    <li>CS dominant with high catastrophising (PCS ≥30)</li>
+    <li>Kinesiophobia preventing engagement with exercise or rehabilitation</li>
+    <li>Strong biomedical tissue-damage model that will cause the patient to interpret manual therapy as "fixing a structural problem" (which reinforces the wrong model and produces worse long-term outcomes)</li>
+    <li>Active fear-avoidance behaviour</li>
+  </ul>
+
+  <p><strong>The neurological basis of PNE efficacy:</strong> PNE works because changing the conceptual model of pain changes the <em>threat appraisal</em> of that pain — reducing ACC activation and descending facilitation, allowing the PFC to re-engage top-down modulation. Studies (Moseley, Louw, Butler) demonstrate that PNE reduces PCS and TSK scores, increases PPT (direct measurable neurological change in pain sensitivity), improves physical performance on tests like straight leg raise range, and improves treatment adherence and exercise compliance.</p>
+
+  <h3>15.3 Manual Therapy: Mechanism-Specific Roles</h3>
+
+  <h4>Nociceptive Dominant Presentations</h4>
+  <p>Primary mechanism: mechanical offloading of sensitised tissue, restoration of joint kinematics, reduction of local nociceptive afferent drive. Gate control via mechanoreceptor activation. Descending modulation engagement (endorphin/serotonin release, PAG activation). Appropriate as a primary treatment tool. Force calibrated to engage type I/II mechanoreceptors without activating type III/IV nociceptors.</p>
+
+  <h4>Peripheral Neuropathic Presentations</h4>
+  <p>Neural mobilisation (slider and tensioner techniques) is the primary technique. Adjacent segment SMT to reduce total spinal nociceptive load and improve neural tissue milieu. Care to avoid direct mechanical provocation of sensitised neural tissue — avoid high-force end-range techniques at the affected level.</p>
+
+  <h4>Central Sensitisation Dominant Presentations</h4>
+  <p>Descending modulation is the primary therapeutic mechanism — not tissue structural change. The technique selection and dose must be calibrated to avoid activating the sensitised system. A high-velocity thrust that produces significant procedural pain in a CS patient activates the very ascending nociceptive pathways the treatment is trying to modulate — the technique backfires at a neurological level.</p>
+  <p>Low-force mobilisation, gentle soft tissue work, and selected SMT at non-sensitised segments in a low-threat, high-alliance clinical context will harness the PAG/RVM mechanism without adding to CS load. Context priming (PNE before treatment, positive expectation established) increases PAG activation and endorphin response to subsequent hands-on treatment — the expectation component is a real neurobiological mechanism (Bialosky's model).</p>
+
+  <h4>The Haavik-Bialosky Synthesis</h4>
+  <p>Manual therapy — SMT specifically — has its strongest neurological effects when: (1) applied to a genuinely dysfunctional spinal segment (Haavik's specificity finding — SMT to non-dysfunctional segments produces smaller cortical effects); (2) in a treatment context that primes positive expectation (Bialosky's context effect — the cortical/PFC-PAG contribution to the total hypoalgesic response); and (3) at a dose and force that engages type I/II mechanoreceptors and PAG without exceeding the pain/threat threshold, which activates type III/IV and ascending nociceptive pathways counterproductively in CS states.</p>
+
+  <h3>15.4 Exercise: Aerobic vs Resistance and Descending Modulation</h3>
+
+  <h4>Aerobic Exercise</h4>
+  <p>Produces the most robust, generalised EIH across chronic pain populations. Mechanisms: endorphin/endocannabinoid release, LC noradrenergic activation, serotonergic activation, HRV improvement, sleep quality improvement, HPA axis regulation, anti-inflammatory effect (IL-6 released from muscle during exercise drives IL-10 and IL-1ra induction).</p>
+  <p><strong>Target:</strong> 150–200 minutes of moderate-intensity aerobic exercise per week (5 days × 30–40 minutes, or equivalent). Most evidence-based formats: cycling, swimming, brisk walking.</p>
+  <p><strong>In high-CS patients:</strong> start at 10–15 minutes, below the symptom-provocation threshold. Progress by small increments regardless of symptom fluctuation. High-intensity exercise can paradoxically worsen pain sensitivity in fibromyalgia/PTSD via sympathetic activation — moderate intensity, consistent frequency, building EIH capacity gradually.</p>
+
+  <h4>Resistance Training</h4>
+  <p>Produces EIH primarily at the exercising muscles via local opioid/endocannabinoid mechanisms. Restores motor cortex representation. Reverses pain-inhibited muscle activation (AMI) — once nociceptive afferent drive is reduced, progressive loading restores full motor unit recruitment. Sequence: motor control and deep stabiliser activation (low load, high precision) → progressive loading with maintained motor control quality → functional integration.</p>
+
+  <h4>Exercise Sequencing Across a Treatment Plan</h4>
+  <ul>
+    <li><strong>Weeks 1–4 (CS dominant):</strong> aerobic exercise as primary exercise intervention; motor control training at very low load (below pain threshold); graded motor imagery if applicable</li>
+    <li><strong>Weeks 4–8:</strong> aerobic maintained; deep stabiliser recruitment established; light resistance training introduced</li>
+    <li><strong>Weeks 8–16:</strong> progressive resistance training; aerobic maintained; functional integration and dual-task loading</li>
+    <li><strong>Ongoing:</strong> maintenance exercise program — the descending modulation benefits of aerobic exercise require ongoing dosing; they do not persist if exercise is discontinued</li>
+  </ul>
+
+  <h3>15.5 Sleep, ANS, and Lifestyle as Non-Negotiable Neurological Targets</h3>
+  <p>These are consistently deprioritised in MSK practice — given the strength of the neurobiological evidence reviewed in Sections 9, 10, and 11, they should be considered as fundamental to the treatment plan as exercise prescription.</p>
+  <p><strong>Sleep:</strong> assessed at initial consultation. PSQI ≥5 or ISI ≥10 → active management plan including sleep hygiene, aerobic exercise, CBT-I referral if available. Framed to the patient as a neurological treatment — "restoring your pain regulation system" — not a lifestyle suggestion.</p>
+  <p><strong>ANS regulation:</strong> aerobic exercise (primary). Paced diaphragmatic breathing (6 breaths/minute × 10 minutes daily — evidence-based for HRV improvement). Sleep. Stress reduction strategies appropriate to the patient. For patients with significant sympathetic dominance and elevated resting heart rate/low HRV: wearable HRV monitoring can be a powerful tool for behavioural change — objective evidence of ANS state that the patient can track.</p>
+
+  <h3>15.6 Referral Decision Logic</h3>
+
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Referral Destination</th><th>Indicators</th></tr></thead>
+    <tbody>
+      <tr><td>Pain psychology / CBT-I / ACT</td><td>PCS ≥30 with poor response to PNE; PHQ-9 ≥10 or GAD-7 ≥10; PCL-5 ≥31; refractory insomnia; severe fear-avoidance</td></tr>
+      <tr><td>Pain specialist</td><td>CS dominant &gt;6 months, significant functional impairment, multiple failed conservative trials; CRPS features (Budapest Criteria); sympathetically maintained pain; complex pharmacological needs (ketamine, LDN, SNRIs not yet trialled)</td></tr>
+      <tr><td>Neurologist</td><td>Progressive neurological deficit; UMN signs (hyperreflexia, Babinski, clonus); suspected myelopathy; migraine requiring pharmacological preventive management; complex neuropathic presentations requiring NCS/EMG</td></tr>
+      <tr><td>Neurosurgeon / spinal surgeon</td><td>Cauda equina syndrome (emergency — do not delay); progressive radiculopathy with significant motor deficit not responding to conservative management; structural cord compromise on imaging</td></tr>
+      <tr><td>GP</td><td>All psychological/psychiatric referrals; OSA screening and sleep study; inflammatory arthropathy assessment; metabolic contributors (thyroid, diabetes, systemic inflammation)</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>15.7 Worked Clinical Example: Evolving Treatment Plan</h3>
+
+  <div class="callout clinical">
+    <div class="callout clinical-title">Worked Example — Chronic L5–S1 Disc Herniation + L5 Radiculopathy + CS Overlay</div>
+    <p><strong>Presentation:</strong> 42-year-old male. 9-month history of central/right lower back pain radiating to right posterior leg and lateral foot. Initial acute disc event, partially improved then plateaued. L5 neurological signs present (EHL weakness grade 4/5, reduced first webspace sensation). CSI 44 (above threshold). PCS 28. Sleep 5/10. Anxious, catastrophising about re-injury.</p>
+
+    <p><strong>Working diagnosis:</strong> peripheral neuropathic dominant (L5 radiculopathy) with significant CS overlay. Mixed presentation.</p>
+
+    <p><strong>Weeks 1–4:</strong> PNE — explain both the nerve irritation mechanism (the disc-root-DRG relationship, why there is dysaesthesia and weakness) and the CS overlay (the nervous system has become sensitised, amplifying the pain signal beyond the nerve lesion). Neural mobilisation — sciatic nerve sliders (prone position, ankle dorsiflexion/plantarflexion with hip extension, beginning within comfortable range). Gentle aerobic exercise (walking, 15–20 minutes/day below symptom threshold). Sleep assessment — ISI 12 (clinical insomnia); begin sleep hygiene protocol. Low-force SMT to L3–4 and thoracolumbar junction for descending modulation engagement. Avoid lumbar end-range flexion loading that loads the disc.</p>
+
+    <p><strong>Weeks 4–8:</strong> Progress neural mobilisation to controlled tensioners as tolerance improves. Increase aerobic exercise dose to 30 minutes, 4–5 days/week. Deep stabiliser activation — transversus abdominis and multifidus activation in neutral spine, below provocation threshold. Reassess CSI and PCS — if reducing, CS is responding; if not, increase PNE intensity and consider psychology referral. Reassess neurological exam — note EHL strength trajectory.</p>
+
+    <p><strong>Weeks 8–16:</strong> Progressive resistance training — hip hinge pattern, goblet squat, progressively loaded. Continue aerobic exercise maintenance. Neural mobilisation maintained as needed. Reassess neurological exam for root recovery. If EHL weakness persists without improvement at 12 weeks → NCS/EMG and imaging repeat → surgical consultation consideration.</p>
+
+    <p><strong>Discharge planning:</strong> maintenance exercise program (aerobic + resistance), self-management strategies for flare-up, education on predictors of recurrence, when to return.</p>
+  </div>
+
+  <h3>15.8 The Evolving Treatment Plan: Neurological Reassessment at Each Stage</h3>
+  <p>The treatment plan is not fixed at initial assessment. Formal reassessment at each clinical milestone:</p>
+  <ul>
+    <li><strong>Not progressing as predicted at 4–6 weeks</strong> → reclassify dominant mechanism</li>
+    <li><strong>Significant deterioration</strong> → reassess for CS development over nociceptive, review flags, consider referral</li>
+    <li><strong>Better than predicted</strong> → downgrade CS component, increase tissue-directed and loading components</li>
+    <li><strong>New symptoms or symptom spread</strong> → reassess for mechanisms not previously the primary focus (particularly peripheral neuropathic overlay)</li>
+  </ul>
+
+  <div class="deeper">
+    <div class="deeper-title">Going Deeper</div>
+    <ul>
+      <li><strong>Louw A, Diener I, Butler DS, Puentedura EJ (2011)</strong> — "The effect of neuroscience education on pain, disability, anxiety, and stress in chronic musculoskeletal pain." <em>Arch Phys Med Rehabil.</em></li>
+      <li><strong>Naugle KM et al. (2012)</strong> — Meta-analysis of exercise hypoalgesia. <em>J Pain.</em></li>
+      <li><strong>Bialosky JE et al. (2018)</strong> — Neurophysiological model of manual therapy. <em>J Orthop Sports Phys Ther.</em></li>
+      <li><strong>O'Sullivan P et al. (2016)</strong> — "Unravelling the complexity of low back pain." <em>J Orthop Sports Phys Ther.</em></li>
+      <li><strong>Moseley GL & Butler DS (2017)</strong> — <em>Explain Pain Supercharged.</em> NOI Group.</li>
+      <li><strong>Vlaeyen JWS & Linton SJ (2000)</strong> — Fear-avoidance model. <em>Pain.</em></li>
+    </ul>
+  </div>
+</div>
+
+</main>
+
+<script>
+// PROGRESS BAR
+window.addEventListener('scroll', () => {
+  const winHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const scrolled = window.scrollY / winHeight * 100;
+  document.getElementById('progress-fill').style.width = scrolled + '%';
+});
+
+// SIDEBAR TOGGLE
+let sidebarVisible = true;
+function toggleSidebar() {
+  sidebarVisible = !sidebarVisible;
+  const sidebar = document.getElementById('sidebar');
+  const main = document.getElementById('main');
+  if (!sidebarVisible) {
+    sidebar.style.transform = 'translateX(-100%)';
+    main.style.marginLeft = '0';
+    main.style.maxWidth = '900px';
+  } else {
+    sidebar.style.transform = 'translateX(0)';
+    main.style.marginLeft = 'var(--sidebar-width)';
+    main.style.maxWidth = '';
+  }
+}
+
+// SCROLL SPY
+const sections = document.querySelectorAll('.section');
+const navItems = document.querySelectorAll('.nav-item');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.id;
+      navItems.forEach(item => item.classList.remove('active'));
+      const active = document.querySelector('.nav-item[href="#' + id + '"]');
+      if (active) active.classList.add('active');
+    }
+  });
+}, { threshold: 0.15, rootMargin: '-80px 0px -60% 0px' });
+sections.forEach(s => observer.observe(s));
+
+// SEARCH
+let searchTimeout;
+function searchDoc(query) {
+  clearTimeout(searchTimeout);
+  searchTimeout = setTimeout(() => {
+    const highlights = document.querySelectorAll('.search-highlight');
+    highlights.forEach(el => {
+      const parent = el.parentNode;
+      parent.replaceChild(document.createTextNode(el.textContent), el);
+      parent.normalize();
+    });
+    if (query.length < 2) return;
+    const main = document.getElementById('main');
+    const regex = new RegExp('(' + query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+    highlightInElement(main, regex);
+    const firstMatch = document.querySelector('.search-highlight');
+    if (firstMatch) firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, 300);
+}
+function highlightInElement(el, regex) {
+  for (let child of Array.from(el.childNodes)) {
+    if (child.nodeType === 3) {
+      const text = child.textContent;
+      if (regex.test(text)) {
+        const span = document.createElement('span');
+        span.innerHTML = text.replace(regex, '<mark class="search-highlight">$1</mark>');
+        el.replaceChild(span, child);
+      }
+      regex.lastIndex = 0;
+    } else if (child.nodeType === 1 && !['SCRIPT','STYLE','INPUT'].includes(child.tagName)) {
+      highlightInElement(child, regex);
+    }
+  }
+}
+</script>
+</body>
+</html>

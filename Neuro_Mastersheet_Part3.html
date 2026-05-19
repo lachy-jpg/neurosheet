@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neurology of MSK Pain — Part 3: Practice-Focused Advanced Reference</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #111318;
+  --surface: #181c26;
+  --card: #1e2233;
+  --border: #2a2f45;
+  --accent: #6eb5d4;
+  --accent-warm: #c9a84c;
+  --accent-muted: #3a6b85;
+  --accent3: #7dbe8a;
+  --danger: #c45c5c;
+  --success: #5c9e78;
+  --text: #ddd8ce;
+  --text-secondary: #8a8578;
+  --text-muted: #5a5650;
+  --heading: #e8e2d6;
+  --highlight-bg: rgba(110,181,212,0.08);
+  --sidebar-width: 300px;
+  --header-height: 56px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Lora', Georgia, serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* HEADER */
+#top-header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: var(--header-height);
+  background: rgba(17,19,24,0.96);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; padding: 0 20px;
+  gap: 16px;
+}
+#top-header h1 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 14px; font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--accent3); flex: 1;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+#search-box {
+  background: var(--card); border: 1px solid var(--border);
+  color: var(--text); padding: 6px 12px; border-radius: 6px;
+  font-family: 'DM Sans', sans-serif; font-size: 13px; width: 240px;
+  outline: none; transition: border-color 0.2s;
+}
+#search-box:focus { border-color: var(--accent3); }
+#search-box::placeholder { color: var(--text-muted); }
+.header-btn {
+  background: var(--card); border: 1px solid var(--border);
+  color: var(--text-secondary); padding: 6px 12px; border-radius: 6px;
+  font-family: 'DM Sans', sans-serif; font-size: 12px; cursor: pointer;
+  transition: all 0.2s; white-space: nowrap;
+}
+.header-btn:hover { border-color: var(--accent3); color: var(--accent3); }
+#progress-bar {
+  position: fixed; top: var(--header-height); left: 0; right: 0;
+  height: 2px; background: var(--border); z-index: 99;
+}
+#progress-fill {
+  height: 100%; background: linear-gradient(90deg, var(--accent3), var(--accent));
+  width: 0%; transition: width 0.1s;
+}
+
+/* SIDEBAR */
+#sidebar {
+  position: fixed; top: var(--header-height); left: 0; bottom: 0;
+  width: var(--sidebar-width); background: var(--surface);
+  border-right: 1px solid var(--border); overflow-y: auto;
+  padding: 20px 0; z-index: 80; transition: transform 0.3s ease;
+}
+#sidebar::-webkit-scrollbar { width: 4px; }
+#sidebar::-webkit-scrollbar-track { background: transparent; }
+#sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+.sidebar-label {
+  font-family: 'DM Sans', sans-serif; font-size: 10px; font-weight: 500;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted);
+  padding: 0 20px 8px; display: block;
+}
+.sidebar-sub {
+  font-family: 'DM Sans', sans-serif; font-size: 10px;
+  color: var(--text-muted); padding: 2px 20px 2px 36px; display: block;
+  line-height: 1.5;
+}
+.nav-item {
+  display: block; padding: 7px 20px; text-decoration: none;
+  font-family: 'DM Sans', sans-serif; font-size: 12.5px; color: var(--text-secondary);
+  border-left: 2px solid transparent; transition: all 0.15s; line-height: 1.4;
+}
+.nav-item:hover { color: var(--text); background: var(--highlight-bg); }
+.nav-item.active { color: var(--accent3); border-left-color: var(--accent3); background: var(--highlight-bg); }
+.nav-item .num { color: var(--text-muted); margin-right: 6px; font-size: 11px; }
+.nav-divider { height: 1px; background: var(--border); margin: 12px 0; }
+
+/* MAIN */
+#main {
+  margin-left: var(--sidebar-width);
+  margin-top: var(--header-height);
+  padding: 60px 80px 100px;
+  max-width: calc(var(--sidebar-width) + 860px);
+}
+@media (max-width: 1100px) { #main { padding: 40px 40px 80px; } }
+
+/* DOCUMENT TITLE */
+#doc-title { margin-bottom: 60px; padding-bottom: 40px; border-bottom: 1px solid var(--border); }
+#doc-title h1 {
+  font-family: 'Libre Baskerville', serif; font-size: 36px;
+  font-weight: 700; color: var(--heading); line-height: 1.25; margin-bottom: 16px;
+}
+#doc-title .subtitle {
+  font-family: 'DM Sans', sans-serif; font-size: 13px; color: var(--text-muted);
+  letter-spacing: 0.06em; text-transform: uppercase;
+}
+#doc-title .meta { margin-top: 20px; display: flex; gap: 24px; flex-wrap: wrap; }
+.meta-pill {
+  background: var(--card); border: 1px solid var(--border);
+  padding: 4px 12px; border-radius: 20px;
+  font-family: 'DM Sans', sans-serif; font-size: 12px; color: var(--text-secondary);
+}
+.part-badge {
+  background: rgba(125,190,138,0.12); border: 1px solid rgba(125,190,138,0.35);
+  padding: 4px 14px; border-radius: 20px;
+  font-family: 'DM Sans', sans-serif; font-size: 12px; color: var(--accent3); font-weight: 500;
+}
+
+/* SECTIONS */
+.section { margin-bottom: 80px; padding-top: 20px; border-top: 1px solid var(--border); }
+.section-header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 32px; }
+.section-num {
+  font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent3); opacity: 0.9; white-space: nowrap;
+}
+.section h2 {
+  font-family: 'Libre Baskerville', serif; font-size: 26px;
+  font-weight: 700; color: var(--heading); line-height: 1.3;
+}
+.section h3 {
+  font-family: 'Libre Baskerville', serif; font-size: 18px;
+  font-weight: 700; color: var(--heading); margin: 32px 0 12px;
+  padding-left: 14px; border-left: 3px solid var(--accent3);
+}
+.section h4 {
+  font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500;
+  letter-spacing: 0.05em; text-transform: uppercase;
+  color: var(--accent-warm); margin: 24px 0 8px;
+}
+.section p { margin-bottom: 16px; color: var(--text); }
+.section p:last-child { margin-bottom: 0; }
+.overview {
+  background: var(--card); border: 1px solid var(--border);
+  border-left: 3px solid var(--accent3); padding: 20px 24px;
+  border-radius: 0 6px 6px 0; margin-bottom: 32px;
+  font-style: italic; color: var(--text-secondary);
+}
+
+/* TABLES */
+.table-wrap { overflow-x: auto; margin: 24px 0; }
+table { width: 100%; border-collapse: collapse; font-family: 'DM Sans', sans-serif; font-size: 13px; }
+thead { background: var(--card); }
+thead th {
+  padding: 10px 14px; text-align: left; font-weight: 500;
+  color: var(--accent3); border-bottom: 2px solid var(--border); white-space: nowrap;
+}
+tbody tr { border-bottom: 1px solid var(--border); }
+tbody tr:hover { background: var(--highlight-bg); }
+tbody td { padding: 9px 14px; color: var(--text); vertical-align: top; }
+tbody td:first-child { color: var(--text-secondary); font-weight: 500; }
+
+/* CALLOUTS */
+.callout { border-radius: 6px; padding: 16px 20px; margin: 20px 0; border: 1px solid; font-size: 14.5px; }
+.callout.flag { background: rgba(196,92,92,0.07); border-color: rgba(196,92,92,0.3); }
+.callout.flag-title { font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--danger); margin-bottom: 8px; }
+.callout.note { background: rgba(110,181,212,0.07); border-color: rgba(110,181,212,0.25); }
+.callout.note-title { font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+.callout.clinical { background: rgba(92,158,120,0.07); border-color: rgba(92,158,120,0.3); }
+.callout.clinical-title { font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--success); margin-bottom: 8px; }
+.callout.practice { background: rgba(125,190,138,0.07); border-color: rgba(125,190,138,0.3); }
+.callout.practice-title { font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent3); margin-bottom: 8px; }
+.callout.tool { background: rgba(201,168,76,0.07); border-color: rgba(201,168,76,0.3); }
+.callout.tool-title { font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-warm); margin-bottom: 8px; }
+
+/* LISTS */
+.section ul, .section ol { padding-left: 24px; margin: 12px 0 16px; }
+.section li { margin-bottom: 8px; color: var(--text); }
+.section ul li::marker { color: var(--accent3); }
+.section ol li::marker { color: var(--accent3); font-weight: 600; }
+
+/* DEEPER */
+.deeper {
+  background: var(--surface); border: 1px solid var(--border);
+  border-top: 2px solid var(--accent-warm); padding: 20px 24px;
+  border-radius: 0 0 6px 6px; margin-top: 40px;
+}
+.deeper-title { font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-warm); margin-bottom: 12px; }
+.deeper ul { padding-left: 0; list-style: none; }
+.deeper li { font-family: 'DM Sans', sans-serif; font-size: 13px; color: var(--text-secondary); padding: 5px 0; border-bottom: 1px solid var(--border); margin: 0; }
+.deeper li:last-child { border-bottom: none; }
+.deeper li strong { color: var(--text); }
+
+/* CONSULT TEMPLATE BOXES */
+.consult-block {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 6px; margin: 20px 0; overflow: hidden;
+}
+.consult-header {
+  background: var(--surface); padding: 10px 18px;
+  border-bottom: 1px solid var(--border);
+  font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent3);
+  display: flex; align-items: center; gap: 10px;
+}
+.consult-time {
+  background: rgba(125,190,138,0.15); color: var(--accent3);
+  padding: 2px 8px; border-radius: 3px; font-size: 10px; font-weight: 600;
+}
+.consult-body { padding: 16px 18px; }
+.consult-body p { font-family: 'DM Sans', sans-serif; font-size: 13.5px; margin-bottom: 10px; color: var(--text); }
+.consult-body p:last-child { margin-bottom: 0; }
+.consult-body strong { color: var(--accent-warm); }
+.consult-step {
+  display: flex; gap: 12px; margin-bottom: 10px; align-items: flex-start;
+}
+.step-num {
+  background: rgba(125,190,138,0.15); color: var(--accent3);
+  font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 600;
+  width: 22px; height: 22px; border-radius: 50%; display: flex;
+  align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;
+}
+.step-text { font-family: 'DM Sans', sans-serif; font-size: 13.5px; color: var(--text); line-height: 1.6; }
+
+/* SCRIPT BOXES */
+.script-box {
+  background: rgba(125,190,138,0.05); border: 1px solid rgba(125,190,138,0.2);
+  border-radius: 6px; padding: 14px 18px; margin: 16px 0;
+}
+.script-label {
+  font-family: 'DM Sans', sans-serif; font-size: 10px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent3);
+  margin-bottom: 8px; display: block;
+}
+.script-text {
+  font-family: 'Lora', serif; font-size: 14px; font-style: italic;
+  color: var(--text); line-height: 1.7;
+}
+
+/* MECHANISM TAG */
+.mech-tag {
+  display: inline-block; font-family: 'DM Sans', sans-serif;
+  font-size: 11px; font-weight: 500; letter-spacing: 0.06em;
+  text-transform: uppercase; padding: 2px 8px; border-radius: 3px; margin: 2px;
+}
+.mech-tag.noci { background: rgba(92,158,120,0.15); color: #7bc49a; border: 1px solid rgba(92,158,120,0.3); }
+.mech-tag.neuro { background: rgba(110,181,212,0.12); color: #7ec3de; border: 1px solid rgba(110,181,212,0.3); }
+.mech-tag.cs { background: rgba(196,92,92,0.12); color: #e08080; border: 1px solid rgba(196,92,92,0.3); }
+.mech-tag.mixed { background: rgba(201,168,76,0.12); color: #d4b060; border: 1px solid rgba(201,168,76,0.3); }
+
+/* SEARCH HIGHLIGHT */
+.search-highlight { background: rgba(201,168,76,0.3); border-radius: 2px; }
+
+/* SIDEBAR TOGGLE */
+#sidebar-toggle {
+  background: var(--card); border: 1px solid var(--border);
+  color: var(--text-secondary); width: 32px; height: 32px;
+  border-radius: 6px; cursor: pointer; display: flex;
+  align-items: center; justify-content: center; font-size: 16px;
+  transition: all 0.2s; flex-shrink: 0;
+}
+#sidebar-toggle:hover { border-color: var(--accent3); color: var(--accent3); }
+
+strong { color: var(--heading); }
+em { color: var(--text-secondary); }
+hr { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+
+@media print {
+  #top-header, #sidebar, #progress-bar { display: none !important; }
+  #main { margin: 0; padding: 20px; max-width: 100%; }
+  .section { page-break-inside: avoid; }
+  body { color: #000; background: #fff; font-size: 11pt; }
+}
+</style>
+</head>
+<body>
+
+<div id="top-header">
+  <button id="sidebar-toggle" onclick="toggleSidebar()" title="Toggle navigation">☰</button>
+  <h1>Neurology of MSK Pain — Part 3: Practice-Focused Advanced Reference</h1>
+  <input type="text" id="search-box" placeholder="Search document…" oninput="searchDoc(this.value)">
+  <button class="header-btn" onclick="window.print()">⎙ Print</button>
+</div>
+<div id="progress-bar"><div id="progress-fill"></div></div>
+
+<nav id="sidebar">
+  <span class="sidebar-label">Part 3 — Sections 26–30</span>
+  <a class="nav-item" href="#doc-title"><span class="num">—</span>Overview</a>
+  <div class="nav-divider"></div>
+  <a class="nav-item" href="#s26"><span class="num">26</span>Headache & Migraine</a>
+  <a class="nav-item" href="#s27"><span class="num">27</span>Sports Neuroscience & Performance</a>
+  <a class="nav-item" href="#s28"><span class="num">28</span>Sensitisation in Specific Conditions</a>
+  <a class="nav-item" href="#s29"><span class="num">29</span>Chronic Pain as Neurological Disease</a>
+  <a class="nav-item" href="#s30"><span class="num">30</span>Neurology-Informed Chiro Practice</a>
+  <div class="nav-divider"></div>
+  <span class="sidebar-label">Section 30 Subsections</span>
+  <a class="nav-item" href="#s30-screening"><span class="num">→</span>In-Consult Screening</a>
+  <a class="nav-item" href="#s30-new"><span class="num">→</span>New Patient Template</a>
+  <a class="nav-item" href="#s30-review"><span class="num">→</span>Review Consult Template</a>
+  <a class="nav-item" href="#s30-complex"><span class="num">→</span>Complex Case Template</a>
+  <a class="nav-item" href="#s30-integration"><span class="num">→</span>Within-Session Integration</a>
+  <a class="nav-item" href="#s30-scripts"><span class="num">→</span>Clinical Scripts</a>
+  <a class="nav-item" href="#s30-documentation"><span class="num">→</span>Documentation</a>
+</nav>
+
+<main id="main">
+
+<div id="doc-title">
+  <div class="subtitle">Clinical Reference Document — Part 3</div>
+  <h1>Neurology of Musculoskeletal Pain<br><span style="color:var(--accent3); font-size:0.7em;">Part 3: Practice-Focused Advanced Reference</span></h1>
+  <div class="meta">
+    <span class="part-badge">Part 3 of 3</span>
+    <span class="meta-pill">Sections 26–30</span>
+    <span class="meta-pill">Applied Mechanism + Clinical Practice</span>
+    <span class="meta-pill">Chiropractic — Multidisciplinary Setting</span>
+    <span class="meta-pill">Perth, Western Australia</span>
+  </div>
+  <p style="margin-top:24px; color:var(--text-secondary); font-size:15px; font-style:italic;">
+    Part 3 is the practice integration volume. It combines advanced mechanistic depth in high-yield clinical domains — headache, sport, specific pathology, chronic pain neurology — with a detailed practical framework for delivering neurology-informed care within a real chiropractic appointment. All three parts are designed to be read as a set; mechanisms established in Parts 1 and 2 are not re-explained but are applied and extended here.
+  </p>
+</div>
+
+
+<!-- SECTION 26 -->
+<div class="section" id="s26">
+  <div class="section-header">
+    <span class="section-num">Section 26</span>
+    <h2>Headache & Migraine: Advanced Neuroscience</h2>
+  </div>
+  <div class="overview">
+    Headache is the most prevalent neurological complaint encountered in primary care, and most of it is undertreated because it is undertypified. Migraine is not a bad headache — it is a CNS disorder characterised by episodic neurological dysfunction, with pain as one component of a complex brain-state change. Cervicogenic headache is a distinct neurological entity, not a variant of tension headache. Knowing the mechanistic difference between these conditions — at the level of the trigeminal nucleus, the cortex, and the brainstem — determines whether your treatment will be targeting the actual pathophysiology or working around it. This section is designed to give you the mechanistic fluency to talk to neurologists and headache specialists as a clinical peer.
+  </div>
+
+  <h3>26.1 The Trigeminovascular System</h3>
+  <h4>Architecture</h4>
+  <p>The pain-sensitive structures of the intracranial space — the dural sinuses, meningeal arteries, large cerebral vessels, and dura mater itself — are innervated by the <strong>trigeminal nerve</strong>, predominantly its ophthalmic branch (V1). These structures have no proprioceptors or mechanoreceptors in the conventional sense; their afferent supply is almost exclusively nociceptive. First-order trigeminal afferents from these structures have cell bodies in the trigeminal ganglion (Gasserian ganglion) and project centrally to the <strong>trigeminal nucleus caudalis (TNC)</strong> — the caudal portion of the trigeminal spinal nucleus, which extends from the pons into the upper cervical spinal cord (to C2–C3).</p>
+  <p>This anatomical extension of the TNC into the cervical cord is the neuroanatomical basis of the <strong>trigeminocervical nucleus (TCN)</strong> — the convergent zone where trigeminal nociceptive afferents and upper cervical (C1, C2, C3) afferents synapse on the same second-order neurons. It is the structural explanation for why migraine produces neck pain, why C1–C3 pathology can trigger headache, and why cervical treatment can modulate headache — they share the same central processor.</p>
+  <p>Second-order neurons from the TNC project via the <strong>quintothalamic tract</strong> to the contralateral thalamus (VPM nucleus) and then to S1, and to medial thalamic nuclei projecting to the ACC and insula — producing both the discriminative and affective dimensions of headache. The TNC also receives dense descending modulatory input from the PAG, locus coeruleus (LC), and RVM — making headache highly sensitive to descending modulation state.</p>
+
+  <h4>Peripheral Sensitisation of Meningeal Nociceptors</h4>
+  <p>Trigeminovascular activation — whatever the initiating trigger — produces release of CGRP, substance P, and neurokinin A from perivascular trigeminal nerve terminals. CGRP is the critical mediator: it produces marked vasodilation of meningeal vessels, mast cell degranulation in the dura (which releases histamine, prostaglandins, and serotonin), and plasma protein extravasation. This sterile neurogenic inflammatory cascade sensitises the meningeal nociceptors — lowering their activation threshold. Sensitised meningeal nociceptors become responsive to normally sub-threshold mechanical stimuli: head movement, coughing, straining, changes in intracranial pressure — producing the characteristic <strong>throbbing, movement-aggravated, pulsatile quality</strong> of established migraine.</p>
+  <p>This is why CGRP is the primary pharmacological target in modern migraine prophylaxis and acute treatment: anti-CGRP monoclonal antibodies (erenumab, fremanezumab, galcanezumab) and gepants (rimegepant, ubrogepant) block CGRP signalling at the meningeal nociceptor and TNC level, preventing or aborting the sensitisation cascade. The efficacy of these agents confirms that peripheral CGRP-mediated sensitisation is a core mechanism — not a secondary phenomenon.</p>
+
+  <h3>26.2 Cortical Spreading Depression — The Aura Mechanism</h3>
+  <p>Cortical spreading depression (CSD) is a slowly propagating (2–5 mm/min) wave of near-complete neuronal and glial depolarisation followed by sustained suppression, spreading across the cortex. It was first described by Leão in 1944 and is now firmly established as the neurophysiological correlate of the migraine aura. The initiating event in CSD involves glutamate release producing NMDA receptor activation, Ca²⁺ influx, K⁺ efflux, and a self-propagating depolarisation wave — mechanistically similar to (and preceded by) the NMDA-dependent processes in spinal CS.</p>
+  <p>CSD activates dural nociceptors via two mechanisms: direct chemical activation from K⁺, glutamate, and arachidonic acid diffusing to the dura via the cortical-meningeal interface, and neural signalling via cortical-trigeminal pathways. This is the mechanism by which the aura triggers the headache phase — CSD activating the trigeminovascular system. Importantly, CSD can occur without an aura (silent CSD) — explaining why most migraines do not have aura despite sharing the same underlying cortical mechanism.</p>
+  <p>The <strong>susceptible migraine cortex</strong> has lower CSD threshold due to: higher baseline cortical excitability (measured by TMS and EEG as reduced habituation and enhanced oscillatory responses); altered inhibitory/excitatory balance (GABA/glutamate ratio); and in some cases, genetic channelopathies (CACNA1A in familial hemiplegic migraine). This inherent cortical hyperexcitability — the migraine brain between attacks — is why preventive treatments that reduce cortical excitability (topiramate, valproate, beta-blockers, now CGRP antibodies) work.</p>
+
+  <h3>26.3 Central Sensitisation in Migraine — The Allodynia Marker</h3>
+  <p>After 15–30 minutes of established migraine, second-order neurons in the TNC become sensitised — wind-up from sustained meningeal nociceptor input. At this point, patients develop <strong>cephalic allodynia</strong>: pain from combing hair, wearing glasses, or touching the scalp ipsilateral to the headache. This is a direct clinical marker of TNC central sensitisation. It has critical treatment implications: triptan administration after TNC sensitisation has established is significantly less effective (triptans act at peripheral trigeminal terminals and the TNC — once the second-order neurons are sensitised, blocking the input source is insufficient). This is the neurological argument for <strong>treating migraine as early as possible after onset</strong>, before central sensitisation establishes.</p>
+  <p>In chronic migraine (≥15 headache days/month), third-order neurons in the thalamus become sensitised — <strong>extracephalic allodynia</strong> develops: pain from touching the arm or leg during a headache attack. Extracephalic allodynia signals thalamic-level CS. At this stage, the patient has a chronic CS condition involving the full trigeminovascular-thalamocortical pathway — not just episodic trigeminovascular activation. Management of chronic migraine requires central-acting strategies (CGRP prophylaxis, tricyclics, preventive medication, behavioural management, sleep, stress) in addition to acute treatment.</p>
+
+  <h3>26.4 Cervicogenic Headache — A Distinct Neurological Entity</h3>
+  <h4>The Trigeminocervical Convergence Mechanism</h4>
+  <p>Cervicogenic headache (CGH) arises from nociceptive input from upper cervical structures — primarily the C0–C1, C1–C2, and C2–C3 articulations, the upper cervical myofascia, and the suboccipital musculature — converging with trigeminal afferents at the TCN. The <strong>C2–C3 zygapophyseal joint</strong> is the most common structural source, innervated by the C3 medial branch. The <strong>atlantoaxial joint</strong> (C1–C2) is innervated by the C2 dorsal ramus. Both project to TCN neurons that also receive V1 input — producing referred frontotemporal pain from upper cervical sources.</p>
+  <p>Diagnostic hallmarks that distinguish CGH from migraine or tension headache: unilateral pain without side-shift (the same side as the cervical source); pain precipitated by specific neck movements or sustained neck postures; reduction of pain with diagnostic C2–C3 medial branch block; restricted ipsilateral cervical ROM; palpable tenderness at C1–C2 and C2–C3 levels ipsilateral to the headache; reduced ipsilateral cervical flexion-rotation test (FRT — normal &gt;44°, CGH typically &lt;32° on the symptomatic side).</p>
+
+  <h4>The Cervical Flexion-Rotation Test in Practice</h4>
+  <p>The FRT is the most specific clinical test for upper cervical dysfunction contributing to headache. With the cervical spine in full passive flexion (closes C2–C7, isolating C1–C2 rotation), rotation is assessed bilaterally. Asymmetry &gt;10° or reproduction of the patient's headache with ipsilateral rotation is a positive test. Sensitivity 86–90%, specificity 85–88% for C1–C2 dysfunction as a headache source. If the FRT is positive and the headache is consistent with CGH diagnostic criteria, C1–C2 directed treatment (manipulation, mobilisation) produces significant headache reduction — this is one of the highest-quality evidence bases for spinal manipulation in any headache condition.</p>
+
+  <h4>Coexistence and the Sensitisation Overlay</h4>
+  <p>Migraine and cervicogenic headache coexist in a substantial proportion of patients — estimates range from 20–50% in headache clinic populations. The mechanistic reason: chronic cervical nociceptive input to the TCN lowers the threshold for trigeminovascular activation (the same sensitisation logic as any persistent peripheral input). Conversely, chronic migraine produces descending facilitation that sensitises the TCN to cervical inputs. Treating the cervical component in a migraine + CGH patient can significantly reduce migraine frequency — not because you are treating migraine, but because you are reducing the peripheral sensitising input that lowers the trigeminovascular activation threshold.</p>
+
+  <h3>26.5 Chiropractic Management — Evidence-Informed Position</h3>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Headache Type</th><th>Chiro Role</th><th>Evidence Level</th><th>Key Interventions</th><th>Referral Threshold</th></tr></thead>
+    <tbody>
+      <tr><td>Cervicogenic</td><td>Primary management</td><td>High — Level 1 RCT evidence (Jull et al.)</td><td>C1–C2 HVLA, C2–C3 mobilisation/HVLA, deep cervical flexor training, postural correction</td><td>No response at 6 weeks; progressive neurological signs</td></tr>
+      <tr><td>Episodic migraine (+ cervical component)</td><td>Adjunct / cervical component treatment</td><td>Moderate — some RCT support for SMT reducing frequency</td><td>Cervical and upper thoracic SMT, soft tissue, lifestyle (sleep, stress, aerobic exercise)</td><td>Frequency ≥8/month → neurologist for prophylaxis; new headache pattern; red flags</td></tr>
+      <tr><td>Chronic migraine</td><td>Supportive only — primary care is neurologist</td><td>Limited for standalone chiro</td><td>Cervical dysfunction if present; lifestyle neuroscience; stress and sleep</td><td>Immediate → neurologist for CGRP prophylaxis assessment</td></tr>
+      <tr><td>Tension-type</td><td>Moderate evidence for SMT and manual therapy</td><td>Moderate</td><td>Cervical/thoracic SMT, suboccipital release, deep cervical flexor training</td><td>Chronic daily headache pattern → neurologist</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="callout flag">
+    <div class="callout flag-title">Headache Red Flags — Immediate Referral</div>
+    <ul>
+      <li><strong>Thunderclap headache</strong> — maximal intensity at onset (&lt;60 seconds to peak) — subarachnoid haemorrhage until proven otherwise. Do not treat. Emergency.</li>
+      <li><strong>New headache in patient &gt;50</strong> with systemic features (weight loss, fever, scalp tenderness, jaw claudication) — giant cell arteritis. Emergency — risk of blindness from ophthalmic artery occlusion.</li>
+      <li><strong>Progressive headache with postural component</strong> (worse lying down, worse on Valsalva) — raised ICP until proven otherwise.</li>
+      <li><strong>Headache with papilloedema, seizure, or focal neurological deficit</strong> — intracranial pathology. Do not treat.</li>
+      <li><strong>New headache in immunocompromised patient</strong> — meningitis/encephalitis until proven otherwise.</li>
+      <li><strong>Headache after head trauma</strong> — post-traumatic intracranial pathology. Imaging first.</li>
+    </ul>
+  </div>
+
+  <div class="deeper">
+    <div class="deeper-title">Going Deeper</div>
+    <ul>
+      <li><strong>Goadsby PJ et al. (2017)</strong> — Migraine — current understanding and treatment. <em>N Engl J Med</em> 377:553–561.</li>
+      <li><strong>Burstein R et al. (2015)</strong> — Migraine: multiple processes, complex pathophysiology. <em>J Neurosci</em> 35:6619–6629.</li>
+      <li><strong>Jull G et al. (2002)</strong> — A randomized controlled trial of exercise and manipulative therapy for cervicogenic headache. <em>Spine</em> 27:1835–1843.</li>
+      <li><strong>Hall T et al. (2010)</strong> — Reliability and diagnostic accuracy of the cervical flexion-rotation test in cervicogenic headache. <em>J Orthop Sports Phys Ther</em> 40:225–232.</li>
+      <li><strong>Pietrobon D & Moskowitz MA (2013)</strong> — Pathophysiology of migraine. <em>Annu Rev Physiol</em> 75:365–391.</li>
+    </ul>
+  </div>
+</div>
+
+
+<!-- SECTION 27 -->
+<div class="section" id="s27">
+  <div class="section-header">
+    <span class="section-num">Section 27</span>
+    <h2>Sports Neuroscience & Performance</h2>
+  </div>
+  <div class="overview">
+    The application of pain neuroscience to athletic populations requires understanding that the relationship between nociception, pain, and performance is more complex than "pain = injury = stop." Elite athletes routinely compete in pain states. Fatigue is a central nervous system output, not a peripheral muscle phenomenon. Injury-related inhibition is a neurological process, not a mechanical one. And the return-to-sport decision is at least as much a neurological readiness question as it is a structural healing question. This section gives you the mechanistic framework that separates neuroscience-informed sports rehab from standard physiotherapy-grade care.
+  </div>
+
+  <h3>27.1 The Central Governor — Fatigue as a CNS Output</h3>
+  <p>The traditional peripheral fatigue model — exercise stops when muscles are depleted — is mechanistically insufficient. Noakes' <strong>central governor model</strong> proposes that exercise performance is regulated by the CNS as a protective output, not by peripheral metabolic failure. The brain continuously integrates afferent signals (nociceptive, metabolic, thermal, cardiovascular) and generates a <strong>pacing output</strong> — a conscious sensation of effort that motivates the athlete to regulate intensity. Fatigue in this model is a regulatory output, not a structural limitation.</p>
+  <p>The evidence is compelling: athletes can exceed apparent limits of fatigue when the competitive context changes (sprint finish, rival in sight); covert glucose administration without ingestion reduces perceived effort; brain stimulation of motor cortex reduces perceived exertion. None of these are explicable by peripheral models. The CNS is the governor, and it integrates nociceptive threat as a primary variable in the pacing calculation.</p>
+  <p><strong>Clinical implication:</strong> In a recovering athlete, residual nociceptive input from a partially healed tissue — even below the level that produces clear pain — may be disproportionately amplifying the CNS effort perception and limiting performance. Treating residual nociceptive sources (neural mobilisation, SMT to adjacent segments, load modification) can produce performance gains that are not explained by structural improvements alone. You are reducing the nociceptive threat input that the central governor is weighting in its pacing output.</p>
+
+  <h3>27.2 Arthrogenic Muscle Inhibition — The Neurological Basis of Post-Injury Weakness</h3>
+  <p>Arthrogenic muscle inhibition (AMI) is the reflex inhibition of muscles surrounding an injured joint, mediated by neural mechanisms independent of voluntary effort or structural damage to the muscle itself. It is one of the most clinically important phenomena in sports rehabilitation — and it is almost entirely neurological.</p>
+  <h4>Mechanism</h4>
+  <p>Joint injury activates mechanoreceptors (Types III and IV — the nociceptive articular afferents) in the joint capsule, ligaments, and periarticular tissues. These afferents project to the spinal cord and activate <strong>inhibitory interneuron pathways</strong> that suppress alpha motor neuron pools supplying the muscles acting on that joint. The inhibition is <strong>presynaptic</strong> (Ia afferent inhibition) and <strong>postsynaptic</strong> (direct interneuronal inhibition of motor neurons). It is also supraspinal — cortical motor representations of the inhibited muscles show reduced excitability on TMS, and the descending motor drive is genuinely reduced, not just a voluntary effort reduction.</p>
+  <p>The classic example: ACL injury produces immediate quadriceps AMI. The quad is not torn. It is neurologically inhibited by the injured joint's afferent signals. This inhibition persists far beyond tissue healing — up to years post-reconstruction in some patients — because the sensitised joint mechanoreceptors (Type III and IV articular afferents sensitised by the original injury and surgical trauma) continue to produce inhibitory afferent drive. This is why quad strength deficits persist post-ACL reconstruction even with aggressive rehabilitation: the inhibitory afferent input has not been adequately addressed.</p>
+  <h4>Implications for Sports Rehab</h4>
+  <p>Standard progressive loading does not reverse AMI — you cannot voluntarily "push through" neurological inhibition with resistance training alone. Strategies shown to reduce AMI and restore motor neuron excitability:</p>
+  <ul>
+    <li><strong>Cryotherapy to the joint:</strong> reduces Type III/IV mechanoreceptor firing (cold reduces C fibre conduction velocity and sensitisation), transiently reducing the inhibitory afferent drive. Acute cryotherapy pre-exercise partially restores quadriceps MVIC — the neurological mechanism, not an anti-inflammatory one at this timescale.</li>
+    <li><strong>Neuromuscular electrical stimulation (NMES):</strong> directly activates alpha motor neurons below the level of descending inhibition, maintaining muscle mass and producing reciprocal inhibition of the inhibitory interneuron pathway. NMES combined with voluntary contraction produces greater motor unit recruitment than voluntary effort alone in AMI states.</li>
+    <li><strong>Joint effusion management:</strong> Intra-articular fluid elevates intra-capsular pressure, activating Type III/IV afferents. Even modest effusion (20–30 mL in the knee) produces significant quadriceps inhibition. Managing effusion is therefore a neurological intervention — it reduces the afferent inhibitory drive.</li>
+    <li><strong>SMT to the affected and adjacent segments:</strong> Reduces nociceptive afferent drive from periarticular structures, modulates inhibitory interneuron activity, and engages descending facilitation via the supraspinal mechanisms described in Part 1 Section 7.</li>
+  </ul>
+
+  <h3>27.3 Exercise-Induced Hypoalgesia — Mechanisms and Athletic Application</h3>
+  <p>EIH — the elevation in pain threshold and reduction in pain intensity during and immediately following exercise — is mediated by multiple parallel mechanisms operating at different system levels. In the athletic context, understanding which mechanisms are recruited by which exercise types determines how to use EIH therapeutically in an injured athlete who needs to continue training.</p>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Mechanism</th><th>Exercise Type</th><th>Duration of Effect</th><th>Clinical Use</th></tr></thead>
+    <tbody>
+      <tr><td>Endocannabinoid (eCB) — AEA and 2-AG release</td><td>Moderate aerobic (>70% HRmax), rhythmic</td><td>30–60 min post</td><td>Pre-treatment warm-up → lowers pain threshold for manual therapy / neural mobilisation window</td></tr>
+      <tr><td>Endogenous opioid (β-endorphin)</td><td>Sustained moderate-high aerobic ≥30 min</td><td>60–120 min post</td><td>Rehabilitation sessions in CS-dominant athletes; scheduled before highest-load rehab component</td></tr>
+      <tr><td>Descending inhibition (DNIC/CPM activation)</td><td>Any exercise producing mild pain signal (isometric, resistance)</td><td>During + 20–30 min post</td><td>Contralateral isometric exercise activates DNIC and produces EIH at the injured site — evidence-based in shoulder and knee pain</td></tr>
+      <tr><td>Serotonin / noradrenaline (RVM modulation)</td><td>Sustained aerobic — requires 12+ week training adaptation</td><td>Tonic improvement (days–weeks)</td><td>Long-term sensitisation reduction — not acute; training programme design</td></tr>
+      <tr><td>Cortisol / stress-induced analgesia</td><td>Competition / high-intensity acute</td><td>During only — unreliable for rehab</td><td>Not a rehabilitative mechanism — do not design around it</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>The contralateral isometric EIH protocol deserves emphasis: performing maximal isometric contractions of the contralateral limb (e.g. handgrip, contralateral quadriceps isometric) for 2–3 minutes activates DNIC at the injured site. This is particularly useful when the injured limb cannot be loaded but pain-limited rehabilitation is needed. Well-supported in rotator cuff pain, patellofemoral pain, and lateral elbow tendinopathy literature.</p>
+
+  <h3>27.4 Post-Concussion Pain Neurology</h3>
+  <p>Concussion produces diffuse axonal microtrauma — stretch-induced disruption of axonal cytoskeletal proteins (neurofilaments, tau) and transient failure of axonal transport. The neurological sequelae relevant to an MSK clinician:</p>
+  <ul>
+    <li><strong>Neuroinflammation:</strong> Microglial activation following axonal injury produces a neuroinflammatory state that can persist for months — contributing to headache, cognitive slowing, and lowered pain thresholds. This is a central sensitisation state triggered by a neurological rather than a musculoskeletal injury.</li>
+    <li><strong>Cervical component:</strong> The same mechanism that produces concussion (deceleration forces) produces cervical facet joint injury, upper cervical muscle strain, and sensitisation of the TCN. The cervicogenic component of post-concussion headache is frequently undertreated — FRT assessment and cervical examination should be standard in every post-concussion evaluation.</li>
+    <li><strong>Vestibular-ocular dysregulation:</strong> Disrupted vestibulo-ocular reflex (VOR) and cervico-ocular reflex produce dizziness, nausea, and visual disturbance. Cervical afferent contribution to the VOR via the medial vestibular nucleus is significant — cervical treatment can meaningfully improve vestibular symptoms post-concussion.</li>
+    <li><strong>Return-to-sport neurological readiness:</strong> Symptom resolution does not indicate neurological readiness. Resting CPM assessment (if available), cognitive dual-task performance, and VOR testing provide more sensitive indicators of CNS recovery than symptom scales alone.</li>
+  </ul>
+
+  <div class="deeper">
+    <div class="deeper-title">Going Deeper</div>
+    <ul>
+      <li><strong>Noakes TD (2012)</strong> — Fatigue is a brain-derived emotion that regulates the exercise behavior to ensure the protection of whole body homeostasis. <em>Front Physiol</em> 3:82.</li>
+      <li><strong>Rice DA & McNair PJ (2010)</strong> — Quadriceps arthrogenic muscle inhibition: neural mechanisms and treatment perspectives. <em>Semin Arthritis Rheum</em> 40:250–266.</li>
+      <li><strong>Naugle KM et al. (2012)</strong> — A meta-analytic review of the hypoalgesic effects of exercise. <em>J Pain</em> 13:1139–1150.</li>
+      <li><strong>Leddy JJ et al. (2018)</strong> — Systematic review of concussion. <em>Br J Sports Med</em> 52:1062–1068.</li>
+      <li><strong>Vicenzino B et al. (2001)</strong> — Contralateral upper cervical HVLA and EIH in lateral epicondylalgia. <em>J Manipulative Physiol Ther.</em></li>
+    </ul>
+  </div>
+</div>
+
+
+<!-- SECTION 28 -->
+<div class="section" id="s28">
+  <div class="section-header">
+    <span class="section-num">Section 28</span>
+    <h2>Nociceptive Sensitisation in Specific Conditions</h2>
+  </div>
+  <div class="overview">
+    The general mechanisms of CS established in Part 1 manifest differently across conditions. This section provides mechanism-level deep dives for the four most common condition categories in a chiro practice — osteoarthritis, intervertebral disc pathology, tendinopathy, and shoulder pain — with a specific focus on what the neuroscience tells you that changes your clinical reasoning and treatment approach beyond standard pathoanatomical thinking.
+  </div>
+
+  <h3>28.1 Osteoarthritis — The Neurological Disease Hidden in the Joint</h3>
+  <h4>The Mismatch Between Structure and Symptoms</h4>
+  <p>Radiographic OA severity correlates poorly with pain severity. Approximately 40% of patients with severe radiographic knee OA have minimal pain; 15–20% of patients with severe knee pain have minimal radiographic change. This is not measurement error — it reflects that OA pain is substantially a <strong>neurological phenomenon</strong> overlaid on structural change, not a direct structural-pain relationship.</p>
+
+  <h4>Peripheral Sensitisation in OA</h4>
+  <p>Healthy cartilage is aneural — chondrocytes exist in an avascular, aneural matrix. Pain in OA does not arise from cartilage. It arises from: <strong>subchondral bone</strong> (the most richly innervated structure in the joint — bone marrow oedema on MRI strongly predicts OA pain severity; subchondral nociceptors are sensitised by elevated intraosseous pressure and CGRP/substance P release from periosteal terminals); <strong>synovium</strong> (the synovial membrane contains a dense C fibre and Aδ fibre supply — synovial neuroinflammation, driven by macrophage-derived IL-1β, IL-6, TNF-α and nerve growth factor (NGF) from synoviocytes, directly sensitises synovial nociceptors; NGF is the most potent peripheral sensitising agent known — this is why anti-NGF antibodies [tanezumab, fasinumab] produced striking pain reduction in OA trials); and <strong>periarticular soft tissue</strong> (joint capsule, ligaments, and periosteum — all nociceptively innervated and sensitised in the OA joint environment).</p>
+  <p><strong>NGF in OA deserves emphasis.</strong> Synoviocytes and macrophages in the OA joint produce NGF in quantities that produce marked TrkA receptor-mediated sensitisation of all nociceptive afferents innervating the joint — lowering activation thresholds, upregulating TRPV1 and Nav1.7/1.8 expression, and promoting peripheral sensitisation via all available molecular pathways simultaneously. Anti-NGF therapy produced pain relief comparable to NSAIDs and superior to paracetamol in Phase III trials — confirming NGF-mediated peripheral sensitisation as a primary driver of OA pain.</p>
+
+  <h4>Central Sensitisation in OA — The Surgical Outcome Predictor</h4>
+  <p>OA patients have measurably impaired CPM, elevated TS ratios, and widespread secondary hyperalgesia at sites remote from the affected joint — indicating established CS. In knee OA populations, <strong>pre-operative CPM impairment predicts post-operative pain at 12 months</strong> independently of surgical outcome. This is critical: if the dominant pain mechanism in a knee OA patient is CS, joint replacement removes the peripheral generator but does not address the sensitised central state. The patient with established CS pre-operatively is the patient who "fails" surgery and continues with pain despite a technically successful replacement.</p>
+  <p>This is the neurological argument for CS assessment and management in every OA patient being considered for surgery — and for making that assessment part of your clinical documentation that communicates to the GP and surgical team.</p>
+
+  <h3>28.2 Intervertebral Disc Pathology — Chemical vs Mechanical Radiculopathy</h3>
+  <h4>The Disc Is Not Normally Painful</h4>
+  <p>The outer one-third of the annulus fibrosus contains nociceptive afferents (Aδ and C fibres via the sinuvertebral nerve). The inner annulus and nucleus pulposus are aneural. Discogenic pain arises from the outer annular nociceptors being activated by annular fissures, sustained mechanical loading, and inflammatory mediators — not from the disc "pressing" on something.</p>
+
+  <h4>Why Some Herniations Are More Painful Than Others</h4>
+  <p>Disc herniation produces radicular pain via two distinct mechanisms that produce different clinical pictures and respond differently to treatment:</p>
+  <p><strong>Chemical radiculopathy:</strong> The nucleus pulposus is immunologically privileged in the intact disc — it has not been exposed to the immune system during development. When NP material herniates and contacts the epidural space and the DRG, it triggers a potent immune response. NP contains phospholipase A2 (PLA2), TNF-α, IL-1β, IL-6, matrix metalloproteinases (MMPs), and prostaglandins. These directly sensitise the DRG neurons (dramatically lowering their mechanical threshold — a sensitised DRG that previously required significant deformation now fires with normal physiological movement), activate macrophages, and produce intraneural oedema. <strong>Chemical radiculopathy produces intense burning, electric-quality pain, allodynia in the dermatomal distribution, and disproportionate pain relative to compression degree</strong>. It is the most painful phase — and it is also the phase most likely to improve with time (6–12 weeks) as the immune response resolves and the herniated material is resorbed by macrophage activity. The largest disc herniations have the greatest resorption rates.</p>
+  <p><strong>Mechanical radiculopathy:</strong> Compression of the nerve root or DRG produces ischaemia (the DRG is supplied by a single radicular artery — vulnerable to compression), mechanical deformation activating sensitised mechanoreceptors, and intraneural oedema from venous occlusion. This produces a different picture: constant, positional ache, neurological deficits (sensory loss, weakness, reflex changes) proportionate to the degree of neural compromise, less spontaneous burning quality. It is less acutely intense but produces more structural neurological deficit.</p>
+  <p>The clinical distinction matters: chemical radiculopathy is managed by reducing the inflammatory burden (activity modification to below threshold, neural mobilisation as sliders to promote intraneural fluid circulation without provocation, time, anti-inflammatory strategies), not by aggressive mechanical decompression. Mechanical radiculopathy may warrant imaging earlier and has a different surgical indication threshold.</p>
+
+  <h4>The DRG as a Sensitisation Hub</h4>
+  <p>The DRG at the affected level becomes sensitised in both chemical and mechanical radiculopathy. Sensitised DRG neurons fire at lower thresholds, exhibit spontaneous ectopic discharge, and — critically — cross-excite adjacent, uninjured DRG neurons via satellite glial cell (SGC) coupling. The SGC network surrounding DRG cell bodies communicates via Cx43 gap junctions: one injured neuron activates its surrounding SGCs, which then release cytokines and ATP that lower the thresholds of neighbouring neurons. This produces the <strong>expansion of the symptomatic zone beyond the primary dermatomal distribution</strong> seen clinically in established radiculopathy — a CS phenomenon at the DRG level, not purely central.</p>
+
+  <h3>28.3 Tendinopathy — The Neoinnervation Problem</h3>
+  <h4>Why Tendons Hurt: The Neuroanatomy</h4>
+  <p>Healthy tendon proper is relatively hypo-neural — sparse nociceptive innervation, primarily in the peritenon and enthesis. In tendinopathy, the degenerative tendon develops <strong>neoinnervation</strong> — ingrowth of new sensory (CGRP+, substance P+) and sympathetic nerve fibres into regions of the tendon body that are normally aneural, tracking alongside neovascular sprouts. This neoinnervation is a direct consequence of NGF production by activated tenocytes (driven by cyclic mechanical overload, ATP-mediated purinergic signalling, and TNF-α from local macrophages). The newly ingrown nerve fibres are immature, poorly myelinated, and have low activation thresholds — they fire with minimal provocation.</p>
+  <p>This explains several clinically observed tendinopathy phenomena: the characteristic warm-up effect (initial stiffness and pain, improving with gentle loading — the low-threshold neoinnervated fibres habituate with repetitive subthreshold input; then worsen again after activity — deferred sensitisation from mechanical provocation); the disproportionate pain with relatively minor loads; and the poor correlation between structural imaging (tendon degeneration on ultrasound) and pain severity — neural density is the better predictor.</p>
+
+  <h4>Why Eccentric Loading Works — Neurologically</h4>
+  <p>The classical explanation for eccentric exercise efficacy in tendinopathy (mechanical stimulation of collagen remodelling) is partially correct but incomplete. The neurological component: eccentric loading — particularly high-load, slow eccentric — produces significant EIH via the eCB and opioid mechanisms described in Section 27. More specifically, the eccentric contraction at high load activates Golgi tendon organs (GTO — Type Ib afferents), which project via Ib inhibitory interneurons to inhibit alpha motor neurons and reduce the motor drive — a protective mechanism that simultaneously reduces tendon load at the critical phase and engages supraspinal modulation. There is also emerging evidence that eccentric loading specifically downregulates the NGF-mediated neoinnervation over time — reducing the peripheral sensitisation driver that generates the pain.</p>
+  <p><strong>Isometric loading before eccentrics</strong> in the acute painful phase: isometric contractions of the tendon-loading muscle produce cortical inhibition of pain (via motor cortex-PAG pathways) and immediate load-sharing that reduces tendon strain rate. There is now direct evidence for isometric exercise producing immediate pain reduction in patellar and Achilles tendinopathy — not placebo, but a measurable pain threshold elevation during the isometric that persists for 45 minutes. This is a tool to enable rehab in an acutely pain-limited tendinopathy patient.</p>
+
+  <h3>28.4 Shoulder Pain — The Suprascapular Nerve and the Diagnosis Problem</h3>
+  <h4>Why Shoulder Pain Is Frequently Neurogenic in Origin</h4>
+  <p>The shoulder is one of the most over-imaged, over-diagnosed, and over-surgerised joints in the body. Rotator cuff "tears" on MRI have very high prevalence in asymptomatic populations (30% at 50 years, 60% at 70 years). The pain frequently attributed to structural cuff pathology is often primarily neurogenic — from the suprascapular nerve, the axillary nerve, or the C5–C6 nerve roots — and will not resolve with surgical cuff repair because the nociceptive generator is in the nerve, not the tendon.</p>
+  <p>The <strong>suprascapular nerve</strong> (C5–C6) passes through the suprascapular notch under the superior transverse scapular ligament. It is vulnerable to compression and traction here — particularly in patients with forward head posture, rounded shoulders (which increases traction on the nerve via the superior angle of the scapula), throwing athletes (traction forces), and overhead workers. Suprascapular neuropathy produces: deep, diffuse posterior shoulder aching that is difficult to localise; weakness of supraspinatus and infraspinatus out of proportion to any structural finding; a positive Suprascapular Nerve Stretch Test (SNST); and relief with diagnostic nerve block — which simultaneously confirms the diagnosis and provides therapeutic benefit. In clinical practice, suprascapular nerve dysfunction is almost certainly more prevalent than the literature suggests, because it is rarely specifically screened for.</p>
+  <p>The <strong>axillary nerve</strong> (C5–C6) wraps around the surgical neck of the humerus, innervating the deltoid and teres minor, with a sensory branch supplying the lateral upper arm (the "regimental badge" area). Axillary neuropathy — from direct trauma, anterior shoulder dislocation (the most common cause), or traction — produces deltoid weakness and lateral arm sensory changes. It is frequently missed in the acute post-dislocation assessment. Any patient with shoulder weakness following dislocation should have specific axillary nerve assessment.</p>
+
+  <div class="deeper">
+    <div class="deeper-title">Going Deeper</div>
+    <ul>
+      <li><strong>Woolf CJ et al. (1994)</strong> — Nerve growth factor contributes to the generation of inflammatory sensory hypersensitivity. <em>Neuroscience</em> 62:327–331.</li>
+      <li><strong>Gwilym SE et al. (2009)</strong> — Psychophysical and functional imaging evidence supporting the presence of central sensitisation in a cohort of osteoarthritis patients. <em>Arthritis Rheum</em> 61:1226–1234.</li>
+      <li><strong>Moseley GL (2012)</strong> — Teaching people about pain — why do we keep beating around the bush? <em>Pain Manag</em> 2:1–3.</li>
+      <li><strong>Scott A et al. (2019)</strong> — Reactive oxygen species and oxidative stress as a therapeutic target in tendinopathy. <em>Int J Exp Pathol.</em></li>
+      <li><strong>Rio E et al. (2015)</strong> — Isometric exercise induces analgesia and reduces inhibition in patellar tendinopathy. <em>Br J Sports Med</em> 49:1277–1283.</li>
+      <li><strong>Boykin RE et al. (2010)</strong> — Suprascapular neuropathy. <em>J Bone Joint Surg Am</em> 92:2348–2364.</li>
+    </ul>
+  </div>
+</div>
+
+
+<!-- SECTION 29 -->
+<div class="section" id="s29">
+  <div class="section-header">
+    <span class="section-num">Section 29</span>
+    <h2>Chronic Pain as a Neurological Disease</h2>
+  </div>
+  <div class="overview">
+    Chronic pain — conventionally defined as pain persisting beyond 3 months — has been conceptualised as a symptom of an underlying condition. The neurological evidence now supports reclassifying established chronic pain as a disease state in its own right: one with structural brain changes, measurable network dysregulation, allostatic cost, and a natural history of progressive neurological deterioration without adequate intervention. Understanding this reframe changes how you assess prognosis, communicate urgency to patients and referrers, and position the evidence base for aggressive early CS management.
+  </div>
+
+  <h3>29.1 Structural Brain Changes in Chronic Pain</h3>
+  <h4>Grey Matter Loss</h4>
+  <p>Voxel-based morphometry (VBM) studies consistently demonstrate grey matter reduction in chronic pain conditions — across CLBP, fibromyalgia, CRPS, OA, and migraine populations. The regions predominantly affected: <strong>dorsolateral PFC</strong> (1.3 cm³ loss per year of back pain duration in CLBP — Apkarian 2004), <strong>ACC</strong>, <strong>insula</strong>, <strong>thalamus</strong>, and <strong>parietal cortex</strong>. These are precisely the regions responsible for descending pain modulation, cognitive evaluation of pain, and interoceptive body awareness. Their loss is both a consequence of chronic pain (excitotoxicity from sustained NMDA activation at supraspinal synapses, neuroinflammatory pruning) and a driver of its perpetuation (reduced PFC → impaired ACC inhibition → maintained descending facilitation).</p>
+  <p>Critically: some grey matter loss is <strong>reversible with adequate treatment</strong>. Successful pain management (including spinal cord stimulation, interdisciplinary pain programmes, and sustained aerobic exercise) produces partial grey matter restoration in the PFC and thalamus. This is proof-of-concept neurological recovery — and the argument that early, aggressive intervention prevents structural brain damage that becomes progressively harder to reverse.</p>
+
+  <h4>White Matter Tract Disruption</h4>
+  <p>Diffusion tensor imaging (DTI) in CLBP and fibromyalgia reveals disrupted white matter integrity — reduced fractional anisotropy (FA) — in the corticospinal tract, the corpus callosum (interhemispheric transfer), and critically the <strong>descending modulatory tracts</strong> (from PAG to RVM). White matter disruption in these tracts provides a structural substrate for the CPM impairment measured clinically — the fibres carrying descending inhibitory signals are physically disrupted. This is not simply functional dysregulation; it is structural damage to the analgesic highway.</p>
+
+  <h3>29.2 Default Mode Network Dysregulation</h3>
+  <p>The default mode network (DMN) — a set of interconnected cortical regions (medial PFC, posterior cingulate cortex, precuneus, angular gyrus) that activate during rest, self-referential thought, and mind-wandering — is dysregulated in chronic pain. In healthy individuals, the DMN deactivates when attention is directed to an external task (including processing acute pain). In chronic pain patients, the DMN <strong>remains abnormally active</strong> during task performance, including during pain stimuli — producing a state of ruminative self-focus that amplifies pain salience and prevents normal attentional modulation of pain.</p>
+  <p>The DMN-ACC connectivity is pathologically increased in chronic pain — producing a loop of self-referential rumination about pain that is neurologically self-reinforcing. Catastrophising, pain-focused rumination, and the inability to "take the mind off" pain are not psychological weaknesses — they are the neurological consequence of a DMN that will not disengage. Mindfulness-based interventions work partly by training the anterior insula and PFC to detect and disengage DMN activation — producing measurable reductions in DMN-ACC connectivity and corresponding reductions in pain-related rumination.</p>
+
+  <h3>29.3 Allostatic Load and the Neurological Cost of Chronic Pain</h3>
+  <p>Allostatic load — the cumulative physiological cost of chronic stress and dysregulation — in chronic pain involves: sustained HPA axis activation (cortisol dysregulation, GR downregulation, hippocampal atrophy); chronic sympathetic tone elevation (elevated resting heart rate, reduced HRV, elevated inflammatory markers); sleep architecture disruption (reduced SWS → reduced glymphatic clearance → progressive neuroinflammatory accumulation); and immune dysregulation (elevated IL-6, CRP, TNF-α → microglial priming → lowered CS threshold → more pain → more stress). Each component of allostatic load amplifies the others — this is a genuine neurobiological positive feedback loop, not a metaphor.</p>
+  <p>The allostatic load model gives a neurological basis for the clinical observation that chronic pain patients deteriorate over time without adequate intervention — and frames the urgency of addressing sleep, stress, and ANS dysregulation as primary neurological treatments rather than lifestyle adjuncts. It also frames the prognostic conversation with patients: "The longer the nervous system stays in this state, the harder it is to reset — which is why we're going to be aggressive about the things that we know change this."</p>
+
+  <h3>29.4 Transition from Acute to Chronic Pain — The 3-Month Window</h3>
+  <p>The transition from acute to chronic pain is not random — it is partially predictable, and the 3-month window is neurologically meaningful. Apkarian's longitudinal work demonstrated that the transition to chronicity is predicted by <strong>functional connectivity between the NAc (nucleus accumbens) and the medial PFC</strong> measured at 6 weeks post-acute onset. The emotional/motivational circuits that govern value-based learning "capture" the pain state — the brain learns that pain is a relevant chronic signal. Once this capture occurs, the allostatic cascade described above begins to entrench.</p>
+  <p>Psychosocial predictors of chronification at 6 weeks: high initial pain intensity; catastrophising (PCS); fear-avoidance (TSK); poor sleep; passive coping; and low social support. <strong>These are neurological risk factors, not personality traits.</strong> Early identification and management of these factors in the acute presentation is the single highest-leverage intervention in MSK practice — preventing CS entrenchment rather than treating established chronic pain.</p>
+
+  <div class="callout practice">
+    <div class="callout practice-title">Clinical Position Statement</div>
+    <p>Chronic pain is a neurological disease. Every week a patient spends with undertreated CS is a week of further structural brain change, further allostatic load accumulation, and further entrenchment of pain network dysregulation. The urgency appropriate for a progressive neurological condition is appropriate for chronic pain. This is the framing that justifies proactive, multi-modal management from the first consultation — and justifies early escalation to a multidisciplinary pain programme when the trajectory is not responding.</p>
+  </div>
+
+  <div class="deeper">
+    <div class="deeper-title">Going Deeper</div>
+    <ul>
+      <li><strong>Apkarian AV et al. (2004)</strong> — Chronic back pain is associated with decreased prefrontal and thalamic gray matter density. <em>J Neurosci</em> 24:10410–10415.</li>
+      <li><strong>Mansour AR et al. (2013)</strong> — Chronic pain: the role of learning and brain plasticity. <em>Restor Neurol Neurosci</em> 32:129–139.</li>
+      <li><strong>Baliki MN et al. (2012)</strong> — Predicting value of chronic pain from resting-state functional connectivity data. <em>PLOS ONE.</em></li>
+      <li><strong>Napadow V & Harris RE (2014)</strong> — What has functional connectivity and chemical neuroimaging in fibromyalgia taught us about the mechanisms and management of 'centralised' pain? <em>Arthritis Res Ther.</em></li>
+      <li><strong>McEwen BS (2007)</strong> — Physiology and neurobiology of stress and adaptation: central role of the brain. <em>Physiol Rev</em> 87:873–904.</li>
+    </ul>
+  </div>
+</div>
+
+
+<!-- SECTION 30 -->
+<div class="section" id="s30">
+  <div class="section-header">
+    <span class="section-num">Section 30</span>
+    <h2>Implementing Neurology-Informed Care in a Chiropractic Appointment</h2>
+  </div>
+  <div class="overview">
+    This is the integration section — where the science becomes daily practice. Everything in Parts 1–3 has a clinical application, but only if it can be delivered within the constraints of a real appointment: 45 minutes for a new patient, 20–30 minutes for a review. This section provides consult templates, in-appointment screening protocols, within-session treatment sequencing, clinical scripts for common conversations, and documentation frameworks — all designed around the neurological principles established throughout this document. The goal is a consulting style that is indistinguishable in efficiency from standard chiropractic but is operating with an entirely different level of neurological sophistication under the surface.
+  </div>
+
+  <h3 id="s30-screening">30.1 In-Consult Neurological Screening — The 5-Minute Protocol</h3>
+  <p>Administered as part of intake paperwork and the first 5 minutes of assessment. Produces the minimum dataset needed for mechanism classification before you lay hands on the patient.</p>
+
+  <div class="callout tool">
+    <div class="callout tool-title">Intake Paperwork — Pre-Consult Questionnaire Battery</div>
+    <p>Send with booking confirmation. Takes patient 8–10 minutes to complete. Reviews are in-consult, takes clinician 90 seconds to score.</p>
+    <ul>
+      <li><strong>NRS pain 0–10</strong> — current, worst in past week, best in past week (spread indicates CS more than single point)</li>
+      <li><strong>Pain diagram</strong> — body chart, mark all areas. Widespread non-anatomical distribution → CS flag</li>
+      <li><strong>Central Sensitisation Inventory (CSI) — 25 items</strong> — score at intake. ≥40: CS probable; ≥50: CS dominant</li>
+      <li><strong>Pain Catastrophising Scale (PCS) — 13 items</strong> — ≥30: clinically significant; changes management immediately</li>
+      <li><strong>STarT Back — 9 items</strong> — low/medium/high risk stratification. High risk → psychologically-informed approach from session 1</li>
+      <li><strong>Sleep quality — single item:</strong> "Rate your sleep quality over the past month (0 = terrible, 10 = excellent)." ≤5 → active sleep management</li>
+      <li><strong>PSFS (Patient-Specific Functional Scale) — 3 activities</strong> — tracks functional outcomes across the episode of care</li>
+    </ul>
+  </div>
+
+  <div class="callout tool">
+    <div class="callout tool-title">In-Consult QST-Lite — 3-Minute Physical Exam Add-On</div>
+    <p>Incorporated into the physical examination. No additional equipment required.</p>
+    <ul>
+      <li><strong>Pressure pain threshold comparison — bilateral tibialis anterior:</strong> Apply firm thumb pressure (standardised — the same pressure each time) at the mid-belly of TA, bilaterally. Compare symptom provocation. Remote widespread low PPT = CS indicator. Note which side first produces discomfort at equal pressure.</li>
+      <li><strong>Temporal summation — pinprick:</strong> Apply a standard neurological pin to the most symptomatic area 10 times at ~1/sec. Ask patient to rate first stimulus (0–10) and 10th stimulus (0–10). Ratio &gt;1.3 = elevated TS = dorsal horn sensitisation.</li>
+      <li><strong>Allodynia screen:</strong> Stroke the symptomatic area with a finger or cotton wool. Pain from light touch = allodynia = CS established in that region.</li>
+      <li><strong>CPM — informal:</strong> Apply sustained pressure to a remote site (trapezius, forearm) while reassessing the primary symptom site PPT. If primary site PPT increases = CPM present (inhibition working). If unchanged or pain increases = CPM impaired.</li>
+    </ul>
+  </div>
+
+  <h3 id="s30-new">30.2 New Patient Consult — Neurologically-Informed Template (45 min)</h3>
+
+  <div class="consult-block">
+    <div class="consult-header">New Patient — Full Assessment <span class="consult-time">45 min</span></div>
+    <div class="consult-body">
+
+      <div class="consult-step">
+        <div class="step-num">1</div>
+        <div class="step-text"><strong>Score intake questionnaires before the patient walks in (2 min).</strong> CSI, PCS, STarT Back — have the mechanism hypothesis before the history begins. You are confirming and refining a working model, not building from scratch.</div>
+      </div>
+
+      <div class="consult-step">
+        <div class="step-num">2</div>
+        <div class="step-text"><strong>History — mechanism-directed (12 min).</strong> Standard history, but the questions are shaped by the intake scores. High CSI: ask specifically about sleep, stress, widespread pain, prior trauma, other unexplained symptoms (IBS, fatigue, headache). High PCS: ask about catastrophising thoughts, fear of movement, what the patient believes is wrong. Standard MSK: onset, behaviour, aggravating/easing, 24-hour pattern, prior treatment and response.</div>
+      </div>
+
+      <div class="consult-step">
+        <div class="step-num">3</div>
+        <div class="step-text"><strong>Red flag screen — integrated into history (included in 12 min above).</strong> Cancer history, unexplained weight loss, fever, night sweats, progressive neurological deficit, bladder/bowel changes, trauma mechanism. If present: address before examination.</div>
+      </div>
+
+      <div class="consult-step">
+        <div class="step-num">4</div>
+        <div class="step-text"><strong>Physical examination — neurologically-informed (15 min).</strong> Postural and movement assessment → regional orthopaedic testing → neurological examination (myotomes, dermatomes, reflexes if indicated) → neurodynamic testing (SLR/slump for lower limb, ULNT 1–4 for upper limb) → QST-lite (TS, allodynia, bilateral PPT comparison, informal CPM if indicated) → palpatory assessment and segmental examination.</div>
+      </div>
+
+      <div class="consult-step">
+        <div class="step-num">5</div>
+        <div class="step-text"><strong>Mechanism classification — state it out loud (1 min).</strong> Before explaining anything to the patient, internally classify: dominant mechanism (nociceptive / neuropathic / CS / mixed), phenotype, yellow flags, referral indicators. This takes 60 seconds and determines everything that follows.</div>
+      </div>
+
+      <div class="consult-step">
+        <div class="step-num">6</div>
+        <div class="step-text"><strong>Patient explanation — mechanism-framed (8 min).</strong> Not an anatomy lecture. Explain what the nervous system is doing, what the key drivers are, and what the treatment approach will address. Plant the PNE seed — full delivery is session 2. If nociceptive dominant: structural explanation is appropriate. If CS is a component: introduce the concept briefly now. See scripts below (30.6).</div>
+      </div>
+
+      <div class="consult-step">
+        <div class="step-num">7</div>
+        <div class="step-text"><strong>First treatment — neurologically sequenced (7 min).</strong> The first treatment session is a neurological intervention, not just hands-on care. See within-session sequencing (30.5). Brief, targeted, appropriate to dominant mechanism. End with a take-home action: something the patient does before the next session (walking programme, sleep hygiene task, breathing exercise) that has a neurological rationale you can explain.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <h3 id="s30-review">30.3 Review Consult Template (20–25 min)</h3>
+
+  <div class="consult-block">
+    <div class="consult-header">Review Consult — Mechanism Reassessment + Treatment <span class="consult-time">20–25 min</span></div>
+    <div class="consult-body">
+
+      <div class="consult-step">
+        <div class="step-num">1</div>
+        <div class="step-text"><strong>Outcome monitoring — 3 min.</strong> NRS (current, best, worst since last visit), PSFS activity scores, sleep quality, compliance with home exercise / lifestyle recommendation. Trend these — you need numbers to track. A patient who says "about the same" but whose NRS has dropped 2 points and sleep is improving is making neurological progress even if the dominant symptom hasn't shifted yet.</div>
+      </div>
+
+      <div class="consult-step">
+        <div class="step-num">2</div>
+        <div class="step-text"><strong>Mechanism reassessment — 3 min.</strong> Is the dominant mechanism the same as initial assessment? Specific questions: "Has the pain spread, stayed in the same area, or reduced in area?" (area reduction = good; spread = CS progressing). "Does anything new provoke it that didn't before?" (new provocation stimuli = sensitisation). "How did the last treatment feel — better, worse, or no change in the 24 hours after?" (flare after SMT = CS dominant; rapid improvement = more nociceptive).</div>
+      </div>
+
+      <div class="consult-step">
+        <div class="step-num">3</div>
+        <div class="step-text"><strong>PNE advancement — 5 min (sessions 2–4).</strong> Build on the previous session's concept. Confirm the patient can explain their pain mechanism in their own words before adding the next layer. If they can't explain it yet — repeat, don't advance.</div>
+      </div>
+
+      <div class="consult-step">
+        <div class="step-num">4</div>
+        <div class="step-text"><strong>Treatment — neurologically sequenced (12 min).</strong> See 30.5 for sequencing. Progress exercise prescription based on response. Advance neural mobilisation (slider → tensioner) if tolerance has improved. SMT dose and region adjusted to current mechanism assessment.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <h3 id="s30-complex">30.4 Complex / Refractory Case Consult (45 min extended)</h3>
+
+  <div class="consult-block">
+    <div class="consult-header">Complex Case — CS-Dominant, Non-Responder, or Multi-Mechanism <span class="consult-time">45 min</span></div>
+    <div class="consult-body">
+
+      <div class="consult-step">
+        <div class="step-num">1</div>
+        <div class="step-text"><strong>Full re-phenotyping (15 min).</strong> Readminister CSI, PCS, and PHQ-9 / GAD-7 if not already done. Re-examine QST-lite. Map the change in pain area over time (body chart comparison). Identify what has and hasn't changed. The mechanism at 6 weeks may be different from the initial presentation — CS can develop over a course of treatment if the approach has been predominantly nociceptive-focused while central drivers were unaddressed.</div>
+      </div>
+
+      <div class="consult-step">
+        <div class="step-num">2</div>
+        <div class="step-text"><strong>Honest prognostic conversation (10 min).</strong> Using the chronic pain neuroscience framing from Section 29. "What I'm seeing tells me that your nervous system's pain amplifier is the dominant driver — and that changes what's going to work. The treatment that addresses this is different from the treatment for a tissue injury — and some of the most powerful levers are things you do every day, not what I do to you in this room." Set clear milestones and a timeline for GP referral if not meeting them.</div>
+      </div>
+
+      <div class="consult-step">
+        <div class="step-num">3</div>
+        <div class="step-text"><strong>Modify treatment approach completely (15 min).</strong> If previous treatment has been: high-dose passive SMT → shift to lower force, more education-heavy, aerobic exercise prescription, sleep intervention. If exercise has not been incorporated → this is now the primary prescription, not the adjunct. If PNE has not been formally delivered → this is now urgent.</div>
+      </div>
+
+      <div class="consult-step">
+        <div class="step-num">4</div>
+        <div class="step-text"><strong>Referral decision (5 min).</strong> PHQ-9 ≥10 → GP referral for psychology / SNRI consideration. CSI ≥50 + 6 weeks non-response → GP referral for pain specialist pathway. Neurological deficit not recovering → GP for imaging + specialist. Document the referral rationale in neurological terms — this is what GPs and pain specialists respond to.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <h3 id="s30-integration">30.5 Within-Session Treatment Sequencing — The Neurological Logic</h3>
+  <p>The order in which you deliver interventions within a session matters neurologically. Different interventions prime different neurological states; some create optimal conditions for what follows, others close windows that were open.</p>
+
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Sequence Step</th><th>Intervention</th><th>Neurological Purpose</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td>1. Open</td><td>Breathing / brief ANS down-regulation (2 min)<br><em>If CS dominant or high sympathetic tone</em></td><td>Shifts ANS from sympathetic dominance toward parasympathetic — reduces descending facilitation, lowers central gain before treatment begins. Opens the window for manual therapy to act on a less-sensitised system.</td><td>4–6 breaths/min for 90 seconds. Can frame as "settling the nervous system before we start" — accurate and non-alarming.</td></tr>
+      <tr><td>2. Aerobic primer</td><td>5–10 min brisk walking, stationary bike, or stepping<br><em>If available and appropriate</em></td><td>Generates EIH via eCB and opioid mechanisms (Section 27). Elevates pain threshold for the subsequent manual therapy and exercise components — you are treating a less sensitised nervous system.</td><td>Target 70–75% HRmax. Not appropriate in acute pain flare or high-irritability presentation.</td></tr>
+      <tr><td>3. Education</td><td>PNE delivery (5–8 min, sessions 2–4)</td><td>PFC activation via conceptual understanding reduces ACC threat appraisal — lowering the affective amplification of subsequent physical exam and treatment. Delivered when patient is relatively calm, not post-painful examination.</td><td>Never deliver PNE post-painful exam. Cortisol elevation from pain impairs learning consolidation.</td></tr>
+      <tr><td>4. Neural mobilisation</td><td>Neurodynamic assessment + sliders/tensioners</td><td>Restores intraneural circulation, reduces mechanosensitivity of sensitised neural tissue, provides proprioceptive input to the dorsal horn without high-threshold nociceptor activation. Sequence before SMT in neuropathic-dominant presentations.</td><td>Keep below symptom reproduction threshold initially. Sliders before tensioners. Reassess neural tension post-SMT — SMT often reduces neural tension.</td></tr>
+      <tr><td>5. Spinal manipulation</td><td>HVLA or mobilisation — mechanism-selected</td><td>Engages endogenous opioid and serotonin release, activates PAG-RVM descending inhibition, provides paraspinal muscle spindle and mechanoreceptor input that competes with nociceptive signals at the dorsal horn (gate control). Creates a post-manipulation hypoalgesic window of ~20 minutes.</td><td>Apply in the post-EIH window if aerobic primer used — combined effects are additive. SMT is more effective on a nervous system that has been primed by EIH.</td></tr>
+      <tr><td>6. Exercise</td><td>Therapeutic exercise — motor control → loading</td><td>Use the post-SMT hypoalgesic window for exercise that would otherwise be pain-limited. Motor cortex excitability is elevated post-manipulation — take advantage for motor control retraining.</td><td>Motor control and precision first, loading second. Never begin with high-load exercises in CS-dominant presentations.</td></tr>
+      <tr><td>7. Close</td><td>Home exercise instruction + one lifestyle target</td><td>Sets the neurological homework for between sessions. The between-session period is where real neurological change happens — in-session treatment creates the window; the patient's behaviour sustains it.</td><td>One specific, achievable exercise or lifestyle target per session. Not a list of five things — a list of five things is anxiety-inducing and produces non-compliance.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3 id="s30-scripts">30.6 Clinical Scripts for Common Conversations</h3>
+  <p>These are tested framings — not scripts to memorise but anchors to adapt. The neurological mechanism behind each is annotated.</p>
+
+  <div class="script-box">
+    <span class="script-label">Opening the pain neuroscience conversation — all patients</span>
+    <div class="script-text">"Before I go through my findings, I want to explain something about how pain actually works — because it changes how we make sense of what's been going on for you, and it changes what we're going to do about it. Bear with me for two minutes because this is genuinely useful."</div>
+  </div>
+  <p style="font-size:13px; color:var(--text-secondary); margin-top:-8px;"><em>Why it works:</em> Pre-frames the education as clinically purposeful, not abstract. Reduces resistance from biomedically-oriented patients. The "bear with me" normalises that it requires attention — signals importance without creating threat.</p>
+
+  <div class="script-box">
+    <span class="script-label">Explaining central sensitisation — first delivery</span>
+    <div class="script-text">"Your nervous system has essentially turned its volume up. Pain signals are being amplified — not because there's more damage than there should be, but because the system that processes those signals has become more sensitive. Think of it like a smoke alarm with a flat battery — it goes off at the slightest thing, even when there's no fire. That's not a problem with the smoke, it's a problem with the alarm. And the good news is: the alarm can be recalibrated. That's actually what we're doing in treatment."</div>
+  </div>
+  <p style="font-size:13px; color:var(--text-secondary); margin-top:-8px;"><em>Why it works:</em> Volume/alarm metaphor addresses threat prediction directly — removes the "damage = pain" equation. The explicit "good news" activates the dopaminergic positive expectation pathway. Positions treatment as mechanistically rational.</p>
+
+  <div class="script-box">
+    <span class="script-label">Explaining why the adjustment is part of the neurological treatment</span>
+    <div class="script-text">"What I'm doing here has a specific effect on your nervous system — it's not just mobilising the joint. There's quite a bit of research showing that this type of treatment activates your brain's own pain-reducing pathways — it prompts the release of your body's natural analgesic chemicals, which is part of why people feel improvement after it. When I do it at this level of the spine, it's also sending a signal that competes with the pain signal coming from the affected area. So it's mechanistically doing several things at once."</div>
+  </div>
+  <p style="font-size:13px; color:var(--text-secondary); margin-top:-8px;"><em>Why it works:</em> Anchors SMT to neuroscience rather than structural mechanics — consistent with the actual evidence (Haavik, Bialosky). Generates positive expectation (opioid/dopamine placebo mechanism). Positions the clinician as neurologically sophisticated — enhances therapeutic alliance and treatment credibility.</p>
+
+  <div class="script-box">
+    <span class="script-label">When the patient just wants to be "cracked" and resists the education</span>
+    <div class="script-text">"Absolutely — and we'll do that. I just want to spend two minutes first explaining what's happening so that what I do makes more sense to you and you get more out of it. It also helps me figure out exactly where to focus. Is that okay?"</div>
+  </div>
+  <p style="font-size:13px; color:var(--text-secondary); margin-top:-8px;"><em>Why it works:</em> Validates the patient's preference — removes the implicit conflict. Frames education as amplifying the treatment they want, not replacing it. Asks permission — respects autonomy, which activates dopaminergic approach circuitry rather than reactance.</p>
+
+  <div class="script-box">
+    <span class="script-label">Introducing aerobic exercise as a neurological treatment</span>
+    <div class="script-text">"I want to prescribe you something that has very strong evidence for changing the way your nervous system processes pain — not just managing the symptoms but actually changing the gain on the amplifier. It's aerobic exercise — nothing heroic, just 20–30 minutes of walking or cycling at a pace where you can still hold a conversation, most days. The research is clear that this activates your brain's own pain-regulating systems in a way that accumulates with time. It's not a lifestyle suggestion — it's a neurological treatment. And the effects compound the more consistently you do it."</div>
+  </div>
+  <p style="font-size:13px; color:var(--text-secondary); margin-top:-8px;"><em>Why it works:</em> Frames exercise as a prescription, not an afterthought. "Neurological treatment" elevates its perceived status (consistent with evidence). "Lifestyle suggestion" dismissal pre-empts the patient's likely downgrading of the recommendation. Dosing is specific and achievable.</p>
+
+  <div class="script-box">
+    <span class="script-label">Explaining sleep as a neurological priority</span>
+    <div class="script-text">"Sleep is probably the most underestimated part of pain management — and I say that based on the neuroscience, not the general health advice. During deep sleep your brain essentially cleans itself — there's a system that flushes out inflammatory chemicals from the nervous system. When that doesn't happen, those chemicals accumulate and directly increase pain sensitivity. So poor sleep isn't a consequence of your pain — it's also actively making it worse. Which means improving your sleep is one of the most direct things we can do to change your pain system."</div>
+  </div>
+  <p style="font-size:13px; color:var(--text-secondary); margin-top:-8px;"><em>Why it works:</em> Glymphatic system mechanism grounds the claim in biology — not platitude. Establishes bidirectionality (sleep drives pain, not just the other way) — removes the "I can't sleep because of the pain" as a barrier. Positions sleep intervention as mechanistically urgent.</p>
+
+  <div class="script-box">
+    <span class="script-label">When referral to a pain specialist or psychologist is needed</span>
+    <div class="script-text">"I want to be straight with you about where we're at. The tools I have here are doing something useful, but what's driving your pain at this stage is operating at a level that a pain specialist or a psychologist with expertise in chronic pain can get to more effectively than I can. That's not a comment on the legitimacy of your pain or on willpower — those practitioners have specific techniques and medications that target the exact neurological mechanisms we've been talking about. I'm going to refer you because I think you deserve the most effective treatment available, not because I'm giving up."</div>
+  </div>
+  <p style="font-size:13px; color:var(--text-secondary); margin-top:-8px;"><em>Why it works:</em> Pre-empts the invalidation response ("you're sending me to a psychologist because you think it's in my head"). Frames the referral as upgrading the treatment rather than abandoning it. Positions the clinician as an advocate — strengthens therapeutic alliance at the moment of transition.</p>
+
+  <h3 id="s30-documentation">30.7 Documentation That Reflects Neurological Reasoning</h3>
+  <p>Clinical notes in a neurologically-informed practice should document mechanism classification, phenotype, and neurological reasoning — not just diagnosis and treatment. This serves three purposes: it sharpens your own clinical thinking (documentation is an extension of reasoning); it communicates clearly to other providers; and it creates a longitudinal record of neurological trajectory that enables better reassessment decisions.</p>
+
+  <div class="callout practice">
+    <div class="callout practice-title">SOAP Note Structure — Neurologically Informed</div>
+    <p><strong>S (Subjective):</strong> Pain severity (NRS current / best / worst), functional status (PSFS), sleep quality, symptom distribution change since last visit, compliance with home exercise.</p>
+    <p><strong>O (Objective):</strong> Neurological examination findings (relevant myotomes, reflexes, dermatomes), neurodynamic test results (SLR/slump angle, symptom reproduction site, differentiation), QST-lite findings (TS ratio if tested, allodynia present/absent, bilateral PPT comparison), segmental examination, orthopaedic tests with NR/PR designation.</p>
+    <p><strong>A (Assessment):</strong> <em>Dominant pain mechanism</em> (nociceptive / peripheral neuropathic / central sensitisation / mixed with proportions noted); <em>CS indicators</em> (CSI score, allodynia, remote PPT, TS ratio); <em>Psychosocial flags</em> (PCS score, STarT Back tier, relevant yellow/orange flags); <em>Mechanism trajectory</em> (improving / stable / deteriorating); <em>Structural diagnosis</em> where applicable.</p>
+    <p><strong>P (Plan):</strong> Treatment delivered (technique, region, rationale); exercise prescribed (type, dose, neurological rationale); PNE delivered (topic, patient understanding confirmed Y/N); lifestyle target (specific, single); next review date and reassessment milestone; referral decision and rationale if applicable.</p>
+  </div>
+
+  <div class="callout clinical">
+    <div class="callout clinical-title">Example Assessment Entry</div>
+    <p><em>"Assessment: Dominant mechanism — peripheral neuropathic (L5 radiculopathy, confirmed dermatomal distribution, positive SLR 45° R, EHL 4+/5 R, reduced first webspace sensation R) with moderate CS overlay (CSI 41, TS ratio 1.4 at right TA, mild widespread allodynia noted on body chart, bilateral PPT R&lt;L at tibialis). Psychosocial: STarT Back medium risk (score 5), PCS 24 — moderate catastrophising, educable. Sleep 4/10. Mechanism trajectory: early in course, CS overlay consistent with 4-month duration. No red flags. Structural: L5–S1 disc herniation per MRI (2 months old)."</em></p>
+  </div>
+
+  <h3>30.8 Communicating Neurological Reasoning to GPs and Specialists</h3>
+  <p>The referral letter or co-management correspondence is an opportunity to establish your clinical credibility and ensure continuity of the neurological framework you have established with the patient. Use precise neurological language — it signals to the receiving clinician that this is a sophisticated referral, not a "failed conservative care" handover.</p>
+
+  <div class="script-box">
+    <span class="script-label">Example GP referral letter excerpt — CS-dominant CLBP</span>
+    <div class="script-text">"Mr [X] presents with a 9-month history of chronic low back pain with a pain mechanism profile consistent with central sensitisation dominant presentation: CSI 48, bilateral widespread pressure pain hypersensitivity (remote sites), elevated temporal summation ratio (1.6 at tibialis), absent CPM on informal assessment, and significant catastrophising (PCS 31). STarT Back high risk. Sleep ISI 14. Structural imaging (MRI L-spine, 6/12 ago) demonstrates L4–5 disc dessication without significant neural compromise — inconsistent with the degree of functional impairment and symptom distribution.<br><br>I am managing his nociceptive and neurodynamic components conservatively (neural mobilisation, SMT L3–T12, aerobic exercise prescription) and have commenced structured Pain Neuroscience Education. However, given the dominant CS picture, established duration, and functional impairment, I believe he would benefit from pain specialist review for pharmacological management consideration (SNRIs, LDN) and potential multidisciplinary pain programme referral. I am happy to continue concurrent management and co-ordinate with your recommendations."</div>
+  </div>
+
+  <div class="deeper">
+    <div class="deeper-title">Going Deeper — Practice Implementation</div>
+    <ul>
+      <li><strong>Louw A et al. (2016)</strong> — <em>Therapeutic Neuroscience Education: Teaching Patients About Pain.</em> OPTP.</li>
+      <li><strong>O'Sullivan P et al. (2018)</strong> — Cognitive functional therapy: an integrated behavioral approach for the targeted management of disabling low back pain. <em>Phys Ther</em> 98:408–423.</li>
+      <li><strong>Nijs J et al. (2020)</strong> — Treatment of central sensitization in patients with 'unexplained' chronic pain: an update. <em>Expert Opin Pharmacother.</em></li>
+      <li><strong>Moseley GL (2003)</strong> — A pain neuromatrix approach to patients with chronic pain. <em>Man Ther</em> 8:130–140.</li>
+      <li><strong>Haavik H (2014)</strong> — <em>The Reality Check.</em> Haavik Research. — Essential reading for neurological rationale for SMT in practice.</li>
+    </ul>
+  </div>
+</div>
+
+
+</main>
+
+<script>
+// PROGRESS BAR
+window.addEventListener('scroll', () => {
+  const winHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const scrolled = window.scrollY / winHeight * 100;
+  document.getElementById('progress-fill').style.width = scrolled + '%';
+});
+
+// SIDEBAR TOGGLE
+let sidebarVisible = true;
+function toggleSidebar() {
+  sidebarVisible = !sidebarVisible;
+  const sidebar = document.getElementById('sidebar');
+  const main = document.getElementById('main');
+  if (!sidebarVisible) {
+    sidebar.style.transform = 'translateX(-100%)';
+    main.style.marginLeft = '0';
+    main.style.maxWidth = '900px';
+  } else {
+    sidebar.style.transform = 'translateX(0)';
+    main.style.marginLeft = 'var(--sidebar-width)';
+    main.style.maxWidth = '';
+  }
+}
+
+// SCROLL SPY
+const sections = document.querySelectorAll('.section, [id^="s30-"]');
+const navItems = document.querySelectorAll('.nav-item');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.id;
+      navItems.forEach(item => item.classList.remove('active'));
+      const active = document.querySelector('.nav-item[href="#' + id + '"]');
+      if (active) active.classList.add('active');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '-60px 0px -60% 0px' });
+document.querySelectorAll('.section').forEach(s => observer.observe(s));
+['s30-screening','s30-new','s30-review','s30-complex','s30-integration','s30-scripts','s30-documentation'].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) observer.observe(el.closest('.section') || el);
+});
+
+// SEARCH
+let searchTimeout;
+function searchDoc(query) {
+  clearTimeout(searchTimeout);
+  searchTimeout = setTimeout(() => {
+    document.querySelectorAll('.search-highlight').forEach(el => {
+      const parent = el.parentNode;
+      parent.replaceChild(document.createTextNode(el.textContent), el);
+      parent.normalize();
+    });
+    if (query.length < 2) return;
+    const regex = new RegExp('(' + query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+    highlightInElement(document.getElementById('main'), regex);
+    const first = document.querySelector('.search-highlight');
+    if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, 300);
+}
+function highlightInElement(el, regex) {
+  for (let child of Array.from(el.childNodes)) {
+    if (child.nodeType === 3) {
+      const text = child.textContent;
+      if (regex.test(text)) {
+        const span = document.createElement('span');
+        span.innerHTML = text.replace(regex, '<mark class="search-highlight">$1</mark>');
+        el.replaceChild(span, child);
+      }
+      regex.lastIndex = 0;
+    } else if (child.nodeType === 1 && !['SCRIPT','STYLE','INPUT'].includes(child.tagName)) {
+      highlightInElement(child, regex);
+    }
+  }
+}
+</script>
+</body>
+</html>
